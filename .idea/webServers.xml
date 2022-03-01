@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="61fcb761-9b89-423e-91fa-6c14a0f3eac4" name="server">
+        <fileTransfer rootFolder="/var/www/small-cms-app" accessType="SFTP" host="37.140.242.156" port="22" sshConfigId="625781e3-7f66-4ef1-a98e-ca1f97869428" sshConfig="root@37.140.242.156:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

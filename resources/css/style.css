@@ -1,0 +1,133 @@
+.title{
+    font-family: Play,sans-serif;
+    font-size: 2.1em !important;
+    color: #817a7a !important;
+    letter-spacing: 1px;
+    font-weight: 300 !important;
+}
+
+a{
+    text-decoration: none !important;
+    color: unset !important;
+}
+
+.s-modal{
+    transition: 0.5s all ease-in-out;
+}
+
+.d-none{
+    display: none;
+    opacity: 0;
+}
+
+.d-block{
+    display: block;
+    opacity: 1;
+}
+
+.search-bar{
+    margin-top: calc(20%);
+}
+
+code{
+
+}
+
+pre{
+    background-color: #212529;
+    color: #fff;
+    display: inline-block;
+    max-width: 900px;
+    padding: 15px 10px;
+}
+
+.video-column{
+    position: relative;
+}
+
+.video-column .overlay{
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.59);
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.2s all ease-in-out;
+}
+
+.video-column:hover .overlay{
+    visibility: visible;
+    opacity: 1;
+}
+
+.play-icon{
+    margin-top: calc(40% - 15px);
+}
+.fontAwesome {
+    font-family: Helvetica, 'FontAwesome', sans-serif;
+}
+
+
+.mobile-box{
+    width: 100% !important;
+    display: block;
+}
+
+.service-box-left-belt{
+    background-color: #5fa0b5 !important;
+}
+
+.service-box-right-belt, .service-box-left-belt{
+    transition: 0.2s all ease-in-out;
+}
+
+.service-box:hover .service-box-left-belt{
+    left: 0;
+}
+
+.service-box:hover .service-box-right-belt{
+    right: 0;
+}
+
+.service-logo, .service-detail-menu{
+    width: 25%;
+}
+
+.service-content, .service-detail-content{
+    width: 75%;
+}
+
+.service-detail-menu{
+    max-height: 600px;
+}
+
+.active-service{
+    background-color: #f9a50c !important;
+    color: #ffffff;
+}
+
+.guide-content div{
+    overflow: scroll;
+}
+
+@media only screen and (max-width: 1500px) {
+    pre{
+        max-width: 700px;
+    }
+}
+
+@media only screen and (max-width: 1280px) {
+    pre{
+        max-width: 600px;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    pre{
+        max-width: 100%;
+    }
+}
+
