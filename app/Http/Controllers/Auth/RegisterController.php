@@ -2,12 +2,21 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Http\Actions\Auth\RegisterAction;
+use App\Http\Actions\Business\StoreBusinessAction;
 use App\Http\Controllers\Controller;
+use App\Http\Helper\MailDataGenerator;
+use App\Http\Requests\Auth\RegisterRequest;
+use App\Jobs\SendEmailJob;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use App\Support\DTOs\MailDataDTO;
+use App\Support\Enum\UserRolesEnum;
+use App\Support\ResponseMessage;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class RegisterController extends Controller
 {
@@ -22,7 +31,6 @@ class RegisterController extends Controller
     |
     */
 
-    use RegistersUsers;
 
     /**
      * Where to redirect users after registration.
@@ -31,43 +39,54 @@ class RegisterController extends Controller
      */
     protected $redirectTo = RouteServiceProvider::HOME;
 
+    /** @var RegisterAction */
+    protected $registerAction;
+    /** @var StoreBusinessAction */
+    protected $storeBusinessAction;
+
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(
+        RegisterAction $registerAction,
+        StoreBusinessAction $storeBusinessAction
+    )
     {
+        $this->registerAction = $registerAction;
+        $this->storeBusinessAction = $storeBusinessAction;
+
         $this->middleware('guest');
     }
 
     /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-    protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
-    }
-
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
      * @return \App\Models\User
      */
-    protected function create(array $data)
+    protected function register(RegisterRequest $request)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
+        $user = $this->registerAction->execute($request);
+
+        if (!$user->status){
+            return ResponseMessage::custumized($user->message);
+        }
+
+        if ($user->data->role == UserRolesEnum::ORGANIZER){
+            $this->storeBusinessAction->execute($user->data);
+        }
+
+        $mailData = new MailDataDTO();
+        $mailData->email = $user->data->email;
+        $mailData->subject = __('auth.registered_mail');
+        $mailData->view = 'mails.auth.register';
+        $mailData->data = $user->data;
+
+        SendEmailJob::dispatch($mailData);
+
+        return redirect()->route('login')->with('message', __('auth.registered_successfully'));
+    }
+
+    public function showRegistrationForm(){
+        return view('auth.register');
     }
 }

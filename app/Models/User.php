@@ -18,10 +18,20 @@ class User extends Authenticatable
      * @var string[]
      */
     protected $fillable = [
+        'role',
+        'business_id',
+        'organizer_id',
         'first_name',
         'last_name',
         'email',
         'password',
+        'email_verified_at',
+        'verification_code',
+        'reset_password_code',
+        'mobile_phone',
+        'office_phone',
+        'photo',
+        'status',
     ];
 
     /**
@@ -42,4 +52,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function business(){
+        return $this->hasOne(Business::class, 'user_id', 'id');
+    }
+
+    public function services(){
+        return $this->hasMany(User::class, 'user_id', 'id');
+    }
 }

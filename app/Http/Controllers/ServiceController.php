@@ -2,41 +2,60 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\ServiceQuestionResource;
-use App\Http\Resources\ServiceResource;
-use App\Models\Category;
-use App\Models\City;
 use App\Models\Service;
-use App\Models\ServiceQuestion;
-use App\Support\Enum\ServiceStatusEnum;
-use App\Support\ResponseMessage;
 use Illuminate\Http\Request;
+use App\Models\ServiceQuestion;
+use App\Support\ResponseMessage;
+use App\Http\Resources\ServiceResource;
+use App\Support\Enum\ServiceStatusEnum;
+use App\Http\Resources\ServiceQuestionResource;
+use App\Http\Actions\Service\SearchServicesAction;
+use App\Http\Actions\Service\GetCityServicesAction;
+use App\Http\Actions\Service\GetLastAddedServicesAction;
 
 class ServiceController extends Controller
 {
+    /** @var SearchServicesAction */
+    protected $searchServicesAction;
+    /** @var GetCityServicesAction */
+    protected $getCityServicesAction;
+    /** @var GetLastAddedServicesAction */
+    protected $getLastAddedServicesAction;
+
+    public function __construct(
+        SearchServicesAction       $searchServicesAction,
+        GetCityServicesAction      $getCityServicesAction,
+        GetLastAddedServicesAction $getLastAddedServicesAction
+    )
+    {
+        $this->searchServicesAction = $searchServicesAction;
+        $this->getCityServicesAction = $getCityServicesAction;
+        $this->getLastAddedServicesAction = $getLastAddedServicesAction;
+    }
+
     public function index(Request $request)
     {
 
         $services = Service::with(['city', 'category'])
-        ->where('status', ServiceStatusEnum::ACTIVE);
+            ->where('status', ServiceStatusEnum::ACTIVE);
 
-        if ($request->kategori && $request->kategori != ''){
-            $services->whereHas('category', function ($query) use ($request){
+        if ($request->kategori && $request->kategori != '') {
+            $services->whereHas('category', function ($query) use ($request) {
                 return $query->where('slug', $request->kategori);
             });
         }
 
-        if ($request->sehir && $request->sehir != ''){
-            $services->whereHas('city', function ($query) use ($request){
+        if ($request->sehir && $request->sehir != '') {
+            $services->whereHas('city', function ($query) use ($request) {
                 return $query->where('slug', $request->kategori);
             });
         }
 
-        if ($request->status && $request->status == 'priced'){
+        if ($request->status && $request->status == 'priced') {
             $services->where('is_priced', 1);
         }
 
-        if ($request->status && $request->status == 'free'){
+        if ($request->status && $request->status == 'free') {
             $services->where('is_priced', 0);
         }
 
@@ -93,34 +112,36 @@ class ServiceController extends Controller
         return ServiceQuestionResource::make($question);
     }
 
-    public function lastAdded($count = 10){
-        $services = Service::where('status', ServiceStatusEnum::ACTIVE)
-            ->orderBy('created_at', 'ASC')
-            ->take($count)
-            ->get();
+    public function lastAdded($count = 10)
+    {
+        $lastAddedServices = $this->getLastAddedServicesAction->get($count);
 
-        return ResponseMessage::success('Başarı ile listelendi.', ServiceResource::collection($services));
+        if (!$lastAddedServices->status) {
+            ResponseMessage::custumized($lastAddedServices->message);
+        }
+
+        return ResponseMessage::success('Başarı ile listelendi.', ServiceResource::collection($lastAddedServices->data));
     }
 
-    public function searchDetail(Request $request){
-        $services = Service::with(['city', 'category']);
+    public function getCityServices($citySlug, $count = 10)
+    {
+        $cityServices = $this->getCityServicesAction->get($citySlug, $count);
 
-        if ($request->kategori && $request->kategori != ''){
-            $services->whereHas('category', function ($query) use ($request){
-                return $query->where('slug', $request->kategori);
-            });
+        if (!$cityServices->status) {
+            ResponseMessage::custumized($cityServices->message);
         }
 
-        if ($request->sehir && $request->sehir != ''){
-            $services->whereHas('city', function ($query) use ($request){
-                return $query->where('slug', $request->sehir);
-            });
+        return ResponseMessage::success('Başarı ile listelendi.', ServiceResource::collection($cityServices->data));
+    }
+
+    public function searchDetail(Request $request)
+    {
+        $searchedServices = $this->searchServicesAction->search($request);
+
+        if (!$searchedServices->status) {
+            ResponseMessage::custumized($searchedServices->message);
         }
 
-        $services = $services->orderBy('date_from', 'ASC')
-            ->paginate(10);
-
-
-        return ServiceResource::collection($services);
+        return ServiceResource::collection($searchedServices->data);
     }
 }

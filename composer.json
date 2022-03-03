@@ -13,6 +13,7 @@
         "laravel/sanctum": "^2.6",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.3",
+        "spatie/data-transfer-object": "^3.7",
         "spatie/laravel-activitylog": "^4.4",
         "tightenco/ziggy": "^1.0"
     },

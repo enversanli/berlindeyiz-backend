@@ -3,7 +3,7 @@ return [
     'announcements' => 'Duyurular',
     'validators' => 'Validatorler',
     'guides' => 'Rehber',
-    'services' => 'Testnetler',
+    'services' => 'Etkinlikler',
     'dashboard' => 'Panel',
 
 
@@ -91,6 +91,7 @@ return [
     'not_found_slider' => 'Resim yok aga ..',
     'create_new_slider' => 'Yeni Resim oluştur',
 
+    'business' => 'İş Yeri',
 
     'yes' => 'Evet',
     'no' => 'Hayır',

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Helper\ResponseHelper;
+use App\Http\Requests\User\ProfileUpdateRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -24,11 +25,9 @@ class ProfileController extends Controller
         return view('admin.profile.index')->with('user', Auth::user());
     }
 
-    public function update(Request $request)
+    public function update(ProfileUpdateRequest $request)
     {
-        $request->validate([
-            'name' => 'required|min:3|string'
-        ]);
+
 
         if (isset($request->password) && $request->password !== null) {
             $request->validate([

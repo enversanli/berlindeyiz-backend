@@ -2396,6 +2396,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
@@ -2621,6 +2622,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     city: String,
@@ -2630,6 +2633,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       services: [],
       lastAdded: [],
+      similar: [],
       links: '',
       loadMore: true,
       test: [],
@@ -2643,16 +2647,13 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     this.searchService();
     this.getLastAdded();
-    console.log('-------------');
-    console.log(this.category);
-    console.log(this.city);
-    console.log('-------------');
+    this.getCityServices();
   },
   methods: {
     searchService: function searchService() {
       var _this = this;
 
-      var url = '/etkinlik-ara?kategori=' + this.category + '&city=' + this.city;
+      var url = '/etkinlik-ara?kategori=' + this.category + '&sehir=' + this.city;
       axios.post(url).then(function (response) {
         _this.services = response.data.data;
         _this.links = response.data.links;
@@ -2677,17 +2678,17 @@ __webpack_require__.r(__webpack_exports__);
       console.log(this.all);
       console.log(this.priced);
       console.log(this.free);
-      var url = '/etkinlik-ara?kategori=' + this.category + '&city=' + this.city + '&status=' + status;
+      var url = '/etkinlik-ara?kategori=' + this.category + '&sehir=' + this.city + '&status=' + status;
 
       if (status === null) {
-        url = '/services';
+        url = '/etkinlik-ara';
         this.goBack = false;
       } // if (status !== null && status === 'Ended') {
       //     this.goBack = true;
       // }
 
 
-      axios.get(url).then(function (response) {
+      axios.post(url).then(function (response) {
         _this2.services = response.data.data;
         _this2.links = response.data.links;
       });
@@ -2715,12 +2716,20 @@ __webpack_require__.r(__webpack_exports__);
         _this3.services = data;
       });
     },
-    getLastAdded: function getLastAdded() {
+    getCityServices: function getCityServices() {
       var _this4 = this;
+
+      var url = '/sehir-etkinlikleri/' + this.city;
+      axios.get(url).then(function (response) {
+        _this4.similar = response.data.data;
+      });
+    },
+    getLastAdded: function getLastAdded() {
+      var _this5 = this;
 
       var url = '/etkinlikler/son-eklenenler';
       axios.get(url).then(function (response) {
-        _this4.lastAdded = response.data.data;
+        _this5.lastAdded = response.data.data;
       });
     },
     isMobile: function isMobile() {
@@ -40131,7 +40140,7 @@ var render = function () {
             "carousel",
             {
               staticClass:
-                "w-full animate__animated animate__fadeIn shadow shadow-sm mb-10 h-72",
+                "w-full animate__animated animate__fadeIn shadow shadow-sm mb-10 h-100",
               attrs: {
                 autoplay: true,
                 loop: true,
@@ -40145,10 +40154,14 @@ var render = function () {
             _vm._l(_vm.sliders, function (slider) {
               return _c(
                 "div",
-                { staticClass: "w-full h-72 bg-danger overflow-hidden" },
+                {
+                  staticClass: "w-full h-72 bg-danger overflow-hidden",
+                  staticStyle: { height: "400px" },
+                },
                 [
                   _c("img", {
-                    staticClass: "w-full h-full",
+                    staticClass: "w-full h-80",
+                    staticStyle: { height: "400px" },
                     attrs: { src: slider.image },
                   }),
                 ]
@@ -40385,7 +40398,7 @@ var render = function () {
             "div",
             {
               staticClass:
-                "grid lg:grid-cols-1 md:grid-cols-1 sm:grid-cols-1 mb-28 h-80 overflow-scroll pb-10",
+                "grid lg:grid-cols-1 md:grid-cols-1 sm:grid-cols-1 mb-28 h-96 pb-10",
             },
             [
               _vm._l(_vm.services, function (service) {
@@ -40719,6 +40732,10 @@ var render = function () {
           _vm._m(3),
         ]
       ),
+      _vm._v(" "),
+      _c("slider-box-component", {
+        attrs: { title: "Aynı Şehirde Diğer Etkinlikler", rows: this.similar },
+      }),
       _vm._v(" "),
       _c("slider-box-component", {
         attrs: { title: "Son Eklenenler", rows: this.lastAdded },
@@ -41373,7 +41390,7 @@ var render = function () {
                     _vm._v(" "),
                     _c("div", {
                       staticClass:
-                        "w-full text-justify text-xl p-3 animate__animated animate__backInRight",
+                        "w-full text-justify text-xl p-3 animate__animated animate__backInRight service-detail",
                       domProps: { innerHTML: _vm._s(_vm.service.text) },
                     }),
                     _vm._v(" "),

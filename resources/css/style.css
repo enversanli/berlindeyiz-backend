@@ -70,6 +70,25 @@ pre{
     font-family: Helvetica, 'FontAwesome', sans-serif;
 }
 
+.service-detail h1{
+    font-size: 2em;
+    margin: 10px 0;
+}
+
+.service-detail h2{
+    font-size: 1.8em;
+    margin: 10px 0;
+}
+
+.service-detail h3{
+    font-size: 1.6em;
+    margin: 10px 0;
+}
+
+.service-detail h4{
+    font-size: 1.4em;
+    margin: 10px 0;
+}
 
 .mobile-box{
     width: 100% !important;

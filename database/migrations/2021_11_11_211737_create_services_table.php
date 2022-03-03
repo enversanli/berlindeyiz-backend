@@ -16,6 +16,7 @@ class CreateServicesTable extends Migration
         Schema::create('services', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('business_id')->nullable();
             $table->unsignedBigInteger('category_id');
             $table->unsignedBigInteger('city_id');
             $table->unsignedBigInteger('district_id')->nullable();
@@ -34,6 +35,7 @@ class CreateServicesTable extends Migration
             $table->tinyInteger('is_priced')->default(0);
             $table->integer('price')->default(0);
             $table->dateTime('expires_at')->nullable();
+            $table->integer('visit_count')->default(0);
             $table->timestamps();
             $table->softDeletes();
 

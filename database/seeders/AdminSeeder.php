@@ -2,7 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\Business;
 use App\Models\User;
+use App\Support\Enum\UserRolesEnum;
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -18,6 +20,7 @@ class AdminSeeder extends Seeder
     {
 
         $admin = [
+            'role' => UserRolesEnum::ADMIN,
             'first_name' =>'Yonetici',
             'last_name' =>'Kullanıcı',
             'email' => 'admin@cms.com',
@@ -25,6 +28,14 @@ class AdminSeeder extends Seeder
             'password' => Hash::make('admin')
         ];
 
-        User::updateOrInsert($admin);
+        $user = User::create($admin);
+
+        $business = [
+            'user_id' => $user->id,
+            'title' => 'Ne Etsek Ki'
+        ];
+
+        Business::updateOrInsert($business);
+
     }
 }

@@ -131,6 +131,7 @@ Route::get('sliders', [\App\Http\Controllers\SliderController::class, 'index'])-
 Route::get('etkinlikler', [\App\Http\Controllers\ServiceController::class, 'index'])->name('front.services');
 Route::get('etkinlikler/son-eklenenler', [\App\Http\Controllers\ServiceController::class, 'lastAdded'])->name('front.services.last-added');
 Route::view('etkinlik-ara', 'web.services.search');
+Route::get('sehir-etkinlikleri/{slug}/{count?}', [\App\Http\Controllers\ServiceController::class, 'getCityServices']);
 Route::post('etkinlik-ara', [\App\Http\Controllers\ServiceController::class, 'searchDetail'])->name('front.service-search-detail');
 Route::get('etkinlikler/{slug}', [\App\Http\Controllers\ServiceController::class, 'show']);
 

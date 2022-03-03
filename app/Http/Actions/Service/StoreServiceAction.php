@@ -7,6 +7,7 @@ use App\Models\City;
 use App\Models\Service;
 use App\Support\Enum\ErrorLogEnum;
 use App\Support\Enum\ServiceStatusEnum;
+use App\Support\Enum\UserRolesEnum;
 use App\Support\ReturnData;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -33,10 +34,12 @@ class StoreServiceAction
             $category = Category::find($request->category_id);
             $city = City::find($request->city_id);
 
+            /** Generate Slug */
             $slug = $city->slug. '-'. $category->slug . '-' . Str::slug($request->title);
 
-            $service = Service::create([
+            $data = [
                 'user_id' => auth()->user()->id,
+                'business_id' => auth()->user()->business->id,
                 'category_id' => $category->id,
                 'title' => $request->title,
                 'slug' => $slug,
@@ -53,16 +56,19 @@ class StoreServiceAction
                 'city_id' => $request->city_id ?? null,
                 'district_id' => $request->district_id ?? null,
                 'address' => trim($request->address) ?? null,
-            ]);
+            ];
 
-            return ReturnData::success(true, $service);
+
+            $service = Service::create($data);
+
+            return ReturnData::success($service);
         } catch (\Exception $exception) {
             activity()
                 ->causedBy(auth()->user())
                 ->withProperties(['error' => $exception->getMessage(), 'user_id' => auth()->user()->id])
                 ->event(ErrorLogEnum::STORE_SERVICE_STORE_ERROR)
                 ->log(ErrorLogEnum::STORE_SERVICE_STORE_ERROR);
-            return ReturnData::error(false, __('common.went_wrong'), $exception->getMessage());
+            return ReturnData::error( __('common.went_wrong'), $exception->getMessage());
         }
     }
 

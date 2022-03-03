@@ -41,7 +41,7 @@
       <p class="w-full text-2xl text-center my-10">Not found services.</p>
     </div>
     <div class="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1">
-      <div class="grid lg:grid-cols-1 md:grid-cols-1 sm:grid-cols-1 mb-28 h-80 overflow-scroll pb-10">
+      <div class="grid lg:grid-cols-1 md:grid-cols-1 sm:grid-cols-1 mb-28 h-96 pb-10">
 
         <a :href="'etkinlikler/' + service.slug" v-for="service in services"
            class="animate__animated animate__fadeIn">
@@ -125,6 +125,8 @@
       </div>
     </div>
 
+    <slider-box-component title="Aynı Şehirde Diğer Etkinlikler" :rows="this.similar"></slider-box-component>
+
     <slider-box-component title="Son Eklenenler" :rows="this.lastAdded"></slider-box-component>
   </div>
 </template>
@@ -139,6 +141,7 @@ export default {
     return {
       services: [],
       lastAdded: [],
+      similar: [],
       links: '',
       loadMore: true,
       test: [],
@@ -153,15 +156,12 @@ export default {
   mounted() {
     this.searchService();
     this.getLastAdded();
-    console.log('-------------');
-    console.log(this.category);
-    console.log(this.city);
-    console.log('-------------');
+    this.getCityServices();
   },
 
   methods: {
     searchService() {
-      var url = '/etkinlik-ara?kategori=' + this.category + '&city=' + this.city;
+      var url = '/etkinlik-ara?kategori=' + this.category + '&sehir=' + this.city;
       axios.post(url).then(response => {
         this.services = response.data.data;
         this.links = response.data.links;
@@ -184,16 +184,16 @@ export default {
       console.log(this.priced);
       console.log(this.free);
 
-      var url = '/etkinlik-ara?kategori=' + this.category + '&city=' + this.city + '&status=' + status;
+      var url = '/etkinlik-ara?kategori=' + this.category + '&sehir=' + this.city + '&status=' + status;
 
       if (status === null) {
-        url = '/services';
+        url = '/etkinlik-ara';
         this.goBack = false;
       }
       // if (status !== null && status === 'Ended') {
       //     this.goBack = true;
       // }
-      axios.get(url).then(response => {
+      axios.post(url).then(response => {
         this.services = response.data.data;
         this.links = response.data.links;
       })
@@ -220,13 +220,18 @@ export default {
       })
     },
 
+    getCityServices() {
+      var url = '/sehir-etkinlikleri/' + this.city;
+      axios.get(url).then(response => {
+        this.similar = response.data.data;
+      })
+    },
     getLastAdded() {
       var url = '/etkinlikler/son-eklenenler';
       axios.get(url).then(response => {
         this.lastAdded = response.data.data;
       })
     },
-
     isMobile() {
       if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
         return true
