@@ -31,7 +31,7 @@
             <header-component></header-component>
             @include('web.layouts.navigation')
 
-            <div class="container max-w">
+            <div class="">
                 @yield('content')
             </div>
         </div>

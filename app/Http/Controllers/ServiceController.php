@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\ServiceVisitJob;
 use App\Models\Service;
 use Illuminate\Http\Request;
 use App\Models\ServiceQuestion;
@@ -36,7 +37,8 @@ class ServiceController extends Controller
     public function index(Request $request)
     {
 
-        $services = Service::with(['city', 'category'])
+        $services = Service::with(['city', 'category', 'business'])
+            ->where('approved', 1)
             ->where('status', ServiceStatusEnum::ACTIVE);
 
         if ($request->kategori && $request->kategori != '') {
@@ -68,7 +70,7 @@ class ServiceController extends Controller
     public function show($slug)
     {
         $service = Service::where('slug', $slug)
-            ->with(['guide', 'questions', 'systemRequirement'])
+            ->with(['questions', 'city', 'category'])
             ->firstOrFail();
 
         $videoId = null;
@@ -78,13 +80,17 @@ class ServiceController extends Controller
             $service->youtubevideoId = $videoId;
         }
 
+        ServiceVisitJob::dispatchNow($service);
+
         //ServiceResource::make($service)
         return view('web.services.detail')->with(['service' => $service, 'youtubeImgId' => $videoId]);
     }
 
     public function search($word)
     {
-        $services = Service::where('title', 'like', '%' . $word . '%')->where('status', ServiceStatusEnum::ACTIVE)->take(5)->get();
+        $services = Service::where('title', 'like', '%' . $word . '%')
+            ->where('approved', 1)
+            ->where('status', ServiceStatusEnum::ACTIVE)->take(5)->get();
 
         return ServiceResource::collection($services);
     }

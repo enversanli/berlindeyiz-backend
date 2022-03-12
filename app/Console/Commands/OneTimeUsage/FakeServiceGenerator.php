@@ -39,8 +39,9 @@ class FakeServiceGenerator extends Command
      */
     public function handle()
     {
-        Service::factory()->count(50)->create([
-            'user_id' => User::first()->id
+        Service::factory()->count(550)->create([
+            'user_id' => User::first()->id,
+            'business_id' => User::first()->business->id,
         ]);
     }
 }

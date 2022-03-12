@@ -23,8 +23,7 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-    Auth::routes();
-
+Auth::routes();
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -34,47 +33,30 @@ Route::get('csrf', function () {
 });
 
 Route::prefix('admin')->middleware('auth')->group(function () {
-
-    Route::prefix('profile')->group(function (){
-        Route::get('/', [\App\Http\Controllers\Admin\ProfileController::class, 'show'])->name('profile');
-        Route::post('/', [\App\Http\Controllers\Admin\ProfileController::class, 'update'])->name('profile.update');
-    });
-
-
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
-    /** Services */
-    Route::prefix('/services')->group(function () {
-        Route::get('/guide-list', [\App\Http\Controllers\Admin\ServiceGuideController::class, 'index'])->name('guides');
 
-        Route::get('/', [\App\Http\Controllers\Admin\ServiceController::class, 'index'])->name('services');
-        Route::get('/create', [\App\Http\Controllers\Admin\ServiceController::class, 'create'])->name('service.create');
-        Route::get('/{id}', [\App\Http\Controllers\Admin\ServiceController::class, 'show'])->name('service.show');
-        Route::post('/', [\App\Http\Controllers\Admin\ServiceController::class, 'store'])->name('service.store');
-        Route::post('/{id}', [\App\Http\Controllers\Admin\ServiceController::class, 'update'])->name('service.update');
-        Route::get('/{id}/destroy', [\App\Http\Controllers\Admin\ServiceController::class, 'destroy'])->name('service.destroy');
 
-        /** Guides */
-        Route::get('/{service_id}/guides', [\App\Http\Controllers\Admin\ServiceGuideController::class, 'index']);
-        Route::get('/{service_id}/guide', [\App\Http\Controllers\Admin\ServiceGuideController::class, 'show'])->name('service.guide');
-        Route::post('/{service_id}/guide', [\App\Http\Controllers\Admin\ServiceGuideController::class, 'store'])->name('service-guide.store');
-        Route::post('/{service_id}/guide/{id}', [\App\Http\Controllers\Admin\ServiceGuideController::class, 'update'])->name('service-guide.update');
-        Route::delete('/{service_id}/guide/{id}', [\App\Http\Controllers\Admin\ServiceGuideController::class, 'destroy'])->name('service-guide.destroy');
-        Route::post('/{service_id}/guide/{id}/social', [\App\Http\Controllers\Admin\ServiceGuideController::class, 'social'])->name('service-guide-social.update');
-
-        /** Questions */
-        Route::get('/{service_id}/questions', [\App\Http\Controllers\Admin\ServiceQuestionController::class, 'index'])->name('service.questions');
-        Route::get('/{service_id}/question/{id}', [\App\Http\Controllers\Admin\ServiceQuestionController::class, 'show'])->name('service-question.show');
-        Route::get('/{service_id}/question', [\App\Http\Controllers\Admin\ServiceQuestionController::class, 'create'])->name('service-question.create');
-        Route::post('/{service_id}/question', [\App\Http\Controllers\Admin\ServiceQuestionController::class, 'store'])->name('service-question.store');
-        Route::post('/{service_id}/question/{id}', [\App\Http\Controllers\Admin\ServiceQuestionController::class, 'update'])->name('service-question.update');
-        Route::get('/{service_id}/question/{id}/destroy', [\App\Http\Controllers\Admin\ServiceQuestionController::class, 'destroy'])->name('service-question.destroy');
-
-        /** Hardware */
-        Route::post('/{service_id}/hardware', [\App\Http\Controllers\Admin\HardwareController::class, 'update'])->name('service.hardware');
-
+    /** Users */
+    Route::prefix('users')->group(function (){
+        Route::get('/', [\App\Http\Controllers\Admin\UserController::class, 'index'])->name('admin.user.list');
+        Route::get('/{user}', [\App\Http\Controllers\Admin\UserController::class, 'show'])->name('admin.user.show');
+        Route::put('/{user}', [\App\Http\Controllers\Admin\UserController::class, 'update'])->name('admin.user.update');
+        Route::get('/{id}/delete', [\App\Http\Controllers\Admin\UserController::class, 'destroy'])->name('admin.user.destroy');
     });
+    /** end Users */
+
+    /** Services */
+    Route::prefix('services')->group(function (){
+        Route::get('/', [\App\Http\Controllers\Admin\ServiceController::class, 'index'])->name('admin.service.list');
+        Route::get('/create', [\App\Http\Controllers\Admin\ServiceController::class, 'create'])->name('admin.service.create');
+        Route::get('/{service}', [\App\Http\Controllers\Admin\ServiceController::class, 'show'])->name('admin.service.show');
+        Route::put('/{service}', [\App\Http\Controllers\Admin\ServiceController::class, 'update'])->name('admin.service.update');
+        Route::get('/{service}/delete', [\App\Http\Controllers\Admin\ServiceController::class, 'show'])->name('admin.service.destroy');
+    });
+    /** end Services */
+
 
     Route::prefix('faq')->group(function () {
         Route::get('/list', [\App\Http\Controllers\Admin\FaqController::class, 'index'])->name('faq');
@@ -108,7 +90,57 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         Route::post('', [\App\Http\Controllers\Admin\SliderController::class, 'store'])->name('slider.store');
         Route::get('/{id}/destroy', [\App\Http\Controllers\Admin\SliderController::class, 'destroy'])->name('slider.destroy');
     });
+});
 
+Route::prefix('organizer')->middleware('auth')->group(function () {
+
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+
+
+    /** Profile */
+    Route::prefix('profile')->group(function () {
+        Route::get('/', [\App\Http\Controllers\Admin\ProfileController::class, 'show'])->name('profile');
+        Route::post('/', [\App\Http\Controllers\Admin\ProfileController::class, 'update'])->name('profile.update');
+    });
+    /** end Profile */
+
+    /** Business */
+    Route::prefix('/business')->group(function () {
+        Route::get('', [\App\Http\Controllers\Organizer\BusinessController::class, 'index']);
+    });
+    /** end Business */
+
+    /** Services */
+    Route::prefix('/services')->group(function () {
+        Route::get('/guide-list', [\App\Http\Controllers\Admin\ServiceGuideController::class, 'index'])->name('guides');
+
+        Route::get('/', [\App\Http\Controllers\Organizer\ServiceController::class, 'index'])->name('services');
+        Route::get('/create', [\App\Http\Controllers\Organizer\ServiceController::class, 'create'])->name('service.create');
+        Route::get('/{id}', [\App\Http\Controllers\Organizer\ServiceController::class, 'show'])->name('service.show');
+        Route::post('/', [\App\Http\Controllers\Organizer\ServiceController::class, 'store'])->name('service.store');
+        Route::post('/{id}', [\App\Http\Controllers\Organizer\ServiceController::class, 'update'])->name('service.update');
+        Route::get('/{id}/destroy', [\App\Http\Controllers\Organizer\ServiceController::class, 'destroy'])->name('service.destroy');
+
+        /** Guides */
+        Route::get('/{service_id}/guides', [\App\Http\Controllers\Admin\ServiceGuideController::class, 'index']);
+        Route::get('/{service_id}/guide', [\App\Http\Controllers\Admin\ServiceGuideController::class, 'show'])->name('service.guide');
+        Route::post('/{service_id}/guide', [\App\Http\Controllers\Admin\ServiceGuideController::class, 'store'])->name('service-guide.store');
+        Route::post('/{service_id}/guide/{id}', [\App\Http\Controllers\Admin\ServiceGuideController::class, 'update'])->name('service-guide.update');
+        Route::delete('/{service_id}/guide/{id}', [\App\Http\Controllers\Admin\ServiceGuideController::class, 'destroy'])->name('service-guide.destroy');
+        Route::post('/{service_id}/guide/{id}/social', [\App\Http\Controllers\Admin\ServiceGuideController::class, 'social'])->name('service-guide-social.update');
+
+        /** Questions */
+        Route::get('/{service_id}/questions', [\App\Http\Controllers\Admin\ServiceQuestionController::class, 'index'])->name('service.questions');
+        Route::get('/{service_id}/question/{id}', [\App\Http\Controllers\Admin\ServiceQuestionController::class, 'show'])->name('service-question.show');
+        Route::get('/{service_id}/question', [\App\Http\Controllers\Admin\ServiceQuestionController::class, 'create'])->name('service-question.create');
+        Route::post('/{service_id}/question', [\App\Http\Controllers\Admin\ServiceQuestionController::class, 'store'])->name('service-question.store');
+        Route::post('/{service_id}/question/{id}', [\App\Http\Controllers\Admin\ServiceQuestionController::class, 'update'])->name('service-question.update');
+        Route::get('/{service_id}/question/{id}/destroy', [\App\Http\Controllers\Admin\ServiceQuestionController::class, 'destroy'])->name('service-question.destroy');
+        /** end Questions */
+    });
+    /** end Services */
 });
 
 Route::view('', 'web.services.index');
@@ -128,12 +160,15 @@ Route::get('announcements', [\App\Http\Controllers\AnnouncementController::class
 Route::get('validators', [\App\Http\Controllers\ValidatorController::class, 'index'])->name('public-announcements.list');
 Route::get('sliders', [\App\Http\Controllers\SliderController::class, 'index'])->name('public-sliders.list');
 
+/** Services */
 Route::get('etkinlikler', [\App\Http\Controllers\ServiceController::class, 'index'])->name('front.services');
 Route::get('etkinlikler/son-eklenenler', [\App\Http\Controllers\ServiceController::class, 'lastAdded'])->name('front.services.last-added');
 Route::view('etkinlik-ara', 'web.services.search');
 Route::get('sehir-etkinlikleri/{slug}/{count?}', [\App\Http\Controllers\ServiceController::class, 'getCityServices']);
 Route::post('etkinlik-ara', [\App\Http\Controllers\ServiceController::class, 'searchDetail'])->name('front.service-search-detail');
 Route::get('etkinlikler/{slug}', [\App\Http\Controllers\ServiceController::class, 'show']);
+/** end Services */
+
 
 Route::get('/search/{word}', [\App\Http\Controllers\ServiceController::class, 'search']);
 Route::get('/{id}', [\App\Http\Controllers\ServiceController::class, 'show']);

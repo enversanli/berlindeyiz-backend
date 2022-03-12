@@ -18,29 +18,18 @@
       <div
           class="flex-grow text-center sm:hidden md:block lg:block hidden text-2xl lg:mr-10 sm:mr-1 theme-color relative"
           style="margin-top: 27px">
-        <div class="w-1/2 float-left">
+        <div class="w-full float-left">
         <input type="text" v-model="search_text" class="rounded-full border-gray-300 h-8" @keyup="search()"
                style="background-color: #f8fafc">
         <i class="fas fa-search align-middle cursor-pointer text-lg" @click="setModal"></i>
         <ul class="z-10 w-50 mx-auto bg-white p-1 flex-none absolute left-0 right-5 top-12 min-h-100 shadow"
             v-show="services">
+
           <li class="mx-1 my-1 p-1 w-full" v-for="service in services">
-            <a :href="'/etkinlikler/' + service.id">{{ service.title }}</a>
+            <a :href="'/etkinlikler/' + service.slug">{{ service.title }}</a>
           </li>
         </ul>
         </div>
-        <div class="w-1/2 float-left">
-        <form action="/etkinlik-ara">
-          <select name="kategori" class="rounded border-gray-300 bg-transparent h-8 py-0 px-1">
-            <option value="">Kategori</option>
-            <option v-for="category in categories" :value="category.slug">{{category.name}}</option>
-          </select>
-          <select name="sehir" class=" rounded border-gray-300 bg-transparent h-8 py-0 px-1">
-            <option v-for="city in cities" :value="city.slug"> {{city.name}}</option>
-          </select>
-          <button type="submit" class="border rounded text-lg px-2">Ara</button>
-        </form>
-      </div>
       </div>
 
 
@@ -94,10 +83,13 @@ export default {
   methods: {
     search() {
       this.services = null;
-      axios.get('/search/' + this.search_text).then(response => {
-        console.log(response.data);
-        this.services = response.data.data;
-      })
+      if (this.search_text.length >= 3){
+        axios.get('/search/' + this.search_text).then(response => {
+          console.log(response.data);
+          this.services = response.data.data;
+        })
+      }
+
     },
 
     getCities() {

@@ -25,10 +25,13 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('verification_code')->nullable();
             $table->string('reset_password_code')->nullable();
+            $table->tinyInteger('approved')->default(0);
             $table->string('mobile_phone')->nullable();
             $table->string('office_phone')->nullable();
             $table->string('photo')->nullable();
             $table->string('status')->default(\App\Support\Enum\UserStatusEnum::MAIL_VERIFICATION);
+            $table->index('city_id')->nullable();
+            $table->index('district_id')->nullable();
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();

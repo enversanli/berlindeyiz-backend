@@ -15,6 +15,7 @@ class GetCityServicesAction
                 ->whereHas('city', function ($query) use ($citySlug){
                     return $query->where('slug', $citySlug);
                 })
+                ->where('approved', 1)
                 ->orderBy('created_at', 'ASC')
                 ->take($count)
                 ->get();

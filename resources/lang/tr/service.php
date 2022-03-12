@@ -1,6 +1,11 @@
 <?php
 
 return [
+    'new_service' => 'Yeni Etkinlik',
+    'service_list' => 'Etkinlikler',
+    'waiting_approval' => 'Onay Bekliyor',
+    'approved' => 'Onaylandı',
+
     'address' => 'Adres',
     'details' => 'Detaylar',
     'image' => 'Görsel',
@@ -9,4 +14,7 @@ return [
     'is_priced' => 'Ücretli mi?',
     'price' => 'Ücret',
     'category' => 'Kategori',
+
+    'current_image' => 'Mevcut Görsel',
+    'new_image' => 'Yeni Görsel',
 ];

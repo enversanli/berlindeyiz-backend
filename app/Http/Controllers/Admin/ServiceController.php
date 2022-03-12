@@ -14,13 +14,19 @@ use App\Models\City;
 use App\Models\District;
 use App\Models\Service;
 use App\Models\Type;
+use App\Models\User;
 use App\Support\Enum\ServiceStatusEnum;
+use App\Support\ResponseMessage;
+use App\Support\ReturnData;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class ServiceController extends Controller
 {
+    /** @var User */
+    protected $user;
     /** @var ResponseHelper */
     protected $responseHelper;
     /** @var StoreServiceAction */
@@ -38,21 +44,24 @@ class ServiceController extends Controller
         $this->responseHelper = $responseHelper;
         $this->storeServiceAction = $storeServiceAction;
         $this->updateServiceAction = $updateServiceAction;
+
+        $this->middleware(function ($request, $next) {
+            $this->user = Auth::user();
+            return $next($request);
+        });
     }
 
     public function index()
     {
-        $services = Service::orderBy('created_at', 'DESC')
-            ->where('user_id', auth()->user()->id)
-            ->with(['city', 'category'])
+        $services = Service::with(['city', 'category', 'user'])
+            ->orderBy('created_at', 'DESC')
             ->paginate(10);
 
         return view('admin.services.index')->with('services', $services);
     }
 
-    public function show($id)
+    public function show(Service $service)
     {
-        $service = Service::findOrFail($id);
 
         return view('admin.services.detail')->with([
             'service' => $service,
@@ -74,18 +83,24 @@ class ServiceController extends Controller
     public function store(ServiceStoreRequest $request)
     {
 
-        $storedService = $this->storeServiceAction->execute($request);
+        $storedService = $this->storeServiceAction->execute($request, $this->user);
 
-        return redirect()->route('service.create')->with(['response' => 'envr']);
+        if (!$storedService->status){
+            return redirect()->back()->with(ResponseMessage::errorToView($storedService->message));
+        }
+
+        return redirect()->route('admin.service.create')->with(ResponseMessage::successToView());
     }
 
-    public function update(ServiceUpdateRequest $request, $id)
+    public function update(ServiceUpdateRequest $request, Service $service)
     {
-        $service = Service::findOrFail($id);
-
         $updatedService = $this->updateServiceAction->execute($request, $service);
 
-        return redirect()->route('service.show', $service->id);
+        if (!$updatedService->status){
+            return redirect()->back()->with(ResponseMessage::errorToView($updatedService->message));
+        }
+
+        return redirect()->route('admin.service.show', $service->id)->with(ResponseMessage::successToView());
     }
 
     public function destroy($id)

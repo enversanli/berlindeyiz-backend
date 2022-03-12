@@ -1,4 +1,16 @@
 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+    <x-nav-link :href="route('admin.user.list')" :active="request()->routeIs('admin.user.list')">
+        {{ __('common.users') }}
+    </x-nav-link>
+</div>
+
+<div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+    <x-nav-link :href="route('admin.service.list')" :active="request()->routeIs('admin.service.list')">
+        {{ __('common.services') }}
+    </x-nav-link>
+</div>
+
+<div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
     <x-nav-link :href="route('slider.list')" :active="request()->routeIs('slider.list')">
         {{ __('common.sliders') }}
     </x-nav-link>

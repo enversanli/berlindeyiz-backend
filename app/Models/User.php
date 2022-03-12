@@ -21,6 +21,7 @@ class User extends Authenticatable
         'role',
         'business_id',
         'organizer_id',
+        'city_id',
         'first_name',
         'last_name',
         'email',
@@ -31,7 +32,9 @@ class User extends Authenticatable
         'mobile_phone',
         'office_phone',
         'photo',
+        'photo_url',
         'status',
+        'approved',
     ];
 
     /**

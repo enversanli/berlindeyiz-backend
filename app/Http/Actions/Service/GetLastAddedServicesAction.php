@@ -12,6 +12,7 @@ class GetLastAddedServicesAction
     public function get($count = 10){
         try {
             $services = Service::where('status', ServiceStatusEnum::ACTIVE)
+                ->where('approved', 1)
                 ->orderBy('created_at', 'ASC')
                 ->take($count)
                 ->get();

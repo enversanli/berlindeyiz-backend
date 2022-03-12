@@ -20,6 +20,7 @@ class CreateServicesTable extends Migration
             $table->unsignedBigInteger('category_id');
             $table->unsignedBigInteger('city_id');
             $table->unsignedBigInteger('district_id')->nullable();
+            $table->tinyInteger('approved')->default(0);
             $table->string('title');
             $table->longText('text');
             $table->string('address')->nullable();

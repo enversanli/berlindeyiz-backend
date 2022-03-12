@@ -33,4 +33,42 @@ class ResponseMessage
             'data' => $data
         ]);
     }
+
+
+    public static function errorToView($message = null, $title = null, $data = [], $code = 400)
+    {
+        if (is_null($message)) {
+            $message = __('common.failed');
+        }
+
+        if (is_null($title)) {
+            $title = __('common.failed_title');
+        }
+
+        return [
+            'status' => false,
+            'title' => $title,
+            'message' => $message,
+            'color' => 'red'
+        ];
+    }
+
+    public static function successToView($message = null, $title = null, $data = [], $code = 400)
+    {
+        if (is_null($message)) {
+            $message = __('common.success');
+        }
+
+        if (is_null($title)) {
+            $title = __('common.success_title');
+        }
+
+        return [
+            'status' => true,
+            'title' => $title,
+            'message' => $message,
+            'data' => $data,
+            'color' => 'green'
+        ];
+    }
 }

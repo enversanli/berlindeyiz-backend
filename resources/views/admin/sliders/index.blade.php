@@ -20,8 +20,8 @@
 
                                         @if(isset($message))
                                             <div
-                                                class="bg-{{$message['color']}}-100 border border-{{$message['color']}}-400 text-{{$message['color']}}-700 px-4 py-3 rounded relative"
-                                                role="alert" style="margin-bottom: 30px">
+                                                    class="bg-{{$message['color']}}-100 border border-{{$message['color']}}-400 text-{{$message['color']}}-700 px-4 py-3 rounded relative"
+                                                    role="alert" style="margin-bottom: 30px">
                                                 <strong class="font-bold">{{$message['title']}}</strong>
                                                 <span class="block sm:inline">{{$message['content']}}</span>
                                             </div>
@@ -32,14 +32,14 @@
                                             <div class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 mb-10">
                                                 @foreach($sliders as $slider)
                                                     <div
-                                                        class="relative h-64 m-3 p-1 bg-white shadow-md rounded-lg transition duration-300 hover:shadow-xl relative overflow-hidden service-box pt-3 animate__animated animate__fadeIn">
+                                                            class="relative h-64 m-3 p-1 bg-white shadow-md rounded-lg transition duration-300 hover:shadow-xl relative overflow-hidden service-box pt-3 animate__animated animate__fadeIn">
                                                         <div class="absolute top-0 left-0 right-0 bottom-10">
                                                             <img class="w-full h-full"
                                                                  src="{{$slider->image}}">
                                                         </div>
 
                                                         <div
-                                                            class="absolute bottom-0 right-0 left-0 h-9 bg-danger text-center z-10 w-full">
+                                                                class="absolute bottom-0 right-0 left-0 h-9 bg-danger text-center z-10 w-full">
                                                             <button type="submit"
                                                                     onclick='modalShow("{{route('slider.destroy', $slider->id)}}")'
                                                                     class="p-1  pl-3 pr-3 transition-colors w-full h-full duration-500 transform bg-red-500 hover:bg-red-400 text-gray-100 text-sm rounded-lg focus:border-4 border-red-300">
@@ -59,7 +59,21 @@
                                               enctype="multipart/form-data">
                                             @csrf
                                             <h1 class="mt-10 text-2xl text-center uppercase">@lang('common.create_new_slider')</h1>
+                                            <div class="w-full my-3">
+                                                <label class="block font-medium text-sm text-gray-700" for="title">
+                                                    @lang('common.title')
+                                                </label>
+                                                <input type="text"class="rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 block mt-1 w-full inputs sm:text-sm" name="title">
+                                            </div>
+                                            <div class="w-full my-3">
+                                                <label class="block font-medium text-sm text-gray-700" for="description">
+                                                    @lang('common.description')
+                                                </label>
+                                                <textarea name="description" class="border border-gray-300 w-full" style="height:40px;min-height: 40px; max-height: 80px" spellcheck="true" ></textarea>
+
+                                            </div>
                                             <div class="grid grid-cols-2 w-full items-center justify-end mt-10 mb-10">
+
                                                 <div>
                                                     <input type="file" name="slider" class="bg-white" required>
                                                 </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Actions\Service;
 
 use App\Models\Category;
+use App\Models\Service;
 use App\Support\Enum\ErrorLogEnum;
 use App\Support\ReturnData;
 use Carbon\Carbon;
@@ -12,7 +13,7 @@ use Illuminate\Support\Str;
 
 class UpdateServiceAction
 {
-    public function execute(Request $request, $service)
+    public function execute(Request $request, Service $service)
     {
         try {
             if (isset($request->logo)) {
@@ -27,7 +28,6 @@ class UpdateServiceAction
                 $imagePath = $request->file('image')->store('public/services');
                 $imagePath = str_replace('public/', '', $imagePath);
                 $oldImage = $service->image;
-
             }
 
             $category = Category::find($request->category_id);
@@ -53,9 +53,10 @@ class UpdateServiceAction
                 'city_id' => (int)$request->city_id,
                 'district_id' => $request->district_id,
                 'address' => trim($request->address),
+                'approved' => $request->approved ?? $service->approved
             ]);
 
-            /** Delete Old Storaged Files */
+            /** Delete Old Stored Files */
             if (isset($oldImage) && $oldImage != null) {
                 Storage::delete($oldImage);
             }

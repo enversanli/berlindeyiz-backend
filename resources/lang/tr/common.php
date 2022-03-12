@@ -5,14 +5,15 @@ return [
     'guides' => 'Rehber',
     'services' => 'Etkinlikler',
     'dashboard' => 'Panel',
+    'users' => 'Kullanıcılar',
 
 
-    'new_service' => 'Yeni Testnet',
+    'new_service' => 'Yeni Etkinlik',
     'service_guide' => 'Rehber',
     'youtube_url' => 'Youtube URL',
     'get_in_url' => 'Kaynak Linki',
-    'service' => 'Testnet',
-    'service_list' => 'Testnet Listesi',
+    'service' => 'Etkinlik',
+    'service_list' => 'Etkinlik Listesi',
     'guide_list' => 'Rehber Listesi',
     'title' => 'Başlık',
     'type' => 'Tip',
@@ -95,4 +96,11 @@ return [
 
     'yes' => 'Evet',
     'no' => 'Hayır',
+
+
+    // response
+    'success_title' => 'BAŞARILI:',
+    'success' => 'İşlem başarıyla gerçekleşti.',
+    'failed_title' => 'HATA:',
+    'failed' => 'Bir şeyler ters gitti.',
 ];

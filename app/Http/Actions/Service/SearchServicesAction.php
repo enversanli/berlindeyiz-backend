@@ -12,7 +12,8 @@ class SearchServicesAction
 {
     public function search(Request $request){
         try {
-            $services = Service::with(['city', 'category']);
+            $services = Service::with(['city', 'category'])
+            ->where('approved', 1);
 
             if ($request->kategori && $request->kategori != '') {
                 $services->whereHas('category', function ($query) use ($request) {

@@ -7,7 +7,7 @@
                     <div class="animate__animated animate__fadeIn" v-if="questions.length > 0">
                         <div class="w-full  lg:w-full mx-auto relative 2xl:p-20 xl:p-20 lg:p-20 md:p-20 sm:p-10">
                             <h1 class="text-3xl text-center font-bold text-black">
-                                Faq
+                                Sıkça Sorulan Sorular
                             </h1>
                             <div class="border-l-2 mt-10">
                                 <div

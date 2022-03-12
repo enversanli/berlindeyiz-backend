@@ -28,7 +28,9 @@ Vue.use(Lang);
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('service-component', require('./components/service/ServiceComponent.vue').default);
+Vue.component('service-box-component', require('./components/service/ServiceBoxComponent.vue').default);
 Vue.component('searched-service-component', require('./components/service/SearchedServiceComponent.vue').default);
+Vue.component('search-box-component', require('./components/SearchBoxComponent.vue').default);
 Vue.component('service-detail-component', require('./components/service/ServiceDetailComponent.vue').default);
 Vue.component('service-guide-component', require('./components/service/ServiceGuideComponent.vue').default);
 Vue.component('header-component', require('./components/HeaderComponent.vue').default);

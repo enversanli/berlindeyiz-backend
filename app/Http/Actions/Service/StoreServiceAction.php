@@ -5,6 +5,7 @@ namespace App\Http\Actions\Service;
 use App\Models\Category;
 use App\Models\City;
 use App\Models\Service;
+use App\Models\User;
 use App\Support\Enum\ErrorLogEnum;
 use App\Support\Enum\ServiceStatusEnum;
 use App\Support\Enum\UserRolesEnum;
@@ -15,7 +16,7 @@ use Illuminate\Support\Str;
 
 class StoreServiceAction
 {
-    public function execute(Request $request)
+    public function execute(Request $request, User $user)
     {
         try {
 
@@ -38,8 +39,8 @@ class StoreServiceAction
             $slug = $city->slug. '-'. $category->slug . '-' . Str::slug($request->title);
 
             $data = [
-                'user_id' => auth()->user()->id,
-                'business_id' => auth()->user()->business->id,
+                'user_id' => $user->id,
+                'business_id' => $user->business->id,
                 'category_id' => $category->id,
                 'title' => $request->title,
                 'slug' => $slug,

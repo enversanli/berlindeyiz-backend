@@ -11,7 +11,7 @@
 @section('content')
 
 
-    <div class="py-10">
+    <div class="py-1">
         <service-component></service-component>
     </div>
 @endsection
