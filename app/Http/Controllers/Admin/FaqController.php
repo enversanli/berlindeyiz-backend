@@ -28,6 +28,7 @@ class FaqController extends Controller
         return view('admin.faq.detail')->with(['question' => $question]);
     }
 
+
     public function create(){
         return view('admin.faq.create');
     }
