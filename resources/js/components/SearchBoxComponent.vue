@@ -15,12 +15,13 @@
             <option v-for="city in cities" :value="city.slug">{{ city.name }}</option>
           </select>
           <select
+              @change="selectDate($event)"
               class="h-9  m-3 p-1 bg-white shadow-md rounded-lg transition duration-700 hover:shadow-xl cursor-pointer animate__animated animate__fadeIn ">
-            <option>Tarih</option>
-            <option>Bu Hafta</option>
-            <option>Haftasonu</option>
-            <option>Gelecek Hafta</option>
-            <option>Tarih Belirle</option>
+            <option :value="false">Tarih</option>
+            <option :value="false">Bu Hafta</option>
+            <option :value="false">Haftasonu</option>
+            <option :value="false">Gelecek Hafta</option>
+            <option @click="selectDate()" :value="true">Tarih Belirle</option>
           </select>
           <button type="submit" class="h-9  m-3 p-1 bg-white shadow-md rounded-lg transition duration-700 hover:shadow-xl cursor-pointer animate__animated animate__fadeIn ">Ara</button>
         </div>
@@ -33,7 +34,8 @@ export default {
     data() {
         return {
           categories:null,
-          cities: null
+          cities: null,
+          dateSelectOption:true
         }
     },
 
@@ -54,6 +56,14 @@ export default {
           this.categories = response.data.data;
         })
       },
+
+
+      selectDate($event){
+        if ($event.target.value === true){
+          alert("DATE SELECT");
+        }
+
+      }
     }
 }
 </script>

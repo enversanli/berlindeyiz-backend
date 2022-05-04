@@ -2405,11 +2405,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       categories: null,
-      cities: null
+      cities: null,
+      dateSelectOption: true
     };
   },
   mounted: function mounted() {
@@ -2430,6 +2432,11 @@ __webpack_require__.r(__webpack_exports__);
       axios.get('/categories').then(function (response) {
         _this2.categories = response.data.data;
       });
+    },
+    selectDate: function selectDate($event) {
+      if ($event.target.value === true) {
+        alert("DATE SELECT");
+      }
     }
   }
 });
@@ -40384,7 +40391,46 @@ var render = function () {
             2
           ),
           _vm._v(" "),
-          _vm._m(0),
+          _c(
+            "select",
+            {
+              staticClass:
+                "h-9  m-3 p-1 bg-white shadow-md rounded-lg transition duration-700 hover:shadow-xl cursor-pointer animate__animated animate__fadeIn ",
+              on: {
+                change: function ($event) {
+                  return _vm.selectDate($event)
+                },
+              },
+            },
+            [
+              _c("option", { domProps: { value: false } }, [_vm._v("Tarih")]),
+              _vm._v(" "),
+              _c("option", { domProps: { value: false } }, [
+                _vm._v("Bu Hafta"),
+              ]),
+              _vm._v(" "),
+              _c("option", { domProps: { value: false } }, [
+                _vm._v("Haftasonu"),
+              ]),
+              _vm._v(" "),
+              _c("option", { domProps: { value: false } }, [
+                _vm._v("Gelecek Hafta"),
+              ]),
+              _vm._v(" "),
+              _c(
+                "option",
+                {
+                  domProps: { value: true },
+                  on: {
+                    click: function ($event) {
+                      return _vm.selectDate()
+                    },
+                  },
+                },
+                [_vm._v("Tarih Belirle")]
+              ),
+            ]
+          ),
           _vm._v(" "),
           _c(
             "button",
@@ -40400,31 +40446,7 @@ var render = function () {
     ]),
   ])
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "select",
-      {
-        staticClass:
-          "h-9  m-3 p-1 bg-white shadow-md rounded-lg transition duration-700 hover:shadow-xl cursor-pointer animate__animated animate__fadeIn ",
-      },
-      [
-        _c("option", [_vm._v("Tarih")]),
-        _vm._v(" "),
-        _c("option", [_vm._v("Bu Hafta")]),
-        _vm._v(" "),
-        _c("option", [_vm._v("Haftasonu")]),
-        _vm._v(" "),
-        _c("option", [_vm._v("Gelecek Hafta")]),
-        _vm._v(" "),
-        _c("option", [_vm._v("Tarih Belirle")]),
-      ]
-    )
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
