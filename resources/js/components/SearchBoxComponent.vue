@@ -57,7 +57,6 @@ export default {
         })
       },
 
-
       selectDate($event){
         if ($event.target.value === true){
           alert("DATE SELECT");
