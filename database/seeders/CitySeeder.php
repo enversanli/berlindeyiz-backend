@@ -25,10 +25,7 @@ class CitySeeder extends Seeder
     $json = file_get_contents('turkey.json');
     $all = json_decode($json);
 
-    Country::truncate();
-    State::truncate();
-    City::whereNotNull('id')->delete();
-    District::whereNotNull('id')->delete();
+
     /*
     $country = Country::create(['name' => 'Türkiye', 'order' => 1, 'status' => 1]);
 
