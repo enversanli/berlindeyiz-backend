@@ -1,5 +1,6 @@
 <?php
 return [
+  'went_wrong' => 'Bir şeyler ters gitti.',
     'announcements' => 'Duyurular',
     'validators' => 'Validatorler',
     'guides' => 'Rehber',
