@@ -7,7 +7,8 @@
             <i class="fas fa-bars text-3xl mt-7 cursor-pointer " @click="toggleMenu()"></i></div>
           <div>
             <a href="/">
-              <img class="h-24" src="/images/logo.png">
+              <h1>Berlindeyiz</h1>
+              <!--<img class="h-24" src="/images/logo.png">-->
             </a>
           </div>
         </div>
