@@ -32,7 +32,7 @@ class AdminSeeder extends Seeder
 
         $business = [
             'user_id' => $user->id,
-            'title' => 'Ne Etsek Ki'
+            'title' => 'Berlindeyiz'
         ];
 
         Business::updateOrInsert($business);
