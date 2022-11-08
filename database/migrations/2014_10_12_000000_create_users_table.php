@@ -31,7 +31,7 @@ class CreateUsersTable extends Migration
       $table->string('mobile_phone')->nullable();
       $table->string('office_phone')->nullable();
       $table->string('photo')->nullable();
-      $table->enum('status')->default(\App\Support\Enum\UserStatusEnum::MAIL_VERIFICATION);
+      $table->enum('status', ['active', 'banned', 'suspended', 'mail_verification'])->default('mail_verification');
       $table->rememberToken();
       $table->timestamps();
       $table->softDeletes();

@@ -4,10 +4,10 @@ namespace App\Support\Enum;
 
 class UserStatusEnum
 {
-    const ACTIVE = 'ACTIVE';
-    const BANNED = 'BANNED';
-    const SUSPENDED = 'SUSPENDED';
-    const MAIL_VERIFICATION = 'MAIL_VERIFICATION';
+    const ACTIVE = 'active';
+    const BANNED = 'banned';
+    const SUSPENDED = 'suspended';
+    const MAIL_VERIFICATION = 'mail_verification';
 
     public static function all(){
         return [
