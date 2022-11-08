@@ -17,9 +17,9 @@ class CreateUsersTable extends Migration
       $table->id();
       $table->enum('role', ['user', 'admin', 'organizer'])->default(\App\Support\Enum\UserRolesEnum::ORGANIZER);
       $table->integer('organizer_id')->nullable();
-      $table->foreign('business_id')->constrained('businesses');
-      $table->foreign('city_id')->constrained('cities');
-      $table->foreign('district_id')->constrained('districts');
+      $table->foreignId('business_id')->constrained('businesses');
+      $table->foreignId('city_id')->constrained('cities');
+      $table->foreignId('district_id')->constrained('districts');
       $table->string('first_name');
       $table->string('last_name');
       $table->string('email')->unique();
