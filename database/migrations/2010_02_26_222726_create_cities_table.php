@@ -15,10 +15,10 @@ class CreateCitiesTable extends Migration
     {
         Schema::create('cities', function (Blueprint $table) {
             $table->id();
-            $table->integer('country_id');
-            $table->integer('state_id');
+            $table->foreignId('country_id')->constrained('countries');
+            $table->integer('state_id')->nullable();
             $table->string('name');
-            $table->integer('code');
+            $table->string('code')->nullable();
             $table->integer('order')->default(0);
             $table->string('slug')->nullable();
             $table->string('image')->nullable();
