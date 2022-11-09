@@ -17,25 +17,25 @@
                  :alt="service.title"
                  :src="'/storage/'+service.logo">
           </div>
-          <div class="h-36 w-1/6 service-logo pl-2 mx-auto float-left">
+          <div class="h-36 w-1/6 service-logo pl-2 mx-auto float-left hidden sm:hidden lg:block md:block">
             <img class="h-20 w-20 mt-4 my-3 rounded-full"
                  :alt="service.title"
                  :src="'/storage/'+service.logo">
           </div>
-          <div class="float-left service-content text-left w-3/4">
-            <h2 class="text-theme-color text-left ml-3 my-3 text-l title font-weight-bold">
+          <div class="float-left service-content text-left w-full lg:w-3/4 md:w-3/4 sm:w-full">
+            <h2 class="text-theme-color text-left ml-3 my-2 text-md title font-weight-bold">
               {{ service.title }}</h2>
 
             <!--                        <h3 class="text-2xl mx-auto text-center"><span class="font-weight-bold">Rating:</span> <span  :class="[(service.rating === 'not_rated' ? 'text-gray-500' : 'text-yellow-500'), (service.rating === 'promising' ? 'text-yellow-500' : ''), (service.rating === 'high' ? 'text-green-500' : '')] ">{{service.ratingTranslated}}</span></h3>-->
             <div class="text-left w-full text-xl font-weight-bolder flex ml-3" v-if="true">
-              <div class="w-1/2 text-xl text-left">
+              <div class="w-1/2 text-sm  text-left">
                 <p class="text-left"><i class="fas fa-map-marker-alt"></i>
                   {{ service.city.name }}</p>
                 <p class="text-left mt-1"><i class="fas fa-bookmark"></i>
                   {{ service.category.name }}
                 </p>
               </div>
-              <div class="w-1/2 text-xl text-left">
+              <div class="w-1/2 text-sm text-left">
                 <p class="text-left"><i class="fas fa-calendar-alt"></i>
                   {{ service.date_from }}</p>
                 <p class="text-left mt-1"><i class="fas fa-clock"></i>
