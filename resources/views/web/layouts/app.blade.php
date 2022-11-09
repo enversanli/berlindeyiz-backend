@@ -39,7 +39,7 @@
                 <div class="md:flex md:justify-between">
                     <div class="mb-6 md:mb-0">
                         <a href="/" class="flex items-center">
-                            <img src="/storage/brandenburg-gate.png" class="mr-1 h-12" alt="FlowBite Logo">
+                            <img src="/images/berlindeyiz.png" class="mr-1 h-12" alt="FlowBite Logo">
                             <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white mt-3">Berlin<b>DE</b>yiz</span>
                         </a>
                         <p class="pt-3">Berlin'in en çok etkinliği olan ve en çok konuşulan platformu olarak, sizleri biraraya getirmeye ve etkinliklerinizi <b>Berlin</b> genelinde tüm <b>Almanya</b>'ya duyurmaya devam ediyoruz.</p>
