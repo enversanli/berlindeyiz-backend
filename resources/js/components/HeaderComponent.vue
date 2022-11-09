@@ -7,12 +7,12 @@
             <i class="fas fa-bars text-3xl mt-7 cursor-pointer " @click="toggleMenu()"></i></div>
           <div>
             <a href="/">
-              <h1 class="mt-4 ml-2 text-lg">Berlin<b>DE</b>yiz</h1>
+              <h1 class="mt-4 ml-2 text-lg"><img src="/images/berlindeyiz.png" class="h-8 inline-block">
+                <span class="pt-3">Berlin<b>DE</b>yiz</span></h1>
               <!--<img class="h-24" src="/images/logo.png">-->
             </a>
           </div>
         </div>
-
       </div>
 
       <!-- Search bar -->
