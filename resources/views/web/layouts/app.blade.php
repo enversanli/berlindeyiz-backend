@@ -134,7 +134,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="fixed right-5 bottom-5 bg-theme-color z-10 p-3 rounded-full hover:cursor-pointer">
+                <div class="fixed right-2 bottom-2 bg-theme-color z-10 p-2.5 rounded-full hover:cursor-pointer">
 
                     <a href="https://api.whatsapp.com/send?phone=4917676198353" target="_blank" class="w-full h-full">
                         <svg
