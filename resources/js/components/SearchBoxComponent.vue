@@ -2,10 +2,10 @@
     <div>
       <form action="/etkinlik-ara">
         <h2 clasS="text-center text-2xl">Aradığın Tüm Etkinlikler Berlindeyiz.de 'de !</h2>
-        <div class="grid lg:grid-cols-4 md:grid-cols-4 sm:grid-cols-1 text-lg text-theme-color mt-10 w-2/3 mx-auto">
+        <div class="grid lg:grid-cols-3 md:grid-cols-4 sm:grid-cols-1 text-lg text-theme-color w-2/3 mx-auto">
 
           <select name="kategori"
-                  class="h-9 m-3 p-1 bg-white shadow-md rounded-lg transition duration-700 hover:shadow-xl cursor-pointer animate__animated animate__fadeIn">
+                  class="h-9 m-3 p-1 bg-white shadow-md rounded-lg transition duration-700 hover:shadow-xl cursor-pointer animate__animated animate__fadeIn border border-none">
             <option value="">Kategori</option>
             <option v-for="category in categories" :value="category.slug">{{ category.name }}</option>
           </select>
@@ -16,7 +16,7 @@
           </select>-->
           <select
               @change="selectDate($event)"
-              class="h-9  m-3 p-1 bg-white shadow-md rounded-lg transition duration-700 hover:shadow-xl cursor-pointer animate__animated animate__fadeIn ">
+              class="h-9  m-3 p-1 bg-white shadow-md rounded-lg transition duration-700 hover:shadow-xl cursor-pointer animate__animated animate__fadeIn border border-none">
             <option :value="false">Tarih</option>
             <option :value="false">Bu Hafta</option>
             <option :value="false">Haftasonu</option>
