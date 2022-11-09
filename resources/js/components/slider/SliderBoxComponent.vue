@@ -1,9 +1,9 @@
 <template>
   <div>
     <h2>{{ title }}</h2>
-    <carousel :autoplay="true" :loop="true" :items="5" :autoplaySpeed="1400" :dots="false" :nav="false" :margin="5"
+    <carousel :responsive="{0:{items:1}}" :autoplay="true" :loop="true" :items="5" :autoplaySpeed="1400" :dots="false" :nav="false" :margin="5"
               class="w-full animate__animated animate__fadeIn shadow shadow-sm mb-10 h-50" v-if="rows.length > 0">
-      <div class="w-full h-52 bg-danger overflow-hidden relative" v-for="row in rows">
+      <div class="w-full h-52 overflow-hidden relative" v-for="row in rows">
         <a :href="'etkinlikler/' + row.slug">
           <img class="w-full h-52"
                :src="row.logo">
