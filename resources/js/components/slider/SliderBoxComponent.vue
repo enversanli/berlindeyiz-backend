@@ -6,6 +6,7 @@
       <div class="w-full h-52 overflow-hidden relative" v-for="row in rows">
         <a :href="'etkinlikler/' + row.slug">
           <img class="w-full h-52"
+               :alt="row.title"
                :src="'storage/' + row.logo">
 
           <div class="z-10 bg-theme-color opacity-95 hover:opacity-100 p-2 absolute bottom-0 right-0 left-0">{{row.title}}
