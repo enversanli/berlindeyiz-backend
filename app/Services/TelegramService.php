@@ -29,8 +29,13 @@ class TelegramService
       $response = Http::post( $api, [
         'chat_id' => $this->chatId,
         'text' => $text,
-        'photo' => 'https://berlindeyiz.de/'. $image
+        'photo' => 'https://berlindeyiz.de'. $image
       ]);
+
+      activity('telegram')
+        ->withProperties(['error' => $response->body()])
+        ->log('SUCCESS');
+
       return true;
     } catch (\Exception $exception) {
       activity('telegram')
