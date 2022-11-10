@@ -44,7 +44,7 @@
     <div class="md:flex ">
         <div class="mb-6 md:mb-0 w-full lg:w-1/2 sm:w-full">
             <a href="/" class="flex items-center">
-                <img  alt="Berlin Etkinlikleri" src="/images/berlindeyiz.png" class="mr-1 h-12" alt="FlowBite Logo">
+                <img  alt="Berlin Etkinlikleri" src="/images/berlindeyiz.png" class="mr-1 h-12">
                 <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white mt-3">Berlin<b>DE</b>yiz</span>
             </a>
             <p class="pt-3">Berlin'in en çok etkinliği olan ve en çok konuşulan platformu olarak, sizleri
