@@ -25,15 +25,16 @@ class TelegramService
 
       $api = $this->apiUrl . $this->botToken;
       $api .= $image ? $this->photo : $this->message;
+      $photo = 'https://berlindeyiz.de'. $image;
 
       $response = Http::post( $api, [
         'chat_id' => $this->chatId,
         'text' => $text,
-        'photo' => 'https://berlindeyiz.de'. $image
+        'photo' => $photo
       ]);
 
       activity('telegram')
-        ->withProperties(['error' => $response->body()])
+        ->withProperties(['text' => $text, 'photo' => $image, 'error' => $response->body()])
         ->log('SUCCESS');
 
       return true;
@@ -41,6 +42,7 @@ class TelegramService
       activity('telegram')
         ->withProperties(['error' => $exception->getMessage()])
         ->log(ErrorLogEnum::SEND_TELEGRAM_MESSAGE_SERVICE_ERROR);
+
       return false;
     }
   }
