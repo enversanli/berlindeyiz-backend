@@ -33,9 +33,30 @@
 export default {
     data() {
         return {
+          categories:null,
+          cities: null,
           dateSelectOption:true
         }
     },
 
+    mounted() {
+        //this.getCities();
+        this.getCategories();
+    },
+
+    methods: {
+      getCities() {
+        axios.get('/cities').then(response => {
+          this.cities = response.data.data;
+        })
+      },
+
+      selectDate($event){
+        if ($event.target.value === true){
+          alert("DATE SELECT");
+        }
+
+      }
+    }
 }
 </script>

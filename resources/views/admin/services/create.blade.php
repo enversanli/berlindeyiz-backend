@@ -36,7 +36,7 @@
                                             <div class="w-full mr-3 mobile-input">
                                                 <x-label for="title" :value="__('common.title')"/>
 
-                                                <x-input id="title" maxlength="35" minlength="1"
+                                                <x-input id="title" maxlength="50" minlength="1"
                                                          class="block mt-1 w-full inputs sm:text-sm" type="text"
                                                          :value="old('title')" name="title" required autofocus/>
                                             </div>

@@ -28,7 +28,7 @@
       </div>
       <div v-show="services.count === 0"
            class="animate__animated animate__fadeIn m-3 p-1 bg-white shadow-md rounded-lg transition duration-300 hover:shadow-xl relative overflow-hidden service-box pt-3">
-        <p class="w-full text-2xl text-center my-10">Not found services.</p>
+        <p class="w-full text-2xl text-center my-10">Bulunamadı.</p>
       </div>
 <!--      <div class="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 mb-28">-->
   <service-box-component :services="services"></service-box-component>
