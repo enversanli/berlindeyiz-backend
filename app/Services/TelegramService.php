@@ -30,9 +30,10 @@ class TelegramService
         'text' => $text,
         'photo' => 'https://berlindeyiz.de/'. $image
       ]);
-      dd($response->body());
+      return true;
     } catch (\Exception $exception) {
-      dd($exception->getMessage());
+
+      return false;
     }
   }
 }
