@@ -68,17 +68,11 @@ export default {
       search_text: '',
       modal: false,
       menu: false,
-      cities: null,
       categories: null,
     }
   },
 
   mounted() {
-    this.getCities();
-    this.getCategories();
-    console.log('-----------*****------------');
-    console.log(this.$route);
-    console.log('------------****-----------');
   },
 
   methods: {
@@ -91,20 +85,6 @@ export default {
         })
       }
 
-    },
-
-    getCities() {
-      axios.get('/cities').then(response => {
-        this.cities = response.data.data;
-        console.log(response.data.data);
-      })
-    },
-
-    getCategories() {
-      axios.get('/categories').then(response => {
-        this.categories = response.data.data;
-        console.log(response.data.data);
-      })
     },
 
     setModal() {

@@ -32,16 +32,5 @@ export default {
     }
   },
 
-  mounted() {
-    this.getSliders();
-  },
-
-  methods: {
-    getSliders() {
-      axios.get('/sliders').then(response => {
-        this.sliders = response.data.data
-      });
-    }
-  }
 }
 </script>
