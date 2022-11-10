@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Support\Enum\ErrorLogEnum;
 use Illuminate\Support\Facades\Http;
 
 class TelegramService
@@ -32,7 +33,9 @@ class TelegramService
       ]);
       return true;
     } catch (\Exception $exception) {
-
+      activity('telegram')
+        ->withProperties(['error' => $exception->getMessage()])
+        ->log(ErrorLogEnum::SEND_TELEGRAM_MESSAGE_SERVICE_ERROR);
       return false;
     }
   }
