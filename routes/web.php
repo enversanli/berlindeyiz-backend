@@ -14,7 +14,9 @@ use Inertia\Inertia;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('telegram', function (){
+  (new \App\Services\TelegramService())->sendMessage('Selam', 'https://berlindeyiz.de/storage/services/NTBn3IV91rYIu45kGZCs7h86ZgxCt0Ga9M7czXQM.jpg');
+});
 Route::get('/', function () {
     return view('welcome');
 });

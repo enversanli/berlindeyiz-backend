@@ -2,6 +2,7 @@
 
 namespace App\Http\Actions\Service;
 
+use App\Jobs\SendServiceToTelegramChannelJob;
 use App\Models\Category;
 use App\Models\Service;
 use App\Support\Enum\ErrorLogEnum;
@@ -65,7 +66,11 @@ class UpdateServiceAction
                 Storage::delete($oldLogo);
             }
 
-            return ReturnData::success(true, $service);
+            if ($service->approved){
+              SendServiceToTelegramChannelJob::dispatch($service);
+            }
+
+            return ReturnData::success($service);
         } catch (\Exception $exception) {
             activity()
                 ->causedBy(auth()->user())
