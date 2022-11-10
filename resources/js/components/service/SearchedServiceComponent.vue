@@ -30,7 +30,6 @@
       <div class="grid lg:grid-cols-1 md:grid-cols-1 sm:grid-cols-1">
         <service-box-component :services="services"></service-box-component>
         <div class="grid lg:w-1/4 md:w-1/4 sm:1/4  p-3">
-          <h1>Hello</h1>
         </div>
       </div>
 
