@@ -169,7 +169,7 @@ export default {
     },
     getCityServices() {
       var url = '/sehir-etkinlikleri/' + this.service.city.slug;
-      alert(url);
+
       axios.get(url).then(response => {
         this.similar = response.data.data;
       })
