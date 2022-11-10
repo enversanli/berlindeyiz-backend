@@ -26,7 +26,7 @@
                         </div>
                     </div>
                     <div class="animate__animated animate__fadeIn" v-else>
-                        <p class="w-full text-2xl text-center my-10">Not found any announcement.</p>
+                        <p class="w-full text-2xl text-center my-10">Herhangi bir duyuru bulunamadı.</p>
                     </div>
 
 

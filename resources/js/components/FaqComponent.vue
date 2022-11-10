@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="lg:flex md:w-full">
+        <div class="lg:flex w-full">
             <div class="float-left md:w-full sm:w-full">
                 <div class="h-auto m-3 bg-white shadow-md rounded-lg transition duration-300 hover:shadow-xl p-3 ">
 
@@ -28,7 +28,7 @@
                         </div>
                     </div>
                     <div class="animate__animated animate__fadeIn" v-else>
-                        <p class="w-full text-2xl text-center my-10">Not found any Faq.</p>
+                        <p class="w-full text-2xl text-center my-10">Herhangi bir soru bulunamadı.</p>
                     </div>
 
 
