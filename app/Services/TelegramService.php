@@ -31,7 +31,7 @@ class TelegramService
       $api .= $image ? $this->photo : $this->message;
 
       if ($image != null) {
-        $params['photo'] = "https://berlindeyiz.de{$image}";
+        $params['photo'] = "https://berlindeyiz.de/{$image}";
       }
 
       $response = Http::post($api, $params);
