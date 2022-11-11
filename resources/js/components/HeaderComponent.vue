@@ -37,8 +37,8 @@
       <!-- Social icons -->
       <div class="flex-grow lg:ml-10 sm:ml-1 text-2xl theme-color text-theme-color text-right"
            style="line-height: 96px">
-        <a href=""><i class="fab fa-telegram-plane mx-1"></i></a>
-        <a href=""><i class="fab fa-twitter mx-1"></i></a>
+        <a href="https://t.me/berlindeyiz"><i class="fab fa-telegram-plane mx-1"></i></a>
+        <a href="https://www.instagram.com/berlindeyiz.de/?igshid=YmMyMTA2M2Y%3D"><i class="fab fa-instagram mx-1"></i></a>
       </div>
     </header>
     <div class="position-fixed top-0 left-0 right-0 bottom-0 z-10 animate__animated d-none bg-gray-500 bg-opacity-50"
