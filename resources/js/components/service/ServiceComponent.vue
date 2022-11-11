@@ -66,7 +66,7 @@ export default {
   mounted() {
     this.getServices();
     this.getLastAdded();
-    this.getCities();
+    //this.getCities();
     this.getCategories();
   },
 
@@ -144,7 +144,6 @@ export default {
         nextUrl = nextUrl + '&status=all'
       }
 
-      console.log(nextUrl);
       axios.get(nextUrl).then(response => {
         //this.services = response.data.data;
         this.links = response.data.links;
