@@ -49,7 +49,7 @@ export default {
 
   methods: {
     getCategories() {
-      axios.get('/categories').then(function (response) {
+      axios.get('/categories').then(response => {
         this.categories = response.data.data;
       });
     },
