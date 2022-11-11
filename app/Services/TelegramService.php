@@ -17,6 +17,7 @@ class TelegramService
   {
     $this->chatId = '@berlindeyiz';
     $this->botToken = config('services.telegram.bot_token');
+    $this->apiUrl .= $this->botToken;
   }
 
   public function sendMessage($text = 'test', $image = null)
@@ -27,18 +28,20 @@ class TelegramService
         'text' => $text
       ];
 
-      $api = $this->apiUrl . $this->botToken;
-      $api .= $image ? $this->photo : $this->message;
+      $response = Http::post($this->apiUrl. $this->message, $params);
+
+      activity('telegram_message')
+        ->withProperties(['params' => $params, 'error' => $response->body()])
+        ->log('SUCCESS');
 
       if ($image != null) {
         $params['photo'] = "https://berlindeyiz.de/storage/{$image}";
+        $response = Http::post($this->apiUrl. $this->photo, $params);
+
+        activity('telegram_photo')
+          ->withProperties(['params' => $params, 'error' => $response->body()])
+          ->log('SUCCESS');
       }
-
-      $response = Http::post($api, $params);
-
-      activity('telegram')
-        ->withProperties(['apiUrl' => $api, 'params' => $params, 'error' => $response->body()])
-        ->log('SUCCESS');
 
       return true;
     } catch (\Exception $exception) {
