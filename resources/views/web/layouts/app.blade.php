@@ -40,6 +40,9 @@
 
     </div>
 </div>
+<!--
+<div class="fixed-bottom w-full p-10 shadow-sm z-10 bg-white"><p>Siteyi kullanarak çerezleri kabul etmiş sayılırsınız.</p></div>
+-->
 <footer class="p-4 bg-white sm:p-6 dark:bg-gray-900">
     <div class="md:flex ">
         <div class="mb-6 md:mb-0 w-full lg:w-1/2 sm:w-full">
@@ -62,8 +65,11 @@
                     <li class="mb-4">
                         <a href="/" class="hover:underline">Hakkımızda</a>
                     </li>
-                    <li>
+                    <li class="mb-4">
                         <a href="/" class="hover:underline">İletişim</a>
+                    </li>
+                    <li>
+                        <a href="/impressum" class="hover:underline">Impressum</a>
                     </li>
                 </ul>
             </div>
