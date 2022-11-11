@@ -37,7 +37,7 @@ class TelegramService
       $response = Http::post($api, $params);
 
       activity('telegram')
-        ->withProperties(['params' => $params, 'error' => $response->body()])
+        ->withProperties(['apiUrl' => $api, 'params' => $params, 'error' => $response->body()])
         ->log('SUCCESS');
 
       return true;
