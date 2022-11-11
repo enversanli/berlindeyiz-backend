@@ -53,16 +53,18 @@ class ServiceController extends Controller
             });
         }
 
-        if ($request->status && $request->status == 'priced') {
+        if ($request->has('status') && $request->input('status') == 'priced') {
             $services->where('is_priced', 1);
         }
 
-        if ($request->status && $request->status == 'free') {
+        if ($request->has('status') && $request->input('status') == 'free') {
             $services->where('is_priced', 0);
         }
 
-        $services = $services->orderBy('date_from', 'ASC')
-            ->paginate(12);
+        $services = $services
+          ->orderBy('date_from', 'ASC')
+          ->orderBy('date_to', 'ASC')
+            ->paginate(10);
 
         return ServiceResource::collection($services);
     }
