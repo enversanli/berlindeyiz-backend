@@ -22,19 +22,22 @@ class TelegramService
   public function sendMessage($text = 'test', $image = null)
   {
     try {
+      $params = [
+        'chat_id' => $this->chatId,
+        'text' => $text
+      ];
 
       $api = $this->apiUrl . $this->botToken;
       $api .= $image ? $this->photo : $this->message;
-      $photo = 'https://berlindeyiz.de'. $image;
 
-      $response = Http::post( $api, [
-        'chat_id' => $this->chatId,
-        'text' => $text,
-        'photo' => $photo
-      ]);
+      if ($image != null) {
+        $params['photo'] = "https://berlindeyiz.de{$image}";
+      }
+
+      $response = Http::post($api, $params);
 
       activity('telegram')
-        ->withProperties(['text' => $text, 'photo' => $image, 'error' => $response->body()])
+        ->withProperties(['params' => $params, 'error' => $response->body()])
         ->log('SUCCESS');
 
       return true;
