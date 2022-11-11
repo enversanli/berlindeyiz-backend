@@ -4,7 +4,7 @@
     <carousel :autoplay="true" :loop="true" :items="3" :autoplaySpeed="1400" :dots="false" :nav="false" :margin="5"
               class="w-full animate__animated animate__fadeIn shadow shadow-sm mb-10 h-50" v-if="rows.length > 0">
       <div class="w-full h-52 overflow-hidden relative" v-for="row in rows">
-        <a :href="'etkinlikler/' + row.slug">
+        <a :href="'/etkinlikler/' + row.slug">
           <img class="w-full h-52"
                :alt="row.title"
                :src="'/storage/' + row.logo">
