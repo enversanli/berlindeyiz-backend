@@ -19,10 +19,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/telegram', function (){
-    Facades\App\Services\TelegramService::sendMessage(\App\Models\Service::first());
-});
-
 Route::get('sitemap', function (){
   include('../sitemap.xml');
 });
