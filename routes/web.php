@@ -19,6 +19,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('sitemap', function (){
+
+  include('../sitemap.php');
+});
+
 Route::view('/impressum', 'web.others.impressum');
 
 Route::get('/dashboard', function () {
