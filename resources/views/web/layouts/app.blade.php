@@ -1,11 +1,11 @@
 <!DOCTYPE html >
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-    <title>{{ config('app.name', 'Berlindeyiz') }}</title>
+    <title>@yield('site-title', config('app.name', 'Berlindeyiz'))</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta name="description" content="Berlindeyiz, Berlin'e dair müzik, kültür, sanat, edebiyat ve tüm etkinlikleri kolayca bulmanızı sağlar.">
+    <meta name="description" content="@yield('site-description', "Berlindeyiz, Berlin'e dair müzik, kültür, sanat, edebiyat ve tüm etkinlikleri kolayca bulmanızı sağlar.")">
     <meta name="keywords" content="berlin etkinlik, etkinlikler, etkinlik, berlin türk etkinlikleri, berlindeyiz, berlinde etkinlik">
 
     <meta name="author" content="Berlindeyiz, iletisim@berlindeyiz.de" />

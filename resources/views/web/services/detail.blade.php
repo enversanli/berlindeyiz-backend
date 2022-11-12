@@ -1,6 +1,10 @@
 @extends('web.layouts.app')
 
-@section('title', __('dashboard/comment.comments'))
+@section('site-title', $service->title)
+
+@if(isset($service->seo_description) && $service->seo_description != null)
+    @section('site-description', $service->seo_description)
+@endif
 
 @section('sidebar')
     @parent
@@ -10,6 +14,6 @@
 
 @section('content')
     <div class="py-10">
-        <service-detail-component :service="{{$service}}" ></service-detail-component>
+        <service-detail-component :service="{{$service}}"></service-detail-component>
     </div>
 @endsection

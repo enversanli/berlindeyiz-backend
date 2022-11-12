@@ -18,14 +18,12 @@ class UpdateServiceAction
     {
         try {
             if (isset($request->logo)) {
-                $logoName = $request->file('logo')->getClientOriginalName();
                 $logoPath = $request->file('logo')->store('public/services');
                 $logoPath = str_replace('public/', '', $logoPath);
                 $oldLogo = $service->logo;
             }
 
             if (isset($request->image)) {
-                $imageName = $request->file('image')->getClientOriginalName();
                 $imagePath = $request->file('image')->store('public/services');
                 $imagePath = str_replace('public/', '', $imagePath);
                 $oldImage = $service->image;
@@ -54,7 +52,8 @@ class UpdateServiceAction
                 'city_id' => (int)$request->city_id,
                 'district_id' => $request->district_id,
                 'address' => trim($request->address),
-                'approved' => $request->approved ?? $service->approved
+                'approved' => $request->approved ?? $service->approved,
+                'seo_description' => $request->seo_description ?? $service->title,
             ]);
 
             /** Delete Old Stored Files */
@@ -67,7 +66,7 @@ class UpdateServiceAction
             }
 
             if ($service->approved && !$service->sent_to_telegram){
-              SendServiceToTelegramChannelJob::dispatch($service);
+              SendServiceToTelegramChannelJob::dispatch($service->refresh());
             }
 
             return ReturnData::success($service);

@@ -21,7 +21,7 @@ class TelegramService
     $this->apiUrl .= $this->botToken;
   }
 
-  public function sendMessage(Service  $service)
+  public function sendMessage(Service $service)
   {
     try {
       $serviceSlug = config('app.url'). "/$service->slug";
@@ -33,20 +33,16 @@ class TelegramService
         'parse_mode' => 'HTML'
       ];
 
+      if ($service->image != null) {
+        $params['photo'] = "https://berlindeyiz.de/storage/{$service->image}";
+        $params['caption'] = $params['text'];
+      }
+
       $response = Http::post($this->apiUrl. $this->message, $params);
 
       activity('telegram_message')
         ->withProperties(['params' => $params, 'error' => $response->body()])
         ->log('SUCCESS');
-
-      if ($service->image != null) {
-        $params['photo'] = "https://berlindeyiz.de/storage/{$service->image}";
-        $response = Http::post($this->apiUrl. $this->photo, $params);
-
-        activity('telegram_photo')
-          ->withProperties(['params' => $params, 'error' => $response->body()])
-          ->log('SUCCESS');
-      }
 
       $service->update(['sent_to_telegram' => true]);
 
