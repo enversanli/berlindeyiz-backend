@@ -19,7 +19,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('sitemap.xml', function (){
+Route::get('sitemap', function (){
   include('../sitemap.xml');
 });
 
