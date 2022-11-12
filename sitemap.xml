@@ -1,25 +1,7 @@
-
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
     <url>
-        <loc>https://berlindeyiz.de/</loc>
-        <lastmod>2022-11-12T09:36:02+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://berlindeyiz.de/impressum</loc>
-        <lastmod>2022-11-12T09:36:02+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://berlindeyiz.de/etkinlikler/muzik-etkinlikleri-yunus-emre-enstitusu-yunusun-izinde-programi</loc>
-        <lastmod>2022-11-12T09:36:02+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://berlindeyiz.de/etkinlikler/muzik-etkinlikleri-tan-tasci-berlin-konseri</loc>
+        <loc>https://berlindeyiz.de</loc>
         <lastmod>2022-11-12T09:36:02+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
@@ -43,5 +25,28 @@
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
+    <url>
+        <loc>https://berlindeyiz.de/etkinlikler/muzik-etkinlikleri-tan-tasci-berlin-konseri</loc>
+        <lastmod>2022-11-12T09:36:02+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://berlindeyiz.de/etkinlikler/egitim-ve-seminer-etkinlikleri-almanca-konusma-etkinligi-loulou-begegnungsort</loc>
+        <lastmod>2022-11-12T09:36:02+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://berlindeyiz.de/etkinlikler/topluluk-bulusmalari-etkinlikleri-berlin-buyukelciligi-ogrenci-bulusmasi</loc>
+        <lastmod>2022-11-12T09:36:02+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://berlindeyiz.de/etkinlikler/muzik-etkinlikleri-yunus-emre-enstitusu-yunusun-izinde-programi</loc>
+        <lastmod>2022-11-12T09:36:02+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
 </urlset>
-

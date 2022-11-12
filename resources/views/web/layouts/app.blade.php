@@ -1,16 +1,31 @@
 <!DOCTYPE html >
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
+    <title>{{ config('app.name', 'Berlindeyiz') }}</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="description" content="Berlindeyiz, Berlin'e dair müzik, kültür, sanat, edebiyat ve tüm etkinlikleri kolayca bulmanızı sağlar.">
     <meta name="keywords" content="berlin etkinlik, etkinlikler, etkinlik, berlin türk etkinlikleri, berlindeyiz, berlinde etkinlik">
 
+    <meta name="author" content="Berlindeyiz, iletisim@berlindeyiz.de" />
+    <meta name="Abstract" content="Berlindeyiz.de" />
+    <meta name="Copyright" content="Copyright © 2020. Tüm Hakları Saklıdır. Sitemizin herhangi bir şekilde kopyalanması, çoğaltılması ve dağıtılması halinde yasal haklarımız işletilecektir." />
+    <meta name="publisher" content="Berlindeyiz.de" />
+    <meta name="robots" content="all" />
+    <meta property="og:type" content="article" />
+
+    <meta property="og:site_name" content="Berlindeyiz" />
+
+    <meta property="og:locale" content="tr_TR" />
+
+    <meta property="og:title" content="Berlin Etkinlikleri" />
+
+    <meta property="og:description" content="Berlindeyiz, Berlin'e dair müzik, kültür, sanat, edebiyat ve tüm etkinlikleri kolayca bulmanızı sağlar." />
+
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
           integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
           crossorigin="anonymous">
-    <title>{{ config('app.name', 'Berlindeyiz') }}</title>
 
     <link rel="icon" href="https://berlindeyiz.de/images/berlindeyiz.png" type="image/fav-icon"/>
     <!-- Fonts -->

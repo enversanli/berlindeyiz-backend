@@ -1,7 +1,8 @@
 <template>
   <div>
     <form action="/etkinlik-ara">
-      <h2 clasS="text-center text-2xl">Aradığın Tüm Etkinlikler Berlindeyiz.de 'de !</h2>
+      <h1 clasS="text-center text-3xl mb-2">Berlindeyiz.de</h1>
+      <h2 clasS="text-center text-xl">Aradığın Tüm Etkinlikler Berlindeyiz.de!</h2>
       <div class="grid lg:grid-cols-3 md:grid-cols-4 sm:grid-cols-1 text-lg text-theme-color w-2/3 mx-auto">
 
         <select name="kategori"
