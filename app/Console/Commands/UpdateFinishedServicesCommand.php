@@ -36,9 +36,13 @@ class UpdateFinishedServicesCommand extends Command
       ->where('date_to', '<', $now->format('Y-m-d'))
       ->whereNot('status', ServiceStatusEnum::ACTIVE)
       ->where('is_repeating', false)
-      ->update([
+      ->get();
+
+    foreach ($services as $service){
+      $service->update([
         'status' => ServiceStatusEnum::OUT_OF_DATE
       ]);
+    }
 
     $this->info("{$services->count()} services are updated as out of date");
 

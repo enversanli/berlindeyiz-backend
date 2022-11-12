@@ -45,7 +45,7 @@ class CategorySeeder extends Seeder
         'description' => ''
       ],
       [
-        'name' => 'Sosyal Faaliyet',
+        'name' => 'Gezi ve Sosyal Faaliyet',
         'description' => ''
       ],
     ];
