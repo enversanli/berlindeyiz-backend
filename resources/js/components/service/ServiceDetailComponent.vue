@@ -97,8 +97,8 @@
         </div>
 
       </div>
+      <slider-box-component title="Aynı Şehirde Diğer Etkinlikler" :rows="this.similar"></slider-box-component>
     </div>
-    <slider-box-component title="Aynı Şehirde Diğer Etkinlikler" :rows="this.similar"></slider-box-component>
   </div>
 </template>
 
