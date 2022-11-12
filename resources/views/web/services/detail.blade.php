@@ -2,9 +2,7 @@
 
 @section('site-title', $service->title)
 
-@if(isset($service->seo_description) && $service->seo_description != null)
-    @section('site-description', $service->seo_description)
-@endif
+@section('site-description', $service->seo_description ?? $service->title)
 
 @if(isset($service->keywords) && $service->keywords != null)
     @section('site-keywords', $service->keywords)
