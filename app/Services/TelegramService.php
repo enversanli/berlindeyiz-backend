@@ -24,7 +24,7 @@ class TelegramService
   public function sendMessage(Service $service)
   {
     try {
-      $serviceSlug = config('app.url') . "/$service->slug";
+      $serviceSlug = config('app.url') . "/etkinlikler/$service->slug";
       $serviceTitle = $service->title;
       $endPoint = $this->message;
 
