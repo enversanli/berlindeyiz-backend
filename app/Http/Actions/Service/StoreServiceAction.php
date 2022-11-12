@@ -37,6 +37,11 @@ class StoreServiceAction
       /** Generate Slug */
       $slug = $city->slug . '-' . $category->slug . '-' . Str::slug($request->title);
 
+      $dateFrom = Carbon::make($request->input('date_from'))->format('Y-m-d');
+      $dateTo = $request->input('date_to') ? Carbon::make($request->input('date_to'))->format('Y-m-d') : $dateFrom;
+
+      $startTime = Carbon::parse($request->input('start_time'))->format('H:i:s');
+
       $data = [
         'user_id' => $user->id,
         'business_id' => $user->business->id,
@@ -44,19 +49,19 @@ class StoreServiceAction
         'title' => $request->input('title'),
         'slug' => $slug,
         'text' => $request->input('text'),
-        'date_from' => $request->input('date_from') ? Carbon::make($request->input('date_from'))->format('Y-m-d') : null,
-        'date_to' => $request->input('date_to') ? Carbon::make($request->input('date_to'))->format('Y-m-d') : null,
-        'start_time' => $request->input('start_time') ? Carbon::make($request->input('start_time'))->format('H:i:s') : null,
-        'end_time' => $request->input('') ? Carbon::make($request->input('end_time'))->format('H:i:s') : null,
+        'date_from' => $dateFrom,
+        'date_to' => $dateTo,
+        'start_time' => $startTime,
+        'end_time' => $request->input('end_time') ? Carbon::make($request->input('end_time'))->format('H:i:s') : null,
         'status' => ServiceStatusEnum::ACTIVE,
         'logo' => $logoPath ?? null,
         'image' => $logoPath ?? null,
         'price' => $request->input('price'),
-        'is_priced' => $request->input(''),
+        'is_priced' => $request->input('is_priced', 0),
         'city_id' => $request->input('city_id'),
         'district_id' => $request->input(''),
         'address' => trim($request->address) ?? null,
-        'seo_description' => $request->input('seo_description') ?? $request->input('title'),
+        'seo_description' => $request->input('seo_description', $request->input('title')),
         'keywords' => $request->input('keywords'),
       ];
 
@@ -64,6 +69,7 @@ class StoreServiceAction
 
       return ReturnData::success($service);
     } catch (\Exception $exception) {
+      dd($exception->getMessage());
       activity()
         ->causedBy(auth()->user())
         ->withProperties(['error' => $exception->getMessage(), 'user_id' => auth()->user()->id])

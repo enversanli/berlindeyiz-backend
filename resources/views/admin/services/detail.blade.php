@@ -44,7 +44,7 @@
                                                 <x-input id="date_from" maxlength="255"
                                                          class="block mt-1 w-full inputs sm:text-sm"
                                                          type="date" name="date_from" :value="$service->date_from"
-                                                         autofocus/>
+                                                         autofocus required/>
                                             </div>
                                             <div class="w-1/3 mr-3  mobile-input mx-1">
                                                 <x-label for="date_to" :value="__('common.date_to')"/>
@@ -60,7 +60,7 @@
                                                 <x-input id="start_time" maxlength="255"
                                                          class="block mt-1 inputs sm:text-sm w-full inline-block float-left"
                                                          type="time" name="start_time" :value="$service->start_time"
-                                                         autofocus/>
+                                                         autofocus required/>
                                             </div>
                                             <div class="w-1/4 mr-3  mobile-input mx-1">
                                                 <x-label for="end_time" :value="__('common.end_time')"/>

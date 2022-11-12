@@ -49,7 +49,7 @@
                                                 <x-input id="date_from" maxlength="255"
                                                          class="block mt-1 inputs sm:text-sm w-full "
                                                          type="date" name="date_from" :value="old('date_from')"
-                                                         autofocus/>
+                                                         autofocus required/>
                                             </div>
 
                                             <div class="w-1/4 mr-3  mobile-input mx-1">
@@ -58,7 +58,7 @@
                                                 <x-input id="date_to" maxlength="255"
                                                          class="block mt-1 inputs sm:text-sm w-full"
                                                          type="date" name="date_to" :value="old('date_to')"
-                                                         autofocus/>
+                                                         autofocus />
                                             </div>
                                             <div class="w-1/4 mr-3  mobile-input mx-1">
                                                 <x-label for="start_time" :value="__('common.start_time')"/>
@@ -114,7 +114,6 @@
                                                 <x-label for="price" :value="__('service.price')"/>
                                                 <x-input id="price" maxlength="255" minlength="1"
                                                          class="block mt-1 w-full inputs sm:text-sm" type="text"
-                                                         placeholder="0"
                                                          :value="old('price')" name="price" required autofocus/>
                                             </div>
                                             <div class="w-1/4 mr-3 mobile-input mx-auto">
