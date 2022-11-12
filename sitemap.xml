@@ -7,6 +7,18 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://berlindeyiz.de/duyurular</loc>
+        <lastmod>2022-11-12T09:36:02+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://berlindeyiz.de/sss</loc>
+        <lastmod>2022-11-12T09:36:02+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://berlindeyiz.de/etkinlikler/egitim-ve-seminer-etkinlikleri-ask-me-anything-veri-analitigi</loc>
         <lastmod>2022-11-12T09:36:02+00:00</lastmod>
         <changefreq>daily</changefreq>
