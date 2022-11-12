@@ -37,6 +37,8 @@ class ServiceUpdateRequest extends FormRequest
             'address' => 'required|max:255',
             'city_id' => 'required|exists:cities,id',
             'district_id' => 'nullable|exists:districts,id',
+            'seo_description' => 'nullable|string|max:255',
+            'keywords' => 'nullable|string|max:255',
         ];
     }
 }

@@ -6,6 +6,10 @@
     @section('site-description', $service->seo_description)
 @endif
 
+@if(isset($service->keywords) && $service->keywords != null)
+    @section('site-keywords', $service->keywords)
+@endif
+
 @section('sidebar')
     @parent
 @endsection

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="description" content="@yield('site-description', "Berlindeyiz, Berlin'e dair müzik, kültür, sanat, edebiyat ve tüm etkinlikleri kolayca bulmanızı sağlar.")">
-    <meta name="keywords" content="berlin etkinlik, etkinlikler, etkinlik, berlin türk etkinlikleri, berlindeyiz, berlinde etkinlik">
+    <meta name="keywords" content="@yield('site-keywords', "berlin etkinlik, berlin etkinlikler, etkinlik, berlin türk etkinlikleri, berlindeyiz, berlinde etkinlik, almanya gezilecek yerler")">
 
     <meta name="author" content="Berlindeyiz, iletisim@berlindeyiz.de" />
     <meta name="Abstract" content="Berlindeyiz.de" />
@@ -17,7 +17,7 @@
     <meta property="og:site_name" content="Berlindeyiz" />
     <meta property="og:locale" content="tr_TR" />
     <meta property="og:title" content="Berlin Etkinlikleri" />
-    <meta property="og:description" content="Berlindeyiz, Berlin'e dair müzik, kültür, sanat, edebiyat ve tüm etkinlikleri kolayca bulmanızı sağlar." />
+    <meta property="og:description" content="@yield('site-description', "Berlindeyiz, Berlin'e dair müzik, kültür, sanat, edebiyat ve tüm etkinlikleri kolayca bulmanızı sağlar.")" />
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
           integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
