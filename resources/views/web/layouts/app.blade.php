@@ -11,6 +11,7 @@
           crossorigin="anonymous">
     <title>{{ config('app.name', 'Berlindeyiz') }}</title>
 
+    <link rel="icon" href="https://berlindeyiz.de/images/berlindeyiz.png" type="image/fav-icon"/>
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
     <link rel="preconnect" href="https://fonts.googleapis.com">
