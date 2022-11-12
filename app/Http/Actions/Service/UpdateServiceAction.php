@@ -66,7 +66,7 @@ class UpdateServiceAction
                 Storage::delete($oldLogo);
             }
 
-            if ($service->approved){
+            if ($service->approved && !$service->sent_to_telegram){
               SendServiceToTelegramChannelJob::dispatch($service);
             }
 

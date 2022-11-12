@@ -32,9 +32,6 @@ class SendServiceToTelegramChannelJob implements ShouldQueue
      */
     public function handle()
     {
-        $text = $this->service->title;
-        $image = $this->service->image;
-
-      TelegramService::sendMessage($text, $image);
+      TelegramService::sendMessage($this->service);
     }
 }

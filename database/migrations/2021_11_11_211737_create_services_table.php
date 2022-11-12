@@ -35,6 +35,7 @@ class CreateServicesTable extends Migration
             $table->enum('status', \App\Support\Enum\ServiceStatusEnum::all())->default(\App\Support\Enum\ServiceStatusEnum::ACTIVE);
             $table->tinyInteger('is_priced')->default(0);
             $table->integer('price')->default(0);
+            $table->tinyInteger('sent_to_telegram')->default(0);
             $table->dateTime('expires_at')->nullable();
             $table->integer('visit_count')->default(0);
             $table->timestamps();
