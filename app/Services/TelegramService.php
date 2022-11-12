@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Models\Service;
 use App\Support\Enum\ErrorLogEnum;
 use Illuminate\Support\Facades\Http;
 
@@ -20,12 +21,16 @@ class TelegramService
     $this->apiUrl .= $this->botToken;
   }
 
-  public function sendMessage($text = 'test', $image = null)
+  public function sendMessage(Service  $service)
   {
     try {
+      $serviceSlug = config('app.url'). "/$service->slug";
+      $serviceTitle = $service->title;
+
       $params = [
         'chat_id' => $this->chatId,
-        'text' => $text
+        'text' => "<b>Yeni Etkinlik Eklendi</b> : <a href='{$serviceSlug}'>$serviceTitle</a>",
+        'parse_mode' => 'HTML'
       ];
 
       $response = Http::post($this->apiUrl. $this->message, $params);
@@ -34,8 +39,8 @@ class TelegramService
         ->withProperties(['params' => $params, 'error' => $response->body()])
         ->log('SUCCESS');
 
-      if ($image != null) {
-        $params['photo'] = "https://berlindeyiz.de/storage/{$image}";
+      if ($service->image != null) {
+        $params['photo'] = "https://berlindeyiz.de/storage/{$service->image}";
         $response = Http::post($this->apiUrl. $this->photo, $params);
 
         activity('telegram_photo')
@@ -43,8 +48,11 @@ class TelegramService
           ->log('SUCCESS');
       }
 
+      $service->update(['sent_to_telegram' => true]);
+
       return true;
     } catch (\Exception $exception) {
+      dd($exception->getMessage());
       activity('telegram')
         ->withProperties(['error' => $exception->getMessage()])
         ->log(ErrorLogEnum::SEND_TELEGRAM_MESSAGE_SERVICE_ERROR);
