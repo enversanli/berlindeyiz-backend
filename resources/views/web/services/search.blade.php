@@ -12,8 +12,9 @@
             @php
             $category = request()->kategori;
             $city = request()->sehir;
+            $date = request()->tarih;
             @endphp
     <div class="py-10">
-        <searched-service-component city="{{$city}}" category="{{$category}}"></searched-service-component>
+        <searched-service-component city="{{$city}}" category="{{$category}}" date="{{$date}}"></searched-service-component>
     </div>
 @endsection

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Jobs\ServiceVisitJob;
 use App\Models\Service;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\ServiceQuestion;
 use App\Support\ResponseMessage;
@@ -38,8 +39,7 @@ class ServiceController extends Controller
     {
 
         $services = Service::with(['city', 'category', 'business'])
-            ->where('approved', 1)
-            ->where('status', ServiceStatusEnum::ACTIVE);
+            ->where('approved', 1);
 
         if ($request->kategori && $request->kategori != '') {
             $services->whereHas('category', function ($query) use ($request) {
@@ -61,9 +61,16 @@ class ServiceController extends Controller
             $services->where('is_priced', 0);
         }
 
+        if ($request->has('tarih') && $request->input('tarih') == 'bu-hafta'){
+          $services->where('date_from', '>=', Carbon::now()->startOfWeek()->format('Y-m-d'))
+            ->where('date_from', '<=', Carbon::now()->endOfWeek()->format('Y-m-d'));
+        }
+
+
         $services = $services
-          ->orderBy('date_from', 'ASC')
-          ->orderBy('date_to', 'ASC')
+          ->orderBy('date_from', 'DESC')
+          ->orderBy('date_to', 'DESC')
+          ->orderBy('status', 'ASC')
             ->paginate(10);
 
         return ServiceResource::collection($services);

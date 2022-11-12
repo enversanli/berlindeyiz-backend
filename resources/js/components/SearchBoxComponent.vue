@@ -17,11 +17,13 @@
         </select>-->
         <select
             @change="selectDate($event)"
+            name="tarih"
             class="h-9  m-3 p-1 bg-white shadow-md rounded-lg transition duration-700 hover:shadow-xl cursor-pointer animate__animated animate__fadeIn border border-none">
           <option :value="false">Tarih</option>
-          <option :value="false">Bu Hafta</option>
-          <option :value="false">Haftasonu</option>
-          <option :value="false">Gelecek Hafta</option>
+          <option :value="'bu-hafta'">Bu Hafta</option>
+          <option :value="'gelecek-hafta'">Gelecek Hafta</option>
+          <option :value="'bu-ay'">Bu Ay</option>
+          <option :value="'gelecek-ay'">Gelecek Ay</option>
           <option @click="selectDate()" :value="true">Tarih Belirle</option>
         </select>
         <button type="submit"
@@ -37,6 +39,7 @@
 export default {
   data() {
     return {
+      date: null,
       categories: null,
       cities: null,
       dateSelectOption: true

@@ -44,7 +44,8 @@
 export default {
   props: {
     city: String,
-    category: String
+    category: String,
+    date: String
   },
   data() {
     return {
@@ -70,7 +71,7 @@ export default {
 
   methods: {
     searchService() {
-      var url = '/etkinlik-ara?kategori=' + this.category + '&sehir=' + this.city;
+      var url = '/etkinlik-ara?kategori=' + this.category + '&sehir=' + this.city +'&tarih=' + this.date;
       axios.post(url).then(response => {
         this.services = response.data.data;
         this.links = response.data.links;
