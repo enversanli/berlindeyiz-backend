@@ -68,8 +68,8 @@ class ServiceController extends Controller
 
 
         $services = $services
-          ->orderBy('date_from', 'DESC')
-          ->orderBy('date_to', 'DESC')
+          ->orderBy('date_from', 'ASC')
+          ->orderBy('date_to', 'ASC')
           ->orderBy('status', 'ASC')
             ->paginate(10);
 
