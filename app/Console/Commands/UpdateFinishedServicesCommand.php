@@ -33,8 +33,8 @@ class UpdateFinishedServicesCommand extends Command
     $now = Carbon::now();
 
     $services = Service::where('date_to', '<',$now->format('Y-m-d'))
-      ->where('date_to', '<', $now->format('Y-m-d'))
-      ->whereNot('status', ServiceStatusEnum::ACTIVE)
+      ->where('date_from', '<', $now->format('Y-m-d'))
+      ->where('status', ServiceStatusEnum::ACTIVE)
       ->where('is_repeating', false)
       ->get();
 
@@ -42,6 +42,8 @@ class UpdateFinishedServicesCommand extends Command
       $service->update([
         'status' => ServiceStatusEnum::OUT_OF_DATE
       ]);
+
+      $this->info("{$service->id} is updated as out of date.");
     }
 
     $this->info("{$services->count()} services are updated as out of date");
