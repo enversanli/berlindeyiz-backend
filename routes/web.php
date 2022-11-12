@@ -161,8 +161,8 @@ Route::get('/cities/{id}/districts', [\App\Http\Controllers\CityController::clas
 Route::get('/categories', [\App\Http\Controllers\CategoryController::class, 'index']);
 /** end Categories */
 
-Route::get('faq', [\App\Http\Controllers\FaqController::class, 'index'])->name('public-faq.list');
-Route::get('announcements', [\App\Http\Controllers\AnnouncementController::class, 'index'])->name('public-announcements.list');
+Route::get('sss', [\App\Http\Controllers\FaqController::class, 'index'])->name('public-faq.list');
+Route::get('duyurular', [\App\Http\Controllers\AnnouncementController::class, 'index'])->name('public-announcements.list');
 Route::get('validators', [\App\Http\Controllers\ValidatorController::class, 'index'])->name('public-announcements.list');
 Route::get('sliders', [\App\Http\Controllers\SliderController::class, 'index'])->name('public-sliders.list');
 

@@ -50,9 +50,9 @@
         </div>
         <ul class="mt-20 text-3xl pl-5 font-weight-bold">
           <li class="my-4 ml-3"><a href="/"><i class="fas fa-home"></i> Anasayfa</a></li>
-          <li class="my-4 ml-3"><a href="/announcements"><i class="fas fa-bullhorn"></i> Duyurular</a></li>
+          <li class="my-4 ml-3"><a href="/duyurular"><i class="fas fa-bullhorn"></i> Duyurular</a></li>
           <!--<li class="my-4 ml-3"><a href="/validators"><i class="fas fa-ethernet"></i> Validatör</a></li>-->
-          <li class="my-4 ml-3"><a href="/faq"><i class="far fa-question-circle"></i> S.S.S</a></li>
+          <li class="my-4 ml-3"><a href="/sss"><i class="far fa-question-circle"></i> S.S.S</a></li>
         </ul>
       </div>
 
