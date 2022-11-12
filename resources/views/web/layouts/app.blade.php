@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="description" content="Berlindeyiz, Berlin'e dair müzik, kültür, sanat, edebiyat ve tüm etkinlikleri kolayca bulmanızı sağlar.">
+    <meta name="keywords" content="berlin etkinlik, etkinlikler, etkinlik, berlin türk etkinlikleri, berlindeyiz, berlinde etkinlik">
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
           integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"

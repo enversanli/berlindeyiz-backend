@@ -20,7 +20,7 @@ Route::get('/', function () {
 });
 
 Route::get('sitemap', function (){
-
+  \Spatie\Sitemap\SitemapGenerator::create('https://berlindeyiz.de')->writeToFile('../sitemap.php');
   include('../sitemap.xml');
 });
 
