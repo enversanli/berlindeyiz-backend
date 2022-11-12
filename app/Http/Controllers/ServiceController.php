@@ -69,7 +69,7 @@ class ServiceController extends Controller
 
         $services = $services
           ->orderBy('date_from', 'ASC')
-          ->orderBy('status', 'DESC')
+          ->orderBy('status', 'ASC')
             ->paginate(10);
 
         return ServiceResource::collection($services);
