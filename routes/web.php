@@ -21,7 +21,7 @@ Route::get('/', function () {
 
 Route::get('sitemap', function (){
 
-  include('../sitemap.php');
+  include('../sitemap.xml');
 });
 
 Route::view('/impressum', 'web.others.impressum');
