@@ -24,8 +24,9 @@ class TelegramService
   public function sendMessage(Service $service)
   {
     try {
-      $serviceSlug = config('app.url'). "/$service->slug";
+      $serviceSlug = config('app.url') . "/$service->slug";
       $serviceTitle = $service->title;
+      $endPoint = $this->message;
 
       $params = [
         'chat_id' => $this->chatId,
@@ -36,9 +37,10 @@ class TelegramService
       if ($service->image != null) {
         $params['photo'] = "https://berlindeyiz.de/storage/{$service->image}";
         $params['caption'] = $params['text'];
+        $endPoint = $this->photo;
       }
 
-      $response = Http::post($this->apiUrl. $this->message, $params);
+      $response = Http::post($this->apiUrl . $endPoint, $params);
 
       activity('telegram_message')
         ->withProperties(['params' => $params, 'error' => $response->body()])
