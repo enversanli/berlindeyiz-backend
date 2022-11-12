@@ -14,19 +14,15 @@
     <meta name="publisher" content="Berlindeyiz.de" />
     <meta name="robots" content="all" />
     <meta property="og:type" content="article" />
-
     <meta property="og:site_name" content="Berlindeyiz" />
-
     <meta property="og:locale" content="tr_TR" />
-
     <meta property="og:title" content="Berlin Etkinlikleri" />
-
     <meta property="og:description" content="Berlindeyiz, Berlin'e dair müzik, kültür, sanat, edebiyat ve tüm etkinlikleri kolayca bulmanızı sağlar." />
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
           integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
           crossorigin="anonymous">
-
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
     <link rel="icon" href="https://berlindeyiz.de/images/berlindeyiz.png" type="image/fav-icon"/>
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
