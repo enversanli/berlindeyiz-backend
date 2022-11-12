@@ -2,36 +2,7 @@
   <div class="">
     <div class="container">
       <div class="lg:flex md:w-full">
-        <div
-            class="h-96 2xl:service-detail-menu lg:service-detail-menu w-full 2xl:w-1/2 lg:w-1/2 2xl:w-1/2 md:w-full sm:w-full float-left 2xl:m-3 lg:m-3 md:m-3 sm:m-0 bg-white shadow-md rounded-lg transition duration-300 hover:shadow-xl p-3 md:mx-auto">
-          <ul class="p-4 text-2xl uppercase">
-            <li class="my-3 cursor-pointer transition duration-300 hover:pl-2" @click="setBlock('service')"><i
-                class="fas fa-flag mr-2"></i> Etkinlik
-            </li>
-            <li class="my-3 cursor-pointer" @click="setBlock('faq')"><i class="fas fa-question mr-2"></i> Sıkça Sorulan
-              Sorular
-            </li>
-            <li class="my-3 cursor-pointer" @click="setBlock('faq')" v-if="service.guide && service.guide.get_in_url"><a
-                :href="service.guide.get_in_url" target="_blank"><i class="fas fa-external-link-alt"></i> Bağlantı</a>
-            </li>
-          </ul>
 
-          <hr class="mb-4">
-
-          <ul class="w-full px-4 text-2xl">
-            <li class="w-1/2 float-left inline-block my-2"><i class="fas fa-map-marker-alt"></i> {{ service.city.name }}
-            </li>
-            <li class="w-1/2 float-left inline-block my-2"><i class="fas fa-bookmark"></i> {{ service.category.name }}
-            </li>
-            <li class="w-1/2 float-left inline-block my-2"><i class="fas fa-calendar-alt"></i> {{ service.date_from }}
-            </li>
-            <li class="w-1/2 float-left inline-block my-2"><i class="fas fa-clock"
-                                                              v-if="service.start_time !== null"></i>
-              {{ service.start_time }}
-            </li>
-          </ul>
-
-        </div>
         <div class="2xl:service-detail-content lg:service-detail-content md:w-full sm:w-full w-full float-left">
           <div class="h-auto m-3 bg-white shadow-md rounded-lg transition duration-300 hover:shadow-xl p-3 ">
             <div class="flex">
@@ -93,6 +64,38 @@
             </div>
           </div>
         </div>
+
+        <div
+            class="mb-5 h-96 2xl:service-detail-menu lg:service-detail-menu w-full 2xl:w-1/2 lg:w-1/2 2xl:w-1/2 md:w-full sm:w-full float-left 2xl:m-3 lg:m-3 md:m-3 sm:m-0 bg-white shadow-md rounded-lg transition duration-300 hover:shadow-xl p-3 md:mx-auto">
+          <ul class="p-4 text-2xl uppercase">
+            <li class="my-3 cursor-pointer transition duration-300 hover:pl-2" @click="setBlock('service')"><i
+                class="fas fa-flag mr-2"></i> Etkinlik
+            </li>
+            <li class="my-3 cursor-pointer" @click="setBlock('faq')"><i class="fas fa-question mr-2"></i> Sıkça Sorulan
+              Sorular
+            </li>
+            <li class="my-3 cursor-pointer" @click="setBlock('faq')" v-if="service.guide && service.guide.get_in_url"><a
+                :href="service.guide.get_in_url" target="_blank"><i class="fas fa-external-link-alt"></i> Bağlantı</a>
+            </li>
+          </ul>
+
+          <hr class="mb-4">
+
+          <ul class="w-full px-4 text-2xl">
+            <li class="w-1/2 float-left inline-block my-2"><i class="fas fa-map-marker-alt"></i> {{ service.city.name }}
+            </li>
+            <li class="w-1/2 float-left inline-block my-2"><i class="fas fa-bookmark"></i> {{ service.category.name }}
+            </li>
+            <li class="w-1/2 float-left inline-block my-2"><i class="fas fa-calendar-alt"></i> {{ service.date_from }}
+            </li>
+            <li class="w-1/2 float-left inline-block my-2"><i class="fas fa-clock"
+                                                              v-if="service.start_time !== null"></i>
+              {{ service.start_time }}
+            </li>
+          </ul>
+
+        </div>
+
       </div>
     </div>
     <slider-box-component title="Aynı Şehirde Diğer Etkinlikler" :rows="this.similar"></slider-box-component>
