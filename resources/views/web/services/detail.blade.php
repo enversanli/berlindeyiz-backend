@@ -1,6 +1,6 @@
 @extends('web.layouts.app')
 
-@section('site-title', $service->title)
+@section('site-title', $service->title . ' - Berlindeyiz')
 
 @section('site-description', $service->seo_description ?? $service->title)
 

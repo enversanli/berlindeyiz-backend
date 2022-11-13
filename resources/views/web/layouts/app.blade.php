@@ -1,7 +1,7 @@
 <!DOCTYPE html >
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-    <title>@yield('site-title', config('app.name', 'Berlindeyiz'))</title>
+    <title>@yield('site-title', config('app.name', 'Berlin başta olmak üzere Almanya\'daki tüm etkinlikleri kolayca bulun - Berlindeyiz'))</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
