@@ -44,7 +44,7 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://berlindeyiz.de/etkinlikler/egitim-ve-seminer-etkinlikleri-almanca-konusma-etkinligi-loulou-begegnungsort</loc>
+        <loc>https://berlindeyiz.de/etkinlikler/dil-ve-kultur-etkinlikleri-almanca-konusma-etkinligi-loulou-begegnungsort</loc>
         <lastmod>2022-11-12T09:36:02+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
@@ -58,6 +58,18 @@
     <url>
         <loc>https://berlindeyiz.de/etkinlikler/muzik-etkinlikleri-yunus-emre-enstitusu-yunusun-izinde-programi</loc>
         <lastmod>2022-11-12T09:36:02+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://berlindeyiz.de/etkinlikler/muzik-etkinlikleri-cem-adrian-berlin-konseri</loc>
+        <lastmod>2022-13-12T09:36:02+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://berlindeyiz.de/etkinlikler/dil-ve-kultur-etkinlikleri-almanca-konusma-etkinligi-olof-palme-zentrum</loc>
+        <lastmod>2022-14-12T09:36:02+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
