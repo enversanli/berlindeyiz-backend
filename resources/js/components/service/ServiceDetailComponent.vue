@@ -67,7 +67,7 @@
 
         <div
             class="mb-5 h-96 2xl:service-detail-menu lg:service-detail-menu w-full 2xl:w-1/2 lg:w-1/2 2xl:w-1/2 md:w-full sm:w-full float-left 2xl:m-3 lg:m-3 md:m-3 sm:m-0 bg-white shadow-md rounded-lg transition duration-300 hover:shadow-xl p-3 md:mx-auto">
-          <ul class="p-4 text-2xl uppercase">
+          <ul class="p-4 text-xl uppercase">
             <li class="my-3 cursor-pointer transition duration-300 hover:pl-2" @click="setBlock('service')"><i
                 class="fas fa-flag mr-2"></i> Etkinlik
             </li>
