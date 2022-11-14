@@ -65,6 +65,7 @@ class RegisterController extends Controller
      */
     protected function register(RegisterRequest $request)
     {
+      // TODO - Remove it before using
       return;
         $user = $this->registerAction->execute($request);
 
