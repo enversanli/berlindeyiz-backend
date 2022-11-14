@@ -19,6 +19,7 @@
     <meta property="og:title" content="Berlin Etkinlikleri" />
     <meta property="og:description" content="@yield('site-description', "Berlindeyiz, başta Berlin olmak üzere Almanya'nın tüm şehirlerindeki müzik, kültür, sanat, edebiyat, gezi gibi etkinlikleri kolayca bulmanızı sağlar.")" />
 
+    <link rel="icon" href="https://berlindeyiz.de/images/berlin.jpg">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
           integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
           crossorigin="anonymous">

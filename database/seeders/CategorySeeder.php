@@ -48,6 +48,10 @@ class CategorySeeder extends Seeder
         'name' => 'Gezi ve Sosyal Faaliyet',
         'description' => ''
       ],
+      [
+        'name' => 'Dil ve Kültür',
+        'description' => ''
+      ],
     ];
 
     foreach ($categories as $category) {
