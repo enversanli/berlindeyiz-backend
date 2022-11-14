@@ -65,6 +65,7 @@ class RegisterController extends Controller
      */
     protected function register(RegisterRequest $request)
     {
+      return;
         $user = $this->registerAction->execute($request);
 
         if (!$user->status){
