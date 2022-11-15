@@ -12,26 +12,46 @@ use Illuminate\Queue\SerializesModels;
 
 class SendServiceToTelegramChannelJob implements ShouldQueue
 {
-    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
+  use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    protected $service;
-    /**
-     * Create a new job instance.
-     *
-     * @return void
-     */
-    public function __construct(Service  $service)
-    {
-        $this->service = $service;
+  protected $service;
+  protected $message;
+
+  /**
+   * Create a new job instance.
+   *
+   * @return void
+   */
+  public function __construct(Service $service, string $message = null)
+  {
+    $this->service = $service;
+    $this->message = $message ?? 'Yeni Etkinlik Eklendi';
+  }
+
+  /**
+   * Execute the job.
+   *
+   * @return void
+   */
+  public function handle()
+  {
+    $withMedia = false;
+    $serviceSlug = config('app.url') . "/etkinlikler/{$this->service->slug}";
+    $serviceTitle = $this->service->title;
+    $text = "<b>{$this->message}</b> : <a href='{$serviceSlug}'>$serviceTitle</a>";
+
+    $params = [
+      'chat_id' => config('services.telegram.public_channel'),
+      'text' => $text,
+      'parse_mode' => 'HTML'
+    ];
+
+    if ($this->service->image != null) {
+      $params['photo'] = config('app.url')."/storage/{$this->service->image}";
+      $params['caption'] = $params['text'];
+      $withMedia = true;
     }
 
-    /**
-     * Execute the job.
-     *
-     * @return void
-     */
-    public function handle()
-    {
-      TelegramService::sendMessage($this->service);
-    }
+    TelegramService::sendMessage($params, $this->service, $withMedia);
+  }
 }

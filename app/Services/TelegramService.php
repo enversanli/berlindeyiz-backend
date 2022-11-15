@@ -2,16 +2,16 @@
 
 namespace App\Services;
 
-use App\Models\Service;
 use App\Support\Enum\ErrorLogEnum;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Http;
 
 class TelegramService
 {
   protected $apiUrl = 'https://api.telegram.org/bot';
   protected $botToken;
-  protected $message = '/sendMessage';
-  protected $photo = '/sendPhoto';
+  protected $messageEndpoing = '/sendMessage';
+  protected $photoEndpoint = '/sendPhoto';
   protected $chatId;
 
   public function __construct()
@@ -21,36 +21,25 @@ class TelegramService
     $this->apiUrl .= $this->botToken;
   }
 
-  public function sendMessage(Service $service)
+  public function sendMessage(array $params, Model $model = null, bool $withMedia = false)
   {
     try {
-      $serviceSlug = config('app.url') . "/etkinlikler/$service->slug";
-      $serviceTitle = $service->title;
-      $endPoint = $this->message;
 
-      $params = [
-        'chat_id' => $this->chatId,
-        'text' => "<b>Yeni Etkinlik Eklendi</b> : <a href='{$serviceSlug}'>$serviceTitle</a>",
-        'parse_mode' => 'HTML'
-      ];
+      $this->apiUrl .= $withMedia ? $this->photoEndpoint : $this->messageEndpoing;
 
-      if ($service->image != null) {
-        $params['photo'] = "https://berlindeyiz.de/storage/{$service->image}";
-        $params['caption'] = $params['text'];
-        $endPoint = $this->photo;
-      }
-
-      $response = Http::post($this->apiUrl . $endPoint, $params);
+      $response = Http::post($this->apiUrl, $params);
 
       activity('telegram_message')
         ->withProperties(['params' => $params, 'error' => $response->body()])
         ->log('SUCCESS');
 
-      $service->update(['sent_to_telegram' => true]);
+      if ($model) {
+        //$model->update(['sent_to_telegram' => true]);
+      }
 
       return true;
     } catch (\Exception $exception) {
-      dd($exception->getMessage());
+
       activity('telegram')
         ->withProperties(['error' => $exception->getMessage()])
         ->log(ErrorLogEnum::SEND_TELEGRAM_MESSAGE_SERVICE_ERROR);

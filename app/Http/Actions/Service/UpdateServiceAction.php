@@ -66,7 +66,7 @@ class UpdateServiceAction
       }
 
       if ($service->approved && !$service->sent_to_telegram) {
-        SendServiceToTelegramChannelJob::dispatch($service->refresh());
+        SendServiceToTelegramChannelJob::dispatchNow($service->refresh());
       }
 
       return ReturnData::success($service);

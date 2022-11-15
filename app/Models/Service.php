@@ -4,11 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 
 class Service extends Model
 {
     use HasFactory;
     protected  $guarded = [];
+
+    protected $telegramColumn = 'sent_to_tegram';
 
     public function user(){
         return $this->belongsTo(User::class, 'user_id', 'id');
@@ -40,5 +43,9 @@ class Service extends Model
 
     public function city(){
         return $this->hasOne(City::class, 'id', 'city_id');
+    }
+
+    public function scopeApproved(Builder $query){
+      return $query->where('approved', true);
     }
 }
