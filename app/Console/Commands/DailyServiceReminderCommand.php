@@ -26,7 +26,7 @@ class DailyServiceReminderCommand extends Command
     $message = "({$tomorrow}) - Etkinliklerde Yarın";
 
     foreach ($services as $service) {
-      SendServiceToTelegramChannelJob::dispatch($service, $message);
+      SendServiceToTelegramChannelJob::dispatchNow($service, $message);
     }
 
   }
