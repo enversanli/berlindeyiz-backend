@@ -23,7 +23,7 @@ class DailyServiceReminderCommand extends Command
 
     $tomorrow = now()->addDay()->format('d-m-Y');
 
-    $message = "({$tomorrow}) - Etkinliklerde Yarın";
+    $message = "Etkinliklerde Yarın - ({$tomorrow})";
 
     foreach ($services as $service) {
       SendServiceToTelegramChannelJob::dispatchNow($service, $message);
