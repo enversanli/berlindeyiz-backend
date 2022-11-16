@@ -23,8 +23,10 @@
 
             <div class="" v-if="serviceBlock">
               <div class="h-96 w-full mx-auto" v-if="service.logo">
+                <div class="w-full z-10 p-2 bg-red-600 text-center text-white mt-3 mb-1 text-lg" v-show="service.status === 'OUT_OF_DATE'"><p>Etkinlik Sona Erdi<p></p></div>
                 <img class="h-full w-full my-3 rounded-b-32"
                      :src="'/storage/'+service.logo">
+
               </div>
               <h2 class="text-black text-center my-3 text-4xl animate__animated animate__fadeIn">
                 {{ service.title }}</h2>
@@ -137,7 +139,7 @@ export default {
     if (this.service.status === 'Upcoming') {
       this.statusColor = 'bg-yellow-600';
     }
-    if (this.service.status === 'Ended') {
+    if (this.service.status === 'OUT_OF_DATE') {
       this.statusColor = 'bg-red-600';
     }
   },
