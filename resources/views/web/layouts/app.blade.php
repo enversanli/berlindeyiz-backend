@@ -39,6 +39,15 @@
     {{--    <link--}}
     {{--        rel="stylesheet"--}}
     {{--        href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">--}}
+<!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PS504YLF2T"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-PS504YLF2T');
+    </script>
 </head>
 <body class="font-sans antialiased">
 <div id="app">
