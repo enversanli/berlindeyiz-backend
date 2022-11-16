@@ -17,7 +17,7 @@
                  :alt="service.title"
                  :src="'/storage/'+service.logo">
             <div class="w-full z-10 p-2 bg-red-600 text-center text-white" v-show="service.status === 'OUT_OF_DATE' || service.status === 'CANCELED'">
-              <p>{{service.status === 'CANCELED' ? 'Etkinlik Sona Erdi' : 'Etkinlik İptal Edildi'}}<p></p>
+              <p>{{service.status === 'CANCELED' ? 'Etkinlik İptal Edildi' : 'Etkinlik Sona Erdi'}}<p></p>
             </div>
           </div>
           <div class="h-36 w-1/6 service-logo pl-2 mx-auto float-left hidden sm:hidden lg:block md:block">
