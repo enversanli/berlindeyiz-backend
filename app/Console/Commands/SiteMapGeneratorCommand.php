@@ -33,10 +33,19 @@ class SiteMapGeneratorCommand extends Command
     $services = Service::approved()->get();
     $sitemapGenerator = SitemapGenerator::create('https://berlindeyiz.de')
       ->getSitemap();
+
+    $otherPages = [
+      '/sikca-sorulan-sorular',
+      '/duyurular',
+    ];
+
+    foreach ($otherPages as $otherPage) {
+      $sitemapGenerator->add(Url::create($otherPage)->setPriority(0.5));
+    }
+
     foreach ($services as $service) {
       $url = '/etkinlikler/' . $service->slug;
 
-      // here we add one extra link, but you can add as many as you'd like
       $sitemapGenerator->add(Url::create($url)->setPriority(0.5));
     }
     $sitemapGenerator->
