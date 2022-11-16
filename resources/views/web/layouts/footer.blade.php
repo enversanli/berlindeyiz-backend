@@ -56,7 +56,7 @@
     <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8">
     <div class="sm:flex sm:items-center sm:justify-between">
         <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2022 <a href="/"
-                                                                                        class="hover:underline">Berlideyiz™</a>. Tüm Hakları Saklıdır.
+                                                                                        class="hover:underline">Berlindeyiz</a>. Tüm Hakları Saklıdır.
         </span>
         <div class="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
             <a href="https://www.facebook.com/profile.php?id=100087378266298" target="_blank" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
