@@ -81,7 +81,7 @@
 
           <hr class="mb-4">
 
-          <ul class="w-full px-4 text-2xl">
+          <ul class="w-full px-4 text-xl">
             <li class="w-1/2 float-left inline-block my-2"><i class="fas fa-map-marker-alt"></i> {{ service.city.name }}
             </li>
             <li class="w-1/2 float-left inline-block my-2"><i class="fas fa-bookmark"></i> {{ service.category.name }}

@@ -66,7 +66,7 @@ class ServiceController extends Controller
         $service = Service::findOrFail($id);
 
         return view('organizer.services.detail')->with([
-            'service' => $service,
+            'service' => ServiceResource::make($service),
             'cities' => City::get(),
             'districts' => District::get(),
             'categories' => Category::all()
