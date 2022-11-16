@@ -39,14 +39,17 @@ class SiteMapGeneratorCommand extends Command
       '/duyurular',
     ];
 
+    $this->error('Basliyor...');
     foreach ($otherPages as $otherPage) {
       $sitemapGenerator->add(Url::create($otherPage)->setPriority(0.5));
+      $this->info('Added To Sitemap : '. $otherPage);
     }
 
     foreach ($services as $service) {
       $url = '/etkinlikler/' . $service->slug;
 
       $sitemapGenerator->add(Url::create($url)->setPriority(0.5));
+      $this->info('Added To Sitemap : '. $url );
     }
     $sitemapGenerator->
     writeToFile('sitemap.xml');

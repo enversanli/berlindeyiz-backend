@@ -2,151 +2,163 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
     <url>
         <loc>https://berlindeyiz.de/</loc>
-        <lastmod>2022-11-16T23:18:32+00:00</lastmod>
+        <lastmod>2022-11-16T23:28:23+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
         </url>
     <url>
         <loc>https://berlindeyiz.de/impressum</loc>
-        <lastmod>2022-11-16T23:18:32+00:00</lastmod>
+        <lastmod>2022-11-16T23:28:23+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
         </url>
     <url>
+        <loc>http://activity.test/sikca-sorulan-sorular</loc>
+        <lastmod>2022-11-16T23:28:23+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.5</priority>
+        </url>
+    <url>
+        <loc>http://activity.test/duyurular</loc>
+        <lastmod>2022-11-16T23:28:23+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.5</priority>
+        </url>
+    <url>
         <loc>http://activity.test/etkinlikler/sivas-muzik-etkinlikleri-sivas</loc>
-        <lastmod>2022-11-16T23:18:32+00:00</lastmod>
+        <lastmod>2022-11-16T23:28:23+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
         </url>
     <url>
         <loc>http://activity.test/etkinlikler/muzik-etkinlikleri-sivas</loc>
-        <lastmod>2022-11-16T23:18:32+00:00</lastmod>
+        <lastmod>2022-11-16T23:28:23+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
         </url>
     <url>
         <loc>http://activity.test/etkinlikler/test-near</loc>
-        <lastmod>2022-11-16T23:18:32+00:00</lastmod>
+        <lastmod>2022-11-16T23:28:23+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
         </url>
     <url>
         <loc>http://activity.test/etkinlikler/prof</loc>
-        <lastmod>2022-11-16T23:18:32+00:00</lastmod>
+        <lastmod>2022-11-16T23:28:23+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
         </url>
     <url>
         <loc>http://activity.test/etkinlikler/dr</loc>
-        <lastmod>2022-11-16T23:18:32+00:00</lastmod>
+        <lastmod>2022-11-16T23:28:23+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
         </url>
     <url>
         <loc>http://activity.test/etkinlikler/miss</loc>
-        <lastmod>2022-11-16T23:18:32+00:00</lastmod>
+        <lastmod>2022-11-16T23:28:23+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
         </url>
     <url>
         <loc>http://activity.test/etkinlikler/mr</loc>
-        <lastmod>2022-11-16T23:18:32+00:00</lastmod>
+        <lastmod>2022-11-16T23:28:23+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
         </url>
     <url>
         <loc>http://activity.test/etkinlikler/mrs</loc>
-        <lastmod>2022-11-16T23:18:32+00:00</lastmod>
+        <lastmod>2022-11-16T23:28:23+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
         </url>
     <url>
         <loc>http://activity.test/etkinlikler/spor-etkinlikleri-is-updated-data</loc>
-        <lastmod>2022-11-16T23:18:32+00:00</lastmod>
+        <lastmod>2022-11-16T23:28:23+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
         </url>
     <url>
         <loc>http://activity.test/etkinlikler/spor-etkinlikleri-yeniligin-golgesinde-bir-omur</loc>
-        <lastmod>2022-11-16T23:18:32+00:00</lastmod>
+        <lastmod>2022-11-16T23:28:23+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
         </url>
     <url>
         <loc>http://activity.test/etkinlikler/egitim-ve-seminer-etkinlikleri-merhaba-hatirlar-sahne-gosterisi</loc>
-        <lastmod>2022-11-16T23:18:32+00:00</lastmod>
+        <lastmod>2022-11-16T23:28:23+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
         </url>
     <url>
         <loc>http://activity.test/etkinlikler/muzik-etkinlikleri-gecenin-nagmesi-sahne-gosterisi</loc>
-        <lastmod>2022-11-16T23:18:32+00:00</lastmod>
+        <lastmod>2022-11-16T23:28:23+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
         </url>
     <url>
         <loc>http://activity.test/etkinlikler/topluluk-bulusmalari-etkinlikleri-artik-gelme</loc>
-        <lastmod>2022-11-16T23:18:32+00:00</lastmod>
+        <lastmod>2022-11-16T23:28:23+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
         </url>
     <url>
         <loc>http://activity.test/etkinlikler/topluluk-bulusmalari-etkinlikleri-mr</loc>
-        <lastmod>2022-11-16T23:18:32+00:00</lastmod>
+        <lastmod>2022-11-16T23:28:23+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
         </url>
     <url>
         <loc>http://activity.test/etkinlikler/muzik-etkinlikleri-dr</loc>
-        <lastmod>2022-11-16T23:18:32+00:00</lastmod>
+        <lastmod>2022-11-16T23:28:23+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
         </url>
     <url>
         <loc>http://activity.test/etkinlikler/muzik-etkinlikleri-miss</loc>
-        <lastmod>2022-11-16T23:18:32+00:00</lastmod>
+        <lastmod>2022-11-16T23:28:23+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
         </url>
     <url>
         <loc>http://activity.test/etkinlikler/sahne-etkinlikleri-mehmet-pasaoglu-gosterisi</loc>
-        <lastmod>2022-11-16T23:18:32+00:00</lastmod>
+        <lastmod>2022-11-16T23:28:23+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
         </url>
     <url>
         <loc>http://activity.test/etkinlikler/egitim-ve-seminer-etkinlikleri-prof</loc>
-        <lastmod>2022-11-16T23:18:32+00:00</lastmod>
+        <lastmod>2022-11-16T23:28:23+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
         </url>
     <url>
         <loc>http://activity.test/etkinlikler/aile-etkinlikleri-dus-yakamdan</loc>
-        <lastmod>2022-11-16T23:18:32+00:00</lastmod>
+        <lastmod>2022-11-16T23:28:23+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
         </url>
     <url>
         <loc>http://activity.test/etkinlikler/muzik-etkinlikleri-artik-gelsende-bir</loc>
-        <lastmod>2022-11-16T23:18:32+00:00</lastmod>
+        <lastmod>2022-11-16T23:28:23+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
         </url>
     <url>
         <loc>http://activity.test/etkinlikler/egitim-ve-seminer-etkinlikleri-first</loc>
-        <lastmod>2022-11-16T23:18:32+00:00</lastmod>
+        <lastmod>2022-11-16T23:28:23+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
         </url>
     <url>
         <loc>http://activity.test/etkinlikler/muzik-etkinlikleri-asdasd</loc>
-        <lastmod>2022-11-16T23:18:32+00:00</lastmod>
+        <lastmod>2022-11-16T23:28:23+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
         </url>
     <url>
         <loc>http://activity.test/etkinlikler/muzik-etkinlikleri-sivas-halayi-cekme-yarismasi-etkinl</loc>
-        <lastmod>2022-11-16T23:18:32+00:00</lastmod>
+        <lastmod>2022-11-16T23:28:23+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
         </url>
