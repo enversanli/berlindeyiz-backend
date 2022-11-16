@@ -23,7 +23,9 @@
 
             <div class="" v-if="serviceBlock">
               <div class="h-96 w-full mx-auto" v-if="service.logo">
-                <div class="w-full z-10 p-2 bg-red-600 text-center text-white mt-3 mb-1 text-lg" v-show="service.status === 'OUT_OF_DATE'"><p>Etkinlik Sona Erdi<p></p></div>
+                <div class="w-full z-10 p-2 bg-red-600 text-center text-white mt-3 mb-1 text-lg" v-show="service.status === 'OUT_OF_DATE' || service.status === 'CANCELED'">
+                  <p>{{service.status === 'CANCELED' ? 'Etkinlik Sona Erdi' : 'Etkinlik İptal Edildi'}}<p></p>
+                </div>
                 <img class="h-full w-full my-3 rounded-b-32"
                      :src="'/storage/'+service.logo">
 
