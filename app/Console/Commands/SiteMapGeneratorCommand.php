@@ -38,11 +38,12 @@ class SiteMapGeneratorCommand extends Command
       '/sikca-sorulan-sorular',
       '/duyurular',
     ];
-
+    $counter = 0;
     $this->error('Basliyor...');
     foreach ($otherPages as $otherPage) {
       $sitemapGenerator->add(Url::create($otherPage)->setPriority(0.5));
       $this->info('Added To Sitemap : '. $otherPage);
+      $counter++;
     }
 
     foreach ($services as $service) {
@@ -50,9 +51,12 @@ class SiteMapGeneratorCommand extends Command
 
       $sitemapGenerator->add(Url::create($url)->setPriority(0.5));
       $this->info('Added To Sitemap : '. $url );
+      $counter++;
     }
     $sitemapGenerator->
     writeToFile('sitemap.xml');
 
+    $this->error('Sitemap Genereted, Please check...');
+    $this->info("{$counter} page stored to sitemap.");
   }
 }
