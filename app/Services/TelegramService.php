@@ -34,7 +34,7 @@ class TelegramService
         ->log('SUCCESS');
 
       if ($model) {
-        //$model->update(['sent_to_telegram' => true]);
+        $model->update(['sent_to_telegram' => true]);
       }
 
       return true;

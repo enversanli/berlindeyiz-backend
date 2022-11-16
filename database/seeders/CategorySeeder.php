@@ -21,7 +21,7 @@ class CategorySeeder extends Seeder
         'description' => ''
       ],
       [
-        'name' => 'Sahne',
+        'name' => 'Sahne ve Tiyatro',
         'description' => ''
       ],
       [
