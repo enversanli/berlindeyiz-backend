@@ -38,7 +38,7 @@
             </div>
 
             <div class="animate__animated animate__fadeIn" v-else-if="faqBlock && service.questions.length > 0">
-              <div class="w-full md:w-7/12 lg:w-full mx-auto relative p-20">
+              <div class="w-full md:w-7/12 lg:w-full mx-auto relative p-2 mt-5">
                 <h1 class="text-3xl text-center font-bold text-black">Sıkça Sorulan Sorular</h1>
                 <div class="border-l-2 mt-10">
                   <!-- Card 1 -->
