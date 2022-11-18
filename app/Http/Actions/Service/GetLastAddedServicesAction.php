@@ -4,16 +4,18 @@ namespace App\Http\Actions\Service;
 
 use App\Models\Service;
 use App\Support\Enum\ErrorLogEnum;
+use App\Support\Enum\ServiceStatusEnum;
 use App\Support\ReturnData;
 
 class GetLastAddedServicesAction
 {
-  public function get($count = 10)
+  public function get($count = 6)
   {
     try {
       $services = Service::where('approved', 1)
         ->orderBy('date_from', 'ASC')
         ->orderBy('status', 'ASC')
+        ->where('status', ServiceStatusEnum::ACTIVE)
         ->take($count)
         ->get();
 
