@@ -81,10 +81,10 @@ class FaqController extends Controller
             $question = ServiceQuestion::findOrFail($questionId);
 
             $question->delete();
-            return redirect()->route('faq')->with('message', $this->responseHelper->success(__('response.success'), __('response.successMessage', ['param' => __('common.deleted')])));
+            return redirect()->route('faq.index')->with('message', $this->responseHelper->success(__('response.success'), __('response.successMessage', ['param' => __('common.deleted')])));
 
         }catch (\Exception $exception){
-            return redirect()->route('faq')->with('message', $this->responseHelper->error(__('response.error'), __('response.went_wrong')));
+            return redirect()->route('faq.index')->with('message', $this->responseHelper->error(__('response.error'), __('response.went_wrong')));
         }
 
     }

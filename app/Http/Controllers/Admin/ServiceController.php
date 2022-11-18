@@ -89,7 +89,7 @@ class ServiceController extends Controller
             return redirect()->back()->with(ResponseMessage::errorToView($storedService->message));
         }
 
-        return redirect()->route('admin.service.create')->with(ResponseMessage::successToView());
+        return redirect()->route('service.create')->with(ResponseMessage::successToView());
     }
 
     public function update(ServiceUpdateRequest $request, Service $service)
@@ -100,7 +100,7 @@ class ServiceController extends Controller
             return redirect()->back()->with(ResponseMessage::errorToView($updatedService->message));
         }
 
-        return redirect()->route('admin.service.show', $service->id)->with(ResponseMessage::successToView());
+        return redirect()->route('service.show', $service->id)->with(ResponseMessage::successToView());
     }
 
     public function destroy($id)
@@ -108,10 +108,10 @@ class ServiceController extends Controller
         try {
             $service = Service::findOrFail($id);
             $service->delete();
-            return redirect()->route('services')->with('message', $this->responseHelper->success(__('response.success'), __('response.successMessage', ['param' => __('common.deleted')])));
+            return redirect()->route('service.index')->with('message', $this->responseHelper->success(__('response.success'), __('response.successMessage', ['param' => __('common.deleted')])));
 
         } catch (\Exception $exception) {
-            return redirect()->route('services')->with('message', $this->responseHelper->error(__('response.error'), __('response.went_wrong')));
+            return redirect()->route('service.index')->with('message', $this->responseHelper->error(__('response.error'), __('response.went_wrong')));
         }
     }
 }

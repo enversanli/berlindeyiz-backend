@@ -78,12 +78,12 @@
                                                             </td>
 
                                                             <td class="px-1 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                                                <a href="{{route('admin.user.show', $user->id)}}"
+                                                                <a href="{{route('user.show', $user->id)}}"
                                                                    class="p-1 pl-3 pr-3 transition-colors duration-50 transform bg-indigo-500 hover:bg-blue-400 text-gray-100 text-sm rounded-lg focus:border-4 border-indigo-300 mr-5"><i
                                                                         class="fas fa-search"></i> Detay</a>
 
                                                                     <button type="submit"
-                                                                            onclick='modalShow("{{route('admin.user.destroy', $user->id)}}")'
+                                                                            onclick='modalShow("{{route('user.destroy', $user->id)}}")'
                                                                             class="p-1  pl-3 pr-3 transition-colors duration-500 transform bg-red-500 hover:bg-red-400 text-gray-100 text-sm rounded-lg focus:border-4 border-red-300">
                                                                         <i class="far fa-trash-alt"></i> @lang('common.delete')
                                                                     </button>

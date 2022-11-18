@@ -69,7 +69,6 @@ class StoreServiceAction
 
       return ReturnData::success($service);
     } catch (\Exception $exception) {
-      dd($exception->getMessage());
       activity()
         ->causedBy(auth()->user())
         ->withProperties(['error' => $exception->getMessage(), 'user_id' => auth()->user()->id])

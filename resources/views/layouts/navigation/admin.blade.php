@@ -1,11 +1,11 @@
 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-    <x-nav-link :href="route('admin.user.list')" :active="request()->routeIs('admin.user.list')">
+    <x-nav-link :href="route('user.list')" :active="request()->routeIs('user.list')">
         {{ __('common.users') }}
     </x-nav-link>
 </div>
 
 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-    <x-nav-link :href="route('admin.service.list')" :active="request()->routeIs('admin.service.list')">
+    <x-nav-link :href="route('service.index')" :active="request()->routeIs('service.index')">
         {{ __('common.services') }}
     </x-nav-link>
 </div>
@@ -17,13 +17,13 @@
 </div>
 
 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-    <x-nav-link :href="route('faq')" :active="request()->routeIs('faq')">
+    <x-nav-link :href="route('faq.index')" :active="request()->routeIs('faq.index')">
         {{ __('common.faq') }}
     </x-nav-link>
 </div>
 
 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-    <x-nav-link :href="route('announcement.list')" :active="request()->routeIs('announcement.list')">
+    <x-nav-link :href="route('announcement.index')" :active="request()->routeIs('announcement.index')">
         {{ __('common.announcements') }}
     </x-nav-link>
 </div>

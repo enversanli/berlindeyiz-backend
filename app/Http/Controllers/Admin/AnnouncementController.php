@@ -83,7 +83,7 @@ class AnnouncementController extends Controller
         try {
 
             $announcement->delete();
-            return redirect()->route('announcement.list')->with('message', $this->responseHelper->success(__('response.success'), __('response.successMessage', ['param' => __('common.deleted')])));
+            return redirect()->route('announcement.index')->with('message', $this->responseHelper->success(__('response.success'), __('response.successMessage', ['param' => __('common.deleted')])));
 
         } catch (\Exception $exception) {
             return redirect()->route('announcement.create')->with('message', $this->responseHelper->error(__('response.error'), __('response.went_wrong')));

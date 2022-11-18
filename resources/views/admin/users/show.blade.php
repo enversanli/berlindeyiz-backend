@@ -17,7 +17,7 @@
                                     @include('admin.components.message')
 
                                     <x-auth-validation-errors class="mb-4" :errors="$errors"/>
-                                    <form action="{{route('admin.user.update', $user->id)}}"
+                                    <form action="{{route('user.update', $user->id)}}"
                                           method="POST"
                                           enctype="multipart/form-data">
                                         @csrf

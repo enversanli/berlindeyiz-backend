@@ -17,4 +17,5 @@ return [
 
     'current_image' => 'Mevcut Görsel',
     'new_image' => 'Yeni Görsel',
+    'faq' => 'S.S.S'
 ];

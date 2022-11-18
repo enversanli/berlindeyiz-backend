@@ -112,10 +112,10 @@ class ServiceController extends Controller
         try {
             $service = Service::findOrFail($id);
             $service->delete();
-            return redirect()->route('services')->with('message', $this->responseHelper->success(__('response.success'), __('response.successMessage', ['param' => __('common.deleted')])));
+            return redirect()->route('service.index')->with('message', $this->responseHelper->success(__('response.success'), __('response.successMessage', ['param' => __('common.deleted')])));
 
         } catch (\Exception $exception) {
-            return redirect()->route('services')->with('message', $this->responseHelper->error(__('response.error'), __('response.went_wrong')));
+            return redirect()->route('service.index')->with('message', $this->responseHelper->error(__('response.error'), __('response.went_wrong')));
         }
     }
 }

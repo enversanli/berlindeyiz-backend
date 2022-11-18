@@ -34,7 +34,7 @@
                                                     <div class="flex items-center justify-end mt-4 mb-4">
 
                                                         <x-button class="ml-1 mr-1">
-                                                            <a href="{{route('admin.service.create')}}">
+                                                            <a href="{{route('service.create')}}">
                                                                 <i class="fas fa-plus"></i> @lang('service.new_service')
                                                             </a>
                                                         </x-button>
@@ -93,12 +93,12 @@
                                                                 </td>
 
                                                                 <td class="px-1 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                                                    <a href="{{route('admin.service.show', $service->id)}}"
+                                                                    <a href="{{route('service.show', $service->id)}}"
                                                                        class="p-1 pl-3 pr-3 transition-colors duration-50 transform bg-indigo-500 hover:bg-blue-400 text-gray-100 text-sm rounded-lg focus:border-4 border-indigo-300 mr-5"><i
                                                                                 class="fas fa-search"></i> Detay</a>
 
                                                                     <button type="submit"
-                                                                            onclick='modalShow("{{route('admin.service.destroy', $service->id)}}")'
+                                                                            onclick='modalShow("{{route('service.destroy', $service->id)}}")'
                                                                             class="p-1  pl-3 pr-3 transition-colors duration-500 transform bg-red-500 hover:bg-red-400 text-gray-100 text-sm rounded-lg focus:border-4 border-red-300">
                                                                         <i class="far fa-trash-alt"></i> @lang('common.delete')
                                                                     </button>

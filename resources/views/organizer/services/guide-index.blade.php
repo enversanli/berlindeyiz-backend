@@ -31,7 +31,7 @@
                                                 <h2 style="font-size: 1.5em;" class="mb-6">@lang('common.service_list')</h2>
                                                 <div class="overflow-hidden border-b border-gray-200 sm:rounded-lg">
                                                     <div class="flex items-center justify-end mt-4 mb-4">
-{{--                                                    <form action="{{route('admin.user.list')}}" method="get">--}}
+{{--                                                    <form action="{{route('user.list')}}" method="get">--}}
 {{--                                                        <div class="form-input">--}}
 {{--                                                            <input type="text" placeholder="Ara..." name="search"--}}
 {{--                                                                   value="{{request()->search}}" autocomplete="search"--}}

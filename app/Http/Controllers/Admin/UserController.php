@@ -78,7 +78,7 @@ class UserController extends Controller
             return redirect()->back()->with(ResponseMessage::errorToView($user->message));
         }
 
-        return redirect()->route('admin.user.show', $user->id);
+        return redirect()->route('user.show', $user->id);
     }
 
     public function destroy($id)
