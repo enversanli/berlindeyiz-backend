@@ -27,8 +27,3 @@
         {{ __('common.announcements') }}
     </x-nav-link>
 </div>
-<div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-    <x-nav-link :href="route('validator.list')" :active="request()->routeIs('validator.list')">
-        {{ __('common.validators') }}
-    </x-nav-link>
-</div>
