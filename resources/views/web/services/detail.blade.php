@@ -15,7 +15,7 @@
 @section('option') main-container-no-padding @endsection
 
 @section('content')
-    <div class="py-10">
+    <div class="">
         <service-detail-component :service="{{$service}}"></service-detail-component>
     </div>
 @endsection
