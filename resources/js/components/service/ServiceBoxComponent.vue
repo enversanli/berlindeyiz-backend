@@ -13,7 +13,7 @@
 
         <div class="h-auto">
           <div class="w-full">
-            <img class="h-60 w-full px-3"
+            <img class="xl:72 lg:h-72 md:h-64 sm:h-60 w-full px-3"
                  :alt="service.title"
                  :src="'/storage/'+service.logo">
             <div class="w-full z-10 p-2 bg-red-600 text-center text-white" v-show="service.status === 'OUT_OF_DATE' || service.status === 'CANCELED'">
