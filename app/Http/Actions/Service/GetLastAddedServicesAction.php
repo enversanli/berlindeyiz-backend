@@ -13,7 +13,7 @@ class GetLastAddedServicesAction
   {
     try {
       $services = Service::where('approved', 1)
-        ->orderBy('created_at', 'ASC')
+        ->orderBy('created_at', 'DESC')
         ->where('status', ServiceStatusEnum::ACTIVE)
         ->take($count)
         ->get();
