@@ -28,7 +28,7 @@
                   <p>{{ service.status === 'CANCELED' ? 'Etkinlik İptal Edildi' : 'Etkinlik Sona Erdi' }}
                   <p></p>
                 </div>
-                <img class="min-h-60 max-h-96 w-full my-3 rounded-b-32"
+                <img class="min-hei-64 max-h-96 w-full my-3 rounded-b-32"
                      :src="'/storage/'+service.logo">
 
               </div>

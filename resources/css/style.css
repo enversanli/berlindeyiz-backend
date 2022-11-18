@@ -132,6 +132,12 @@ pre{
     overflow: scroll;
 }
 
+.min-hei-64{
+    min-height: 16rem;
+}
+
+.min-hei-
+
 @media only screen and (max-width: 1500px) {
     pre{
         max-width: 700px;
