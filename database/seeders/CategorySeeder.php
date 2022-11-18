@@ -52,6 +52,10 @@ class CategorySeeder extends Seeder
         'name' => 'Dil ve Kültür',
         'description' => ''
       ],
+      [
+        'name' => 'Tv, Film ve Dizi',
+        'description' => ''
+      ],
     ];
 
     foreach ($categories as $category) {

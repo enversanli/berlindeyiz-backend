@@ -11,7 +11,7 @@
 </div>
 
 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-    <x-nav-link :href="route('slider.list')" :active="request()->routeIs('slider.list')">
+    <x-nav-link :href="route('slider.index')" :active="request()->routeIs('slider.index')">
         {{ __('common.sliders') }}
     </x-nav-link>
 </div>

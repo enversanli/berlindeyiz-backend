@@ -34,23 +34,18 @@ class SliderController extends Controller
             $path = $request->slider->storeAs('public/sliders', 'slider-' . Str::uuid() . '.' . $request->slider->extension());
             //$path = $request->file('slider')->store('sliders');
 
-            $slider = Slider::create([
+            Slider::create([
                 'image' => env('APP_URL'). '/storage/' .explode('public/', $path)[1],
                 'title' => $request->title,
                 'description' => $request->description
             ]);
 
-            return redirect()->route('slider.list')->with('message', $this->responseHelper->success(__('response.success'), __('response.successMessage', ['param' => __('common.created')])));
+            return redirect()->route('slider.index')->with('message', $this->responseHelper->success(__('response.success'), __('response.successMessage', ['param' => __('common.created')])));
 
         } catch (\Exception $exception) {
-            return redirect()->route('slider.list')->with('message', $this->responseHelper->error(__('response.error'), __('response.went_wrong')));
+            return redirect()->route('slider.index')->with('message', $this->responseHelper->error(__('response.error'), __('response.went_wrong')));
 
         }
-    }
-
-    public function update()
-    {
-
     }
 
     public function destroy($id)
@@ -59,10 +54,10 @@ class SliderController extends Controller
         try {
             $slider->delete();
 
-            return redirect()->route('slider.list')->with('message', $this->responseHelper->success(__('response.success'), __('response.successMessage', ['param' => __('common.deleted')])));
+            return redirect()->route('slider.index')->with('message', $this->responseHelper->success(__('response.success'), __('response.successMessage', ['param' => __('common.deleted')])));
 
         } catch (\Exception $exception) {
-            return redirect()->route('slider.list')->with('message', $this->responseHelper->error(__('response.error'), __('response.went_wrong')));
+            return redirect()->route('slider.index')->with('message', $this->responseHelper->error(__('response.error'), __('response.went_wrong')));
 
         }
 

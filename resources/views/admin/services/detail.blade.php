@@ -17,11 +17,10 @@
                                     @include('admin.components.message')
 
                                     <x-auth-validation-errors class="mb-4" :errors="$errors"/>
-                                    <form action="{{route('admin.service.update', $service->id)}}"
+                                    <form action="{{route('service.update', $service->id)}}"
                                           method="POST"
                                           enctype="multipart/form-data">
                                         @csrf
-                                        @method('PUT')
                                         <div class="flex w-full mobile-companent">
                                             <div class="w-3/4 mobile-input px-2">
                                                 <x-label for="title" :value="__('common.title')"/>
@@ -160,6 +159,9 @@
                                             <x-button class="ml-3">
                                                 <i class="fas fa-plus"></i> {{ __('common.update') }}
                                             </x-button>
+                                            <a href="{{route('service.questions', $service->id)}}" class="ml-3">
+                                                <i class="fas fa-plus"></i> {{ __('service.faq') }}
+                                            </a>
                                         </div>
                                     </form>
                                 </div>

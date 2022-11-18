@@ -103,9 +103,9 @@ Route::prefix('admin')->middleware('auth')->group(function () {
 
   /** Sliders */
   Route::resource('sliders', SliderController::class)
-    ->only('index', 'store')
-    ->name('index', 'slider.list')
+    ->name('index', 'slider.index')
     ->name('store', 'slider.store');
+
   Route::get('/{id}/destroy', [SliderController::class, 'destroy'])->name('slider.destroy');
   /** end Sliders */
 
