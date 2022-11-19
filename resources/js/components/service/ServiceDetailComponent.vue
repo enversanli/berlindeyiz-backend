@@ -102,11 +102,8 @@
               {{ service.start_time }}
             </li>
           </ul>
-          <div class="map w-full my-6 mt-10" v-if="service.meta && service.meta.map">
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9704.885824330542!2d13.351131149448772!3d52.547518977109654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a851800d56a53b%3A0x288235ac1e6f2cc!2sLeopoldplatz!5e0!3m2!1str!2sde!4v1668880091533!5m2!1str!2sde"
-                width="200" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <div class="map w-full my-6 mt-10" v-if="service.meta">
+
           </div>
         </div>
 
