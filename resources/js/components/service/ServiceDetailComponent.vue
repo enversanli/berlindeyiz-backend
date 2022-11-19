@@ -72,7 +72,7 @@
         </div>
 
         <div
-            class="mb-5 h-96 2xl:service-detail-menu lg:service-detail-menu w-full 2xl:w-1/2 lg:w-1/2 2xl:w-1/2 md:w-full sm:w-full float-left 2xl:m-3 lg:m-3 md:m-3 sm:m-0 bg-white shadow-md rounded-lg transition duration-300 hover:shadow-xl p-3 md:mx-auto">
+            class="mb-5 h-auto 2xl:service-detail-menu lg:service-detail-menu w-full 2xl:w-1/2 lg:w-1/2 2xl:w-1/2 md:w-full sm:w-full float-left 2xl:m-3 lg:m-3 md:m-3 sm:m-0 bg-white shadow-md rounded-lg transition duration-300 hover:shadow-xl p-3 md:mx-auto">
           <ul class="p-4 text-xl uppercase">
             <li class="my-3 cursor-pointer transition duration-300 hover:pl-2" @click="setBlock('service')"><i
                 class="fas fa-flag mr-2"></i> Etkinlik
@@ -87,19 +87,27 @@
 
           <hr class="mb-4">
 
-          <ul class="w-full px-4 text-xl">
-            <li class="w-1/2 float-left inline-block my-2"><i class="fas fa-map-marker-alt"></i> {{ service.city.name }}
+          <ul class="w-full px-4 text-xl mb-2 h-20">
+            <li class="w-1/2 float-left inline-block my-2">
+              <i class="fas fa-map-marker-alt"></i> {{ service.city.name }}
             </li>
-            <li class="w-1/2 float-left inline-block my-2"><i class="fas fa-bookmark"></i> {{ service.category.name }}
+            <li class="w-1/2 float-left inline-block my-2">
+              <i class="fas fa-bookmark"></i> {{ service.category.name }}
             </li>
-            <li class="w-1/2 float-left inline-block my-2"><i class="fas fa-calendar-alt"></i> {{ service.date_from }}
+            <li class="w-1/2 float-left inline-block my-2">
+              <i class="fas fa-calendar-alt"></i> {{ service.date_from }}
             </li>
-            <li class="w-1/2 float-left inline-block my-2"><i class="fas fa-clock"
-                                                              v-if="service.start_time !== null"></i>
+            <li class="w-1/2 float-left inline-block my-2">
+              <i class="fas fa-clock" v-if="service.start_time !== null"></i>
               {{ service.start_time }}
             </li>
           </ul>
-
+          <div class="map w-full my-6 mt-10" v-if="service.meta.map">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9704.885824330542!2d13.351131149448772!3d52.547518977109654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a851800d56a53b%3A0x288235ac1e6f2cc!2sLeopoldplatz!5e0!3m2!1str!2sde!4v1668880091533!5m2!1str!2sde"
+                width="200" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
         </div>
 
       </div>

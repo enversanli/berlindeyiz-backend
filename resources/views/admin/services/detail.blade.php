@@ -131,6 +131,13 @@
                                             </div>
                                         </div>
 
+                                        <div class="flex w-full mobile-companent my-10 border-2 p-3">
+                                            <div class="w-full h-50">
+                                                <h3 class="mb-3">Harita</h3>
+                                                <textarea name="meta[map]" class="w-full h-50 border border-b-0">{{$service->meta['map']}}</textarea>
+                                            </div>
+                                        </div>
+
                                         <div class="flex w-full mobile-companent">
                                             <div class="w-1/2 mr-3 mt-4 mobile-input">
                                                 <label for="logo"

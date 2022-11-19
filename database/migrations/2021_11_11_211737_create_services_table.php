@@ -41,6 +41,7 @@ class CreateServicesTable extends Migration
             $table->tinyInteger('is_repeating')->default(0);
             $table->dateTime('expires_at')->nullable();
             $table->integer('visit_count')->default(0);
+            $table->json('meta')->nullable();
             $table->timestamps();
             $table->softDeletes();
 

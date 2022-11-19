@@ -33,6 +33,7 @@ class ServiceResource extends JsonResource
             'questions' => $this->questions,
             'city' => $this->city,
             'category' => $this->category,
+            'meta' => $this->meta,
             'seo_description' => $this->seo_description,
             'created_at' => $this->created_at,
         ];

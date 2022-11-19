@@ -1,4 +1,3 @@
-
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -58,7 +57,7 @@
                                                 <x-input id="date_to" maxlength="255"
                                                          class="block mt-1 inputs sm:text-sm w-full"
                                                          type="date" name="date_to" :value="old('date_to')"
-                                                         autofocus />
+                                                         autofocus/>
                                             </div>
                                             <div class="w-1/4 mr-3  mobile-input mx-1">
                                                 <x-label for="start_time" :value="__('common.start_time')"/>
@@ -136,6 +135,12 @@
                                             </div>
                                         </div>
 
+                                        <div class="flex w-full mobile-companent my-10 border-2 p-3">
+                                            <div class="w-full h-50">
+                                                <h3 class="mb-3">Harita</h3>
+                                                <textarea name="meta[map]" class="w-full h-50 border border-b-0">{{old('serv')}}</textarea>
+                                            </div>
+                                        </div>
 
                                         <div class="col-span-12 sm:col-span-12 lg:col-span-12 mt-70 mt-10">
                                             <label for="image"
@@ -144,6 +149,7 @@
                                                    name="logo" id="image"
                                                    class="mt-1 focus:ring-indigo-500 inputs focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                                         </div>
+
                                         <div class="flex items-center justify-end mt-4">
                                             <p><small></small></p>
                                             <x-button class="ml-3">

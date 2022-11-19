@@ -54,6 +54,7 @@ class UpdateServiceAction
         'approved' => $request->input('approved', $service->approved),
         'seo_description' => $request->input('seo_description') ?? $service->title,
         'keywords' => $request->input('keywords', $service->keywords),
+        'meta' => $request->input('meta', $service->meta)
       ]);
 
       /** Delete Old Stored Files */
@@ -71,6 +72,7 @@ class UpdateServiceAction
 
       return ReturnData::success($service);
     } catch (\Exception $exception) {
+      dd($exception->getMessage());
       activity()
         ->causedBy(auth()->user())
         ->withProperties(['error' => $exception->getMessage(), 'user_id' => auth()->user()->id])
