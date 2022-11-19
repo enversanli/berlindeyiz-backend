@@ -7,8 +7,10 @@
             <i class="fas fa-bars text-3xl mt-7 cursor-pointer " @click="toggleMenu()"></i></div>
           <div>
             <a href="/">
-              <h1 class="mt-4 ml-2 text-lg"><img alt="Berlin Etkinlikleri" src="/images/berlindeyiz.png" class="h-8 inline-block">
-                <span class="pt-3">Berlin<b>DE</b>yiz</span></h1>
+              <div class="mt-4 ml-2 text-lg">
+                <img alt="Berlin Etkinlikleri" src="/images/berlindeyiz.png" class="h-8 inline-block float-left">
+                <p class="pt-2 float-left">Berlin<b>DE</b>yiz</p>
+              </div>
               <!--<img class="h-24" src="/images/logo.png">-->
             </a>
           </div>
