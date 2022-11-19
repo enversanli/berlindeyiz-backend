@@ -102,8 +102,7 @@
               {{ service.start_time }}
             </li>
           </ul>
-          <div class="map w-full my-6 mt-10" v-if="service.meta">
-
+          <div class="map w-full my-6 mt-10" v-if="service.meta && service.meta.map" v-html="service.meta.map">
           </div>
         </div>
 
@@ -129,7 +128,7 @@ export default {
 
   mounted() {
     this.getCityServices();
-
+    console.log(this.service.meta.map);
     if (this.service.is_priced === 1) {
       this.service.rating = 'Ücretli';
     }
