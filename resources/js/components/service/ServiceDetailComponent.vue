@@ -34,7 +34,7 @@
               </div>
               <h2 class="text-black text-center my-3 text-4xl animate__animated animate__fadeIn">
                 {{ service.title }}</h2>
-              <div class="w-full text-justify text-xl p-3 animate__animated animate__backInRight service-detail"
+              <div class="w-full text-xl p-3 animate__animated animate__backInRight service-detail"
                    v-html="service.text">
 
               </div>
