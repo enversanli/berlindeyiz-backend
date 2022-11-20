@@ -35,7 +35,7 @@ class StoreServiceAction
       $city = City::find($request->city_id);
 
       /** Generate Slug */
-      $slug = $city->slug . '-' . $category->slug . '-' . Str::slug($request->title);
+      $slug = $city->slug . '-' . $category->slug . '-' . Str::slug($request->title) . '-' . now()->timestamp;
 
       $dateFrom = Carbon::make($request->input('date_from'))->format('Y-m-d');
       $dateTo = $request->input('date_to') ? Carbon::make($request->input('date_to'))->format('Y-m-d') : $dateFrom;

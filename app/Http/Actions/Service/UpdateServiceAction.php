@@ -31,7 +31,7 @@ class UpdateServiceAction
       $category = Category::find($request->category_id);
 
       /** Generate Slug */
-      $slug = $category->slug . '-' . Str::slug($request->title);
+      $slug = $service->city->slug . '-' . $category->slug . '-' . Str::slug($request->title) . '-' . now()->timestamp;
 
       /** Update data */
       $service->update([
