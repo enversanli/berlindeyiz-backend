@@ -7,7 +7,7 @@
 
 
 @if(isset($service->meta['keywords']) && $service->meta['keywords']  != null)
-    @section('site-keywords', $service->meta['keywords']))
+    @section('site-keywords', $service->meta['keywords'])
 @endif
 
 @section('sidebar')
