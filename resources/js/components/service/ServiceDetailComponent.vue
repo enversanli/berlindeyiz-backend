@@ -75,10 +75,11 @@
             class="mb-5 h-auto 2xl:service-detail-menu lg:service-detail-menu w-full 2xl:w-1/2 lg:w-1/2 2xl:w-1/2 md:w-full sm:w-full float-left 2xl:m-3 lg:m-3 md:m-3 sm:m-0 bg-white shadow-md rounded-lg transition duration-300 hover:shadow-xl p-3 md:mx-auto">
           <ul class="p-4 text-xl uppercase">
             <li class="my-3 cursor-pointer transition duration-300 hover:pl-2" @click="setBlock('service')"><i
-                class="fas fa-flag mr-2"></i> Etkinlik
+                class="fas fa-flag mr-2"></i> <a href="#">Etkinlik</a>
             </li>
-            <li class="my-3 cursor-pointer" @click="setBlock('faq')"><i class="fas fa-question mr-2"></i> Sıkça Sorulan
-              Sorular
+            <li class="my-3 cursor-pointer" @click="setBlock('faq')"><i class="fas fa-question mr-2"></i><a href="#sikca-sorulan-sorular">
+              Sıkça Sorulan Sorular
+            </a>
             </li>
             <li class="my-3 cursor-pointer" @click="setBlock('faq')" v-if="service.guide && service.guide.get_in_url"><a
                 :href="service.guide.get_in_url" target="_blank"><i class="fas fa-external-link-alt"></i> Bağlantı</a>
@@ -172,6 +173,7 @@ export default {
         this.faqBlock = true;
         this.guideBlock = false;
         this.hardwareBlock = false;
+        window.scrollTo(0,0);
       }
       if (block === 'hardware') {
         this.serviceBlock = false;
