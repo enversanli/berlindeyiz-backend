@@ -6,7 +6,7 @@
 @section('site-description', $service->meta['seo_description'] ?? $service->title)
 
 
-@if(isset($service->meta['keywords']) && $service->meta['keywords']) != null)
+@if(isset($service->meta['keywords']) && $service->meta['keywords']  != null)
     @section('site-keywords', $service->meta['keywords']))
 @endif
 
