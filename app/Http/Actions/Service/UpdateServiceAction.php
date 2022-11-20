@@ -39,7 +39,7 @@ class UpdateServiceAction
       $service->update([
         'category_id' => $request->category_id,
         'title' => $request->title,
-        'slug' => $slug,
+        'slug' => $slug ?? $service->slug,
         'text' => $request->text,
         'logo' => $logoPath ?? $service->logo,
         'image' => $logoPath ?? $service->image,
