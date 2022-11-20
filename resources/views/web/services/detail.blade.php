@@ -2,10 +2,12 @@
 
 @section('site-title', $service->title . ' - Berlindeyiz')
 
-@section('site-description', $service->seo_description ?? $service->title)
 
-@if(isset($service->keywords) && $service->keywords != null)
-    @section('site-keywords', $service->keywords)
+@section('site-description', $service->meta['seo_description'] ?? $service->title)
+
+
+@if(isset($service->meta['keywords']) && $service->meta['keywords']) != null)
+    @section('site-keywords', $service->meta['keywords']))
 @endif
 
 @section('sidebar')

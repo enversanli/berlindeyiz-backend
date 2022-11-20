@@ -129,9 +129,7 @@
                                         <div class="flex w-full mobile-companent">
                                             <div class="w-full mr-3 mt-4 mobile-input">
                                                 <x-label for="date_to" :value="__('service.details')"/>
-                                                <textarea style="margin-top: 50px;" name="text" id="editor">
-
-                                                    </textarea>
+                                                <textarea style="margin-top: 50px;" name="text" id="editor"></textarea>
                                             </div>
                                         </div>
 
@@ -141,6 +139,18 @@
                                                 <textarea name="meta[map]" class="w-full h-50 border border-b-0"></textarea>
                                             </div>
                                         </div>
+
+                                        <div class="flex w-full mobile-companent my-10 border-2 p-3">
+                                            <div class="w-full lg:w-1/2 md:w-1/2 sm:w-full h-50">
+                                                <h3 class="mb-3">SEO Açıklaması</h3>
+                                                <textarea name="meta[seo_description]" class="w-full h-50 border border-b-0"></textarea>
+                                            </div>
+                                            <div class="w-full lg:w-1/2 md:w-1/2 sm:w-full h-50 px-2">
+                                                <h3 class="mb-3">Anahtar Kelimeler</h3>
+                                                <textarea name="meta[keywords]" class="w-full h-50 border border-b-0"></textarea>
+                                            </div>
+                                        </div>
+
 
                                         <div class="col-span-12 sm:col-span-12 lg:col-span-12 mt-70 mt-10">
                                             <label for="image"
