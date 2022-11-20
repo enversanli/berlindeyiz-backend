@@ -63,7 +63,7 @@ class StoreServiceAction
         'address' => trim($request->address) ?? null,
         'seo_description' => $request->input('seo_description', $request->input('title')),
         'keywords' => $request->input('keywords'),
-        'meta' => json_encode($request->input('meta', []))
+        'meta' => $request->input('meta', [])
       ];
 
       $service = Service::create($data);
