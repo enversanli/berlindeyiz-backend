@@ -57,7 +57,7 @@ class User extends Authenticatable
     ];
 
     public function business(){
-        return $this->hasOne(Business::class, 'user_id', 'id');
+        return $this->hasOne(Business::class, 'id', 'user_id');
     }
 
     public function services(){
