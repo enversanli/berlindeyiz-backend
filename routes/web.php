@@ -21,6 +21,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+json_decode("{\"map\":\"<iframe src=\\\"https:\\/\\/www.google.com\\/maps\\/embed?pb=!1m18!1m12!1m3!1d2427.6987190039868!2d13.386304615467989!3d52.5207912439235!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a851c2e34d2373%3A0x27535661d62f4c14!2sAdmiralspalast!5e0!3m2!1str!2sde!4v1668979859022!5m2!1str!2sde\\\" width=\\\"600\\\" height=\\\"450\\\" style=\\\"border:0;\\\" allowfullscreen=\\\"\\\" loading=\\\"lazy\\\" referrerpolicy=\\\"no-referrer-when-downgrade\\\"><\\/iframe>\",\"seo_description\":\"Birbirinden g\\u00fczel t\\u00fcrk\\u00fcleri ile Selda Ba\\u011fcan 4 Mart 2023 tarihinde Berlin, Admiralpalast Theater'da t\\u00fcrk\\u00fclerle dolu bir m\\u00fczik etkinli\\u011finde t\\u00fcrk\\u00fc severlerle bulu\\u015fuyor. Sizde Selda Ba\\u011fcan Berlin konserinde yerinizi ay\\u0131rmal\\u0131s\\u0131n\\u0131z.\",\"keywords\":\"selda ba\\u011fcan berlin, selda ba\\u011fcan berlin konseri, berlin t\\u00fcrk\\u00fc konserleri, berlin selda ba\\u011fcan etkinli\\u011fi, berlin t\\u00fcrk\\u00fc programlar\\u0131, berlin t\\u00fcrk\\u00fc konseri\"}", true);
+
 Route::get('/', function () {
   return view('welcome');
 });
