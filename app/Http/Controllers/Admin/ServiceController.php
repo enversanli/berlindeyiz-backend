@@ -16,6 +16,7 @@ use App\Models\Service;
 use App\Models\Type;
 use App\Models\User;
 use App\Support\Enum\ServiceStatusEnum;
+use App\Support\Enum\UserRolesEnum;
 use App\Support\ResponseMessage;
 use App\Support\ReturnData;
 use Carbon\Carbon;
@@ -51,10 +52,13 @@ class ServiceController extends Controller
         });
     }
 
-    public function index()
+    public function index(Request $request)
     {
         $services = Service::with(['city', 'category', 'user'])
             ->orderBy('created_at', 'DESC')
+          //->when($this->user->role !== UserRolesEnum::ORGANIZER, function ($q){
+          //  return $q->where('user_id', $this->user->id);
+          //})
             ->paginate(10);
 
         return view('admin.services.index')->with('services', $services);
