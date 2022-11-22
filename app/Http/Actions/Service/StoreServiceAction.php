@@ -44,7 +44,8 @@ class StoreServiceAction
 
       $data = [
         'user_id' => $user->id,
-        'business_id' => $user->business->id,
+        // TODO - Following rule should be fixed
+        'business_id' => $user->business ? $user->business->id : null,
         'category_id' => $category->id,
         'title' => $request->input('title'),
         'slug' => $slug,
