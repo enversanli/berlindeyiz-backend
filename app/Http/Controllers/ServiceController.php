@@ -68,6 +68,7 @@ class ServiceController extends Controller
 
 
         $services = $services
+          ->where('date_from', '<',now()->addMonths(2)->format('Y-m-d'))
           ->orderBy('date_from', 'DESC')
           ->orderBy('status', 'ASC')
             ->paginate(10);
