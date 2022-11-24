@@ -98,6 +98,9 @@ class ServiceController extends Controller
 
     public function update(ServiceUpdateRequest $request, Service $service)
     {
+      if ($this->user->role != UserRolesEnum::ADMIN && !$service->approved && $request->input('approved')){
+        return redirect()->back()->with(ResponseMessage::errorToView('Onaylama yetkiniz bulunmuyor. Lütfen yönetici ile görüşün.'));
+      }
         $updatedService = $this->updateServiceAction->execute($request, $service);
 
         if (!$updatedService->status){
