@@ -56,9 +56,9 @@ class ServiceController extends Controller
     {
         $services = Service::with(['city', 'category', 'user'])
             ->orderBy('created_at', 'DESC')
-          //->when($this->user->role !== UserRolesEnum::ORGANIZER, function ($q){
-          //  return $q->where('user_id', $this->user->id);
-          //})
+          ->when($this->user->role == UserRolesEnum::ORGANIZER, function ($q){
+            return $q->where('user_id', $this->user->id);
+          })
             ->paginate(10);
 
         return view('admin.services.index')->with('services', $services);

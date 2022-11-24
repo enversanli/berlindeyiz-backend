@@ -20,13 +20,11 @@ class StoreServiceAction
     try {
 
       if (isset($request->logo)) {
-        $logoName = $request->file('logo')->getClientOriginalName();
         $logoPath = $request->file('logo')->store('public/services');
         $logoPath = str_replace('public/', '', $logoPath);
       }
 
       if (isset($request->image)) {
-        $imageName = $request->file('image')->getClientOriginalName();
         $imagePath = $request->file('image')->store('public/services');
         $imagePath = str_replace('public/', '', $imagePath);
       }
@@ -76,6 +74,7 @@ class StoreServiceAction
         ->withProperties(['error' => $exception->getMessage(), 'user_id' => auth()->user()->id])
         ->event(ErrorLogEnum::STORE_SERVICE_STORE_ERROR)
         ->log(ErrorLogEnum::STORE_SERVICE_STORE_ERROR);
+
       return ReturnData::error(__('common.went_wrong'), $exception->getMessage());
     }
   }
