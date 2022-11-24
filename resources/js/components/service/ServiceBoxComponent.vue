@@ -32,7 +32,7 @@
             <!--                        <h3 class="text-2xl mx-auto text-center"><span class="font-weight-bold">Rating:</span> <span  :class="[(service.rating === 'not_rated' ? 'text-gray-500' : 'text-yellow-500'), (service.rating === 'promising' ? 'text-yellow-500' : ''), (service.rating === 'high' ? 'text-green-500' : '')] ">{{service.ratingTranslated}}</span></h3>-->
             <div class="text-left w-full text-xl font-weight-bolder flex ml-3" v-if="true">
               <div class="w-1/2 text-sm  text-left">
-                <p class="text-left"><i class="fas fa-map-marker-alt"></i>
+                <p class="text-left"><i class="fas fa-city"></i>
                   {{ service.city.name }}</p>
                 <p class="text-left mt-1"><i class="fas fa-bookmark"></i>
                   {{ service.category.name }}

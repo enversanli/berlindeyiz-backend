@@ -90,7 +90,7 @@
 
           <ul class="w-full px-4 text-xl mb-2 h-20">
             <li class="w-1/2 float-left inline-block my-2">
-              <i class="fas fa-map-marker-alt"></i> {{ service.city.name }}
+              <i class="fas fa-city"></i> {{ service.city.name }}
             </li>
             <li class="w-1/2 float-left inline-block my-2">
               <i class="fas fa-bookmark"></i> {{ service.category.name }}
@@ -103,6 +103,14 @@
               {{ service.start_time }}
             </li>
           </ul>
+
+          <hr class="mb-4 mt-4">
+
+          <div class="px-4">
+            <h2 class="text-xl font-bold mb-2"><i class="fas fa-map-marker-alt text-xl"></i> Etkinlik Adresi</h2>
+              <p class="text-lg">{{service.address}}</p>
+          </div>
+
           <div class="map w-full my-6 mt-10" v-if="service.meta && service.meta.map" v-html="service.meta.map">
           </div>
         </div>
