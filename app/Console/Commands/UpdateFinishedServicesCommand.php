@@ -19,7 +19,6 @@ class UpdateFinishedServicesCommand extends Command
     $now = Carbon::now();
 
     $services = Service::where('date_to', '<',$now->format('Y-m-d'))
-      ->where('date_from', '<', $now->format('Y-m-d'))
       ->where('status', ServiceStatusEnum::ACTIVE)
       ->where('is_repeating', false)
       ->get();
