@@ -28,8 +28,9 @@ class SliderController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'slider' => 'required|max:10000|mimes:jpg,jpeg,png'
+            'slider' => 'required|max:10000|mimes:jpg,jpeg,png,webp'
         ]);
+
         try {
             $path = $request->slider->storeAs('public/sliders', 'slider-' . Str::uuid() . '.' . $request->slider->extension());
             //$path = $request->file('slider')->store('sliders');
