@@ -1,39 +1,39 @@
-.title{
-    font-family: Play,sans-serif;
+.title {
+    font-family: Play, sans-serif;
     font-size: 1.7em !important;
     color: #3b3939 !important;
     letter-spacing: 1px;
     font-weight: 300 !important;
 }
 
-a{
+a {
     text-decoration: none !important;
     color: unset !important;
 }
 
-.s-modal{
+.s-modal {
     transition: 0.5s all ease-in-out;
 }
 
-.d-none{
+.d-none {
     display: none;
     opacity: 0;
 }
 
-.d-block{
+.d-block {
     display: block;
     opacity: 1;
 }
 
-.search-bar{
+.search-bar {
     margin-top: calc(20%);
 }
 
-code{
+code {
 
 }
 
-pre{
+pre {
     background-color: #212529;
     color: #fff;
     display: inline-block;
@@ -41,11 +41,11 @@ pre{
     padding: 15px 10px;
 }
 
-.video-column{
+.video-column {
     position: relative;
 }
 
-.video-column .overlay{
+.video-column .overlay {
     position: absolute;
     left: 0;
     top: 0;
@@ -58,103 +58,112 @@ pre{
     transition: 0.2s all ease-in-out;
 }
 
-.video-column:hover .overlay{
+.video-column:hover .overlay {
     visibility: visible;
     opacity: 1;
 }
 
-.play-icon{
+.play-icon {
     margin-top: calc(40% - 15px);
 }
+
 .fontAwesome {
     font-family: Helvetica, 'FontAwesome', sans-serif;
 }
 
-.service-detail h1{
+.service-detail h1 {
     font-size: 2em;
     margin: 10px 0;
 }
 
-.service-detail h2{
+.service-detail h2 {
     font-size: 1.8em;
     margin: 10px 0;
 }
 
-.service-detail h3{
+.service-detail h3 {
     font-size: 1.6em;
     margin: 10px 0;
 }
 
-.service-detail h4{
+.service-detail h4 {
     font-size: 1.4em;
     margin: 10px 0;
 }
 
-.mobile-box{
+.mobile-box {
     width: 100% !important;
     display: block;
 }
 
-.service-box-left-belt{
+.service-box-left-belt {
     background-color: #5fa0b5 !important;
 }
 
-.service-box-right-belt, .service-box-left-belt{
+.service-box-right-belt, .service-box-left-belt {
     transition: 0.2s all ease-in-out;
 }
 
-.service-box:hover .service-box-left-belt{
+.service-box:hover .service-box-left-belt {
     left: 0;
 }
 
-.service-box:hover .service-box-right-belt{
+.service-box:hover .service-box-right-belt {
     right: 0;
 }
 
-.service-logo, .service-detail-menu{
+.service-logo, .service-detail-menu {
     width: 25%;
 }
 
-.service-content, .service-detail-content{
+.service-content, .service-detail-content {
     width: 75%;
 }
 
-.service-detail-menu{
+.service-detail-menu {
     max-height: 600px;
 }
 
-.active-service{
+.active-service {
     background-color: #f9a50c !important;
     color: #ffffff;
 }
 
-.guide-content div{
+.guide-content div {
     overflow: scroll;
 }
 
-.min-hei-64{
+.min-hei-64 {
     min-height: 16rem;
 }
 
-.map iframe{
+.map iframe {
     height: 300px !important;
     width: 100% !important;
 }
 
+.ticket {
+    background-color: #f9a510;
+    margin: 0 auto;
+    text-align: center;
+    padding: 10px 25px;
+    border-radius: 10px;
+}
+
 @media only screen and (max-width: 1500px) {
-    pre{
+    pre {
         max-width: 700px;
     }
 }
 
 @media only screen and (max-width: 1280px) {
-    pre{
+    pre {
         max-width: 600px;
     }
 }
 
 @media only screen and (max-width: 900px) {
-    pre{
+    pre {
         max-width: 100%;
     }
 }
