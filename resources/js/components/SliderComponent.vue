@@ -4,7 +4,7 @@
             <div class="w-full lg:h-2/4 md:h-2/4 sm:h-96 overflow-hidden" v-for="slider in sliders">
                 <img class="w-full h-full"
                      :alt="slider.title"
-                     style="max-height: 550px"
+                     style="max-height: 400px"
                      :src="slider.image">
             </div>
         </carousel>
