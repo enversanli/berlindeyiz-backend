@@ -21,8 +21,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-json_decode("{\"map\":\"<iframe src=\\\"https:\\/\\/www.google.com\\/maps\\/embed?pb=!1m18!1m12!1m3!1d2427.6987190039868!2d13.386304615467989!3d52.5207912439235!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a851c2e34d2373%3A0x27535661d62f4c14!2sAdmiralspalast!5e0!3m2!1str!2sde!4v1668979859022!5m2!1str!2sde\\\" width=\\\"600\\\" height=\\\"450\\\" style=\\\"border:0;\\\" allowfullscreen=\\\"\\\" loading=\\\"lazy\\\" referrerpolicy=\\\"no-referrer-when-downgrade\\\"><\\/iframe>\",\"seo_description\":\"Birbirinden g\\u00fczel t\\u00fcrk\\u00fcleri ile Selda Ba\\u011fcan 4 Mart 2023 tarihinde Berlin, Admiralpalast Theater'da t\\u00fcrk\\u00fclerle dolu bir m\\u00fczik etkinli\\u011finde t\\u00fcrk\\u00fc severlerle bulu\\u015fuyor. Sizde Selda Ba\\u011fcan Berlin konserinde yerinizi ay\\u0131rmal\\u0131s\\u0131n\\u0131z.\",\"keywords\":\"selda ba\\u011fcan berlin, selda ba\\u011fcan berlin konseri, berlin t\\u00fcrk\\u00fc konserleri, berlin selda ba\\u011fcan etkinli\\u011fi, berlin t\\u00fcrk\\u00fc programlar\\u0131, berlin t\\u00fcrk\\u00fc konseri\"}", true);
-
 Route::get('/', function () {
   return view('welcome');
 });
@@ -58,21 +56,9 @@ Route::prefix('admin')->middleware('auth')->group(function () {
   });
   /** end Users */
 
-  /** Services */
-  Route::resource('services', ServiceController::class)
-    ->only('index', 'show', 'store', 'create')
-    ->name('index', 'service.index')
-    ->name('create', 'service.create')
-    ->name('store', 'service.store')
-    ->name('show', 'service.show');
-
-  Route::post('/{service}', [ServiceController::class, 'update'])->name('service.update');
-  Route::get('/{service}/delete', [ServiceController::class, 'destroy'])->name('service.destroy');
-
-  /** end Services */
-
 
   Route::resource('/faq',  \App\Http\Controllers\Admin\FaqController::class)
+    ->only('index', 'show', 'store', 'create')
     ->name('index', 'faq.index')
     ->name('show', 'faq.show')
     ->name('store', 'faq.store')
@@ -92,17 +78,6 @@ Route::prefix('admin')->middleware('auth')->group(function () {
   Route::post('/announcements/{id}', [AnnouncementController::class, 'update'])->name('announcement.update');
   Route::get('/announcements/{id}/destroy', [AnnouncementController::class, 'destroy'])->name('announcement.destroy');
 
-/**
-  Route::prefix('validators')->group(function () {
-    Route::get('', [ValidatorController::class, 'index'])->name('validator.list');
-    Route::get('/create', [ValidatorController::class, 'create'])->name('validator.create');
-    Route::get('{id}', [ValidatorController::class, 'show'])->name('validator.show');
-    Route::post('/', [ValidatorController::class, 'store'])->name('validator.store');
-    Route::post('/{id}', [ValidatorController::class, 'update'])->name('validator.update');
-    Route::get('/{id}/destroy', [ValidatorController::class, 'destroy'])->name('validator.destroy');
-  });
-  **/
-
   /** Sliders */
   Route::resource('sliders', SliderController::class)
     ->name('index', 'slider.index')
@@ -110,6 +85,19 @@ Route::prefix('admin')->middleware('auth')->group(function () {
 
   Route::get('/{id}/destroy', [SliderController::class, 'destroy'])->name('slider.destroy');
   /** end Sliders */
+
+  /** Services */
+  Route::resource('services', ServiceController::class)
+    ->only('index', 'show', 'store', 'create')
+    ->name('index', 'service.index')
+    ->name('create', 'service.create')
+    ->name('store', 'service.store')
+    ->name('show', 'service.show');
+
+  Route::post('/{service}', [ServiceController::class, 'update'])->name('service.update');
+  Route::get('/{service}/delete', [ServiceController::class, 'destroy'])->name('service.destroy');
+
+  /** end Services */
 
   /** Questions */
   Route::get('/services/{service_id}/questions', [ServiceQuestionController::class, 'index'])->name('service.questions');
@@ -152,7 +140,6 @@ Route::get('/categories', [\App\Http\Controllers\CategoryController::class, 'ind
 
 Route::get('sikca-sorulan-sorular', [FaqController::class, 'index'])->name('public-faq.list');
 Route::get('duyurular', [\App\Http\Controllers\AnnouncementController::class, 'index'])->name('public-announcements.list');
-Route::get('validators', [\App\Http\Controllers\ValidatorController::class, 'index'])->name('public-announcements.list');
 Route::get('sliders', [\App\Http\Controllers\SliderController::class, 'index'])->name('public-sliders.list');
 
 /** Services */
@@ -166,7 +153,7 @@ Route::get('etkinlikler/{slug}', [\App\Http\Controllers\ServiceController::class
 
 
 Route::get('/search/{word}', [\App\Http\Controllers\ServiceController::class, 'search']);
-Route::get('/{id}', [\App\Http\Controllers\ServiceController::class, 'show']);
+Route::get('/{slug}', [\App\Http\Controllers\ServiceController::class, 'show']);
 Route::get('/service/{id}/guide', [\App\Http\Controllers\ServiceController::class, 'guide']);
 Route::get('/{id}/questions', [\App\Http\Controllers\ServiceController::class, 'guide']);
 //Route::get('/{id}/questions/{id}', [ServiceController::class, 'guide']);
