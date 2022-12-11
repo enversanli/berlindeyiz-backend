@@ -29,7 +29,7 @@
                   <p></p>
                 </div>
                 <img class="min-hei-64 max-h-96 w-full my-3 rounded-b-32 rounded-md"
-                     :src="'/storage/'+service.logo">
+                     :src="'/storage/'+service.logo" :alt="service.title">
 
               </div>
               <h2 class="text-black text-center my-3 text-4xl animate__animated animate__fadeIn">
