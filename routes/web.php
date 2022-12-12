@@ -128,6 +128,12 @@ Route::prefix('admin')->middleware('auth')->group(function () {
 
 Route::view('', 'web.services.index');
 
+Route::view('/doktorlar', 'web.services.index');
+Route::view('/avukatlar', 'web.services.index');
+
+Route::redirect('turk-doktorlari', 'doktorlar?type=doktorlar&category=turk-doktorlari');
+Route::redirect('turk-avukatlari', 'avukatlar?type=avukatlar&category=turk-avukatlari');
+
 /** Cities */
 Route::get('/cities', [\App\Http\Controllers\CityController::class, 'index']);
 Route::get('/cities/{id}', [\App\Http\Controllers\CityController::class, 'index']);
