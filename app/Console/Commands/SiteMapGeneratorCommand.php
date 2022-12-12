@@ -37,12 +37,17 @@ class SiteMapGeneratorCommand extends Command
     $otherPages = [
       '/sikca-sorulan-sorular',
       '/duyurular',
+      '/doktorlar',
+      '/turk-doktorlari',
+      '/avukatlar',
+      '/turk-avukatlari',
     ];
+
     $counter = 0;
     $this->error('Basliyor...');
     foreach ($otherPages as $otherPage) {
       $sitemapGenerator->add(Url::create($otherPage)->setPriority(0.5));
-      $this->info('Added To Sitemap : '. $otherPage);
+      $this->info('Added To Sitemap : ' . $otherPage);
       $counter++;
     }
 
@@ -50,7 +55,7 @@ class SiteMapGeneratorCommand extends Command
       $url = '/etkinlikler/' . $service->slug;
 
       $sitemapGenerator->add(Url::create($url)->setPriority(0.5));
-      $this->info('Added To Sitemap : '. $url );
+      $this->info('Added To Sitemap : ' . $url);
       $counter++;
     }
     $sitemapGenerator->
