@@ -10,8 +10,11 @@
 
 @section('content')
 
-
+    @php
+    $type = request()->get('type') ?? 'etkinlikler';
+    $category = request()->get('category') ?? '';
+    @endphp
     <div class="py-1">
-        <service-component></service-component>
+        <service-component type="{{$type}}" category="{{$category}}"></service-component>
     </div>
 @endsection

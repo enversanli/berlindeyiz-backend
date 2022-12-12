@@ -1,11 +1,16 @@
 <template>
   <div>
+    <!-- Sliders -->
     <slider-component></slider-component>
+    <!-- end Sliders -->
 
     <div class="container">
 
+      <!-- Service Filters -->
       <search-box-component></search-box-component>
+      <!-- end Service Filters -->
 
+      <!-- Other Filters -->
       <div class="grid lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-1 text-lg text-theme-color mt-10">
         <div
             class="h-9 m-3 p-1 bg-white shadow-md rounded-lg transition duration-700 hover:shadow-xl cursor-pointer animate__animated animate__fadeIn"
@@ -26,12 +31,17 @@
           <p class="text-center font-weight-bold"><i class="far fa-arrow-alt-circle-right"></i> Ücretsiz</p>
         </div>
       </div>
+
       <div v-show="services.count === 0"
            class="animate__animated animate__fadeIn m-3 p-1 bg-white shadow-md rounded-lg transition duration-300 hover:shadow-xl relative overflow-hidden service-box pt-3">
-        <p class="w-full text-2xl text-center my-10">Bulunamadı.</p>
+        <p class="w-full text-2xl text-center my-10">Hiç Hizmet Bulunamadı.</p>
       </div>
+      <!-- end Other Filters -->
       <!--      <div class="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 mb-28">-->
+
+      <!-- Service List -->
       <service-box-component :services="services"></service-box-component>
+      <!-- end Service List -->
 
       <div class="w-full">
         <button
@@ -47,6 +57,8 @@
 <script>
 
 export default {
+  props: ['type', 'category'],
+
   data() {
     return {
       categories: null,
@@ -79,23 +91,22 @@ export default {
 
       var url = '/etkinlikler';
 
+      url += '?kategori=' + this.category;
+
+      url += '&type=' + this.type;
+
       if (this.free === true) {
-        url = url + '?status=free'
+        url += '&status=free'
       }
 
       if (this.priced === true) {
-        url = url + '?status=priced'
+        url += '&status=priced'
       }
 
       if (this.all === true) {
-        url = url + '?status=all'
+        url = url + '&status=all'
       }
 
-      if (window.location.pathname === '/turk-doktorlari') {
-        url  +='&kategori=turk-doktorlari';
-      }else{
-        url  +='&type=etkinlikler'
-      }
 
       axios.get(url).then(response => {
         this.services = response.data.data;
