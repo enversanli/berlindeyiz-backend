@@ -104,6 +104,7 @@
                                                     <option value="1" {{$service->is_priced == 1 ?'selected' : ''}}>@lang('common.yes')</option>
                                                 </select>
                                             </div>
+
                                             <div class="w-1/4 mr-3 mobile-input mx-auto">
                                                 <x-label for="price" :value="__('service.price')"/>
                                                 <x-input id="price" maxlength="255" minlength="1"
@@ -111,9 +112,20 @@
                                                          placeholder="0"
                                                          :value="$service->price" name="price" required autofocus/>
                                             </div>
+
+                                            <div class="w-1/4 mr-3 mobile-input mx-auto">
+                                                <x-label for="type" :value="__('service.category')"/>
+                                                <select id="type" name="type_id"
+                                                        class="w-full rounded border-gray-300" >
+                                                    <option value="1" {{$service->type->id == 1 ? 'selected' : ''}}>Etkinlik</option>
+                                                    <option value="2" {{$service->type->id == 2 ? 'selected' : ''}}>Doktor</option>
+                                                    <option value="3" {{$service->type->id == 3 ? 'selected' : ''}}>Avukat</option>
+                                                </select>
+                                            </div>
+
                                             <div class="w-1/4 mr-3 mobile-input mx-auto">
                                                 <x-label for="category_id" :value="__('service.category')"/>
-                                                <select name="category_id" class="w-full rounded border-gray-300">
+                                                <select name="category_id" class="w-full rounded border-gray-300" id="category">
                                                     @foreach($categories as $category)
                                                         <option value="{{$category->id}}" {{$service->category_id == $category->id ? 'selected' : ''}}>{{$category->name}}</option>
                                                     @endforeach
@@ -206,6 +218,23 @@
                     var row = response.data[x];
 
                     $('#district').append("<option value=''>"+row.name+"</option>");
+                }
+            }
+        });
+    });
+
+    $('#type').change(function () {
+        var serviceTypeId = $('#type').val();
+        $.ajax({
+            url: '/admin/service-categories/' + serviceTypeId,
+            cache: true,
+            success: function (response) {
+                $('#category').find('option').remove();
+
+                for (x = 0; x < response.data.length; x++) {
+                    var row = response.data[x];
+
+                    $('#category').append("<option value=" + row.id + ">" + row.name + "</option>");
                 }
             }
         });

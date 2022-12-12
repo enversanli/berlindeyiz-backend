@@ -87,6 +87,8 @@ Route::prefix('admin')->middleware('auth')->group(function () {
   /** end Sliders */
 
   /** Services */
+  Route::get('service-types', [ServiceController::class, 'types'])->name('service.types');
+  Route::get('service-categories/{id}', [ServiceController::class, 'categories'])->name('service.categories');
   Route::resource('services', ServiceController::class)
     ->only('index', 'show', 'store', 'create')
     ->name('index', 'service.index')
@@ -127,6 +129,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
 /** WEB START */
 
 Route::view('', 'web.services.index');
+Route::view('turk-doktorlari', 'web.services.index');
 
 /** Cities */
 Route::get('/cities', [\App\Http\Controllers\CityController::class, 'index']);
@@ -144,11 +147,13 @@ Route::get('sliders', [\App\Http\Controllers\SliderController::class, 'index'])-
 
 /** Services */
 Route::get('etkinlikler', [\App\Http\Controllers\ServiceController::class, 'index'])->name('front.services');
+
 Route::get('etkinlikler/son-eklenenler', [\App\Http\Controllers\ServiceController::class, 'lastAdded'])->name('front.services.last-added');
 Route::view('etkinlik-ara', 'web.services.search');
 Route::get('sehir-etkinlikleri/{slug}/{count?}', [\App\Http\Controllers\ServiceController::class, 'getCityServices']);
 Route::post('etkinlik-ara', [\App\Http\Controllers\ServiceController::class, 'searchDetail'])->name('front.service-search-detail');
 Route::get('etkinlikler/{slug}', [\App\Http\Controllers\ServiceController::class, 'show']);
+Route::get('doktorlar/{slug}', [\App\Http\Controllers\ServiceController::class, 'show']);
 /** end Services */
 
 

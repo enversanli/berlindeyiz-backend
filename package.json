@@ -33,6 +33,7 @@
     },
     "dependencies": {
         "vue-owl-carousel": "^2.0.3",
+        "vue-router": "^4.1.6",
         "vuejs-localization": "^1.0.3"
     }
 }

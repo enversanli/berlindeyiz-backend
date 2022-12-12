@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 mb-28">
-    <a :href="'etkinlikler/' + service.slug" v-for="service in services"
+    <a :href="service.type.slug + '/' + service.slug" v-for="service in services"
        class="animate__animated animate__fadeIn">
       <div
           class="h-94 m-3 p-1 bg-white shadow-md rounded-lg transition duration-300 hover:shadow-xl relative overflow-hidden service-box pt-3">

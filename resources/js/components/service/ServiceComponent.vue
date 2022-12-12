@@ -4,7 +4,7 @@
 
     <div class="container">
 
-    <search-box-component></search-box-component>
+      <search-box-component></search-box-component>
 
       <div class="grid lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-1 text-lg text-theme-color mt-10">
         <div
@@ -30,8 +30,8 @@
            class="animate__animated animate__fadeIn m-3 p-1 bg-white shadow-md rounded-lg transition duration-300 hover:shadow-xl relative overflow-hidden service-box pt-3">
         <p class="w-full text-2xl text-center my-10">Bulunamadı.</p>
       </div>
-<!--      <div class="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 mb-28">-->
-  <service-box-component :services="services"></service-box-component>
+      <!--      <div class="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 mb-28">-->
+      <service-box-component :services="services"></service-box-component>
 
       <div class="w-full">
         <button
@@ -45,6 +45,7 @@
 </template>
 
 <script>
+
 export default {
   data() {
     return {
@@ -88,6 +89,12 @@ export default {
 
       if (this.all === true) {
         url = url + '?status=all'
+      }
+
+      if (window.location.pathname === '/turk-doktorlari') {
+        url  +='&kategori=turk-doktorlari';
+      }else{
+        url  +='&type=etkinlikler'
       }
 
       axios.get(url).then(response => {

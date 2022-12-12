@@ -5,6 +5,7 @@ namespace App\Http\Actions\Service;
 use App\Models\Category;
 use App\Models\City;
 use App\Models\Service;
+use App\Models\Type;
 use App\Models\User;
 use App\Support\Enum\ErrorLogEnum;
 use App\Support\Enum\ServiceStatusEnum;
@@ -26,10 +27,10 @@ class StoreServiceAction
 
       if (isset($request->image)) {
         $imagePath = $request->file('image')->store('public/services');
-        $imagePath = str_replace('public/', '', $imagePath);
       }
 
       $category = Category::find($request->category_id);
+
       $city = City::find($request->city_id);
 
       /** Generate Slug */
@@ -45,6 +46,7 @@ class StoreServiceAction
         // TODO - Following rule should be fixed
         'business_id' => $user->business ? $user->business->id : null,
         'category_id' => $category->id,
+        'type_id' => $request->input('type_id'),
         'title' => $request->input('title'),
         'slug' => $slug,
         'text' => $request->input('text'),
@@ -69,6 +71,7 @@ class StoreServiceAction
 
       return ReturnData::success($service);
     } catch (\Exception $exception) {
+
       activity()
         ->causedBy(auth()->user())
         ->withProperties(['error' => $exception->getMessage(), 'user_id' => auth()->user()->id])
