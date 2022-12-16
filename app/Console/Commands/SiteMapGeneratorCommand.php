@@ -52,7 +52,7 @@ class SiteMapGeneratorCommand extends Command
     }
 
     foreach ($services as $service) {
-      $url = '/etkinlikler/' . $service->slug;
+      $url = $service->type->slug . '/' . $service->slug;
 
       $sitemapGenerator->add(Url::create($url)->setPriority(0.5));
       $this->info('Added To Sitemap : ' . $url);

@@ -224,7 +224,7 @@ class ServiceController extends Controller
       'descriptions' => [
         'etkinlikler' => 'Berlindeyiz, başta Berlin olmak üzere Almanya\'nın tüm şehirlerindeki müzik, kültür, sanat, edebiyat, gezi gibi etkinlikleri kolayca bulmanızı sağlar.',
         'doktorlar' => 'Berlindeyiz, Berlin\'de aradığınız tüm doktorları bulmanızı sağlar. Berlin\'de ki Türk doktorlar, göz doktorları, cilt doktorları, diş doktorları ve tüm doktorların listesine kolayca ulaşın.',
-        'avukatlar' => 'Berlindeyiz, Berlin\'de aradığınız tüm avukatları kolayca bulmanızı sağlar. Berlin\'de ki Türk avukatlar, boşanma avukatları, alman avukatları ve tüm avukatların listesine kolayca ulaşın. '
+        'avukatlar' => 'Berlindeyiz, Berlin\'de aradığınız tüm avukatları kolayca bulmanızı sağlar. Berlin\'de ki Türk avukatlar, boşanma avukatları, alman avukatları ve tüm avukatların listesine kolayca ulaşın.'
       ]
     ];
   }
