@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\Jobs\SendServiceToTelegramChannelJob;
 use App\Models\Service;
+use App\Support\Enum\ServiceType;
 use Illuminate\Console\Command;
 
 class DailyServiceReminderCommand extends Command
@@ -19,6 +20,9 @@ class DailyServiceReminderCommand extends Command
 
     $services = Service::where('date_from', now()->addDay()->format('Y-m-d'))
       ->approved()
+      ->whereHas('type', function ($q){
+        return $q->where('slug', ServiceType::ACTIVITY);
+      })
       ->get();
 
     $tomorrow = now()->addDay()->format('d-m-Y');
