@@ -69,22 +69,22 @@ class CategorySeeder extends Seeder
       ],
 
       [
-        'type' => 'doktor',
+        'type' => 'doktorlar',
         'name' => 'Türk Doktoları',
         'description' => 'Türk Doktoları',
       ],
       [
-        'type' => 'doktor',
+        'type' => 'doktorlar',
         'name' => 'Doktolar',
         'description' => 'Türk Doktorları',
       ],
       [
-        'type' => 'avukat',
+        'type' => 'avukatlar',
         'name' => 'Türk Avukatları',
         'description' => 'Türk Avukatları',
       ],
       [
-        'type' => 'avukat',
+        'type' => 'avukatlar',
         'name' => 'Avukatlar',
         'description' => 'Avukatlar',
       ],
