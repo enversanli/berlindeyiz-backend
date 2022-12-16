@@ -1,7 +1,7 @@
 @extends('web.layouts.app')
 
 @section('site-title', $service->title . ' - Berlindeyiz')
-@section("og-image", config('app.url'). '/'.$service->logo)
+@section("og-image", config('app.url'). '/storage/'.$service->logo)
 
 @section('site-description', $service->meta['seo_description'] ?? $service->title)
 
