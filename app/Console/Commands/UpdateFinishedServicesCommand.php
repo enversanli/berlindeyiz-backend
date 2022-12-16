@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\Models\Service;
 use App\Support\Enum\ServiceStatusEnum;
+use App\Support\Enum\ServiceType;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
 
@@ -20,6 +21,9 @@ class UpdateFinishedServicesCommand extends Command
 
     $services = Service::where('date_to', '<',$now->format('Y-m-d'))
       ->where('status', ServiceStatusEnum::ACTIVE)
+      ->whereHas('type', function ($q){
+        return $q->where('slug', ServiceType::ACTIVITY);
+      })
       ->where('is_repeating', false)
       ->get();
 
