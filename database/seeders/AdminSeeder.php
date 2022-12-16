@@ -28,6 +28,10 @@ class AdminSeeder extends Seeder
             'password' => Hash::make('admin')
         ];
 
+        if (User::where('email', $admin['email'])->exists()){
+          return;
+        }
+
         $user = User::create($admin);
 
         $business = [

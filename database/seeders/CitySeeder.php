@@ -55,6 +55,11 @@ class CitySeeder extends Seeder
       dd($exception->getMessage());
     }
     */
+
+    if (Country::where('name', 'Almanya')->exists()){
+      return;
+    }
+
     $country = Country::create(['name' => 'Almanya', 'order' => 0, 'status' => 1]);
 
     $cityData = ['state_id' => null, 'country_id' => $country->id, 'code' => 'BE', 'order' => 1, 'status' => 1, 'name' => 'Berlin', 'slug' => Str::slug('berlin'), 'image' => 'no.jpg'];
