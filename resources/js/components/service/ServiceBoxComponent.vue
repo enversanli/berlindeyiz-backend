@@ -6,6 +6,7 @@
         <div
             class="h-94 m-3 p-1 bg-white shadow-md rounded-lg transition duration-300 hover:shadow-xl relative overflow-hidden service-box pt-3">
           <div class="h-8 w-40  transform -right-12 top-5 rotate-45 z-1 absolute"
+               v-if="service.type.slug === 'etkinlikler'"
                :class="[(service.is_priced === 1 ? 'bg-red-500' : 'bg-green-500')] "
           >
             <p class="text-white  mt-2 text-center">{{ service.is_priced === 1 ? 'Ücretli' : 'Ücretsiz' }}</p>
