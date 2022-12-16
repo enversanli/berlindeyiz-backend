@@ -24,8 +24,9 @@ class SendServiceToTelegramChannelJob implements ShouldQueue
    */
   public function __construct(Service $service, string $message = null)
   {
+    $type = $service->type->slug;
     $this->service = $service;
-    $this->message = $message ?? 'Yeni Etkinlik Eklendi';
+    $this->message = $message ?? "Yeni {$type} Eklendi";
   }
 
   /**
