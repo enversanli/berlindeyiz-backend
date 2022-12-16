@@ -13,7 +13,7 @@
           <option value="">Ne Arıyorsun ?</option>
           <option v-for="serviceType in serviceTypes" :value="serviceType.slug">{{ serviceType.title }}</option>
         </select>
-        <select name="kategori"
+        <select name="category"
                 class="h-9 m-1 p-1 bg-white shadow-md rounded-lg transition duration-700 hover:shadow-xl cursor-pointer animate__animated animate__fadeIn border border-none">
           <option value="">Kategori</option>
           <option v-for="category in categories" :value="category.slug">{{ category.name }}</option>

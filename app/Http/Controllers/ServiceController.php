@@ -64,7 +64,7 @@ class ServiceController extends Controller
   public function index(Request $request)
   {
     $perPage = $request->input('per_page', 10);
-    $category = $request->input('kategori');
+    $category = $request->input('category');
     $city = $request->input('sehir');
     $type = $request->input('type');
 

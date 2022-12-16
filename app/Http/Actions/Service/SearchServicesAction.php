@@ -16,9 +16,9 @@ class SearchServicesAction
       $services = Service::with(['city', 'category'])
         ->where('approved', 1);
 
-      if ($request->kategori && $request->kategori != '') {
+      if ($request->category && $request->category != '') {
         $services->whereHas('category', function ($query) use ($request) {
-          return $query->where('slug', $request->kategori);
+          return $query->where('slug', $request->category);
         });
       }
 

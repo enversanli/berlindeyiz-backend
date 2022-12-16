@@ -90,7 +90,7 @@ export default {
 
       var url = '/etkinlikler';
 
-      url += '?kategori=' + this.category;
+      url += '?category=' + this.category;
 
       url += '&type=' + this.type;
 
@@ -125,7 +125,7 @@ export default {
         this.all = true
       }
 
-      var url = '/etkinlikler?status=' + status + '&kategori=' + this.category + '&type=' + this.type;
+      var url = '/etkinlikler?status=' + status + '&category=' + this.category + '&type=' + this.type;
 
       if (status === null) {
         url = '/services';
@@ -147,7 +147,7 @@ export default {
         return false;
       }
 
-      var nextUrl = this.links.next + '&status='+ status + '&kategori=' + this.category + '&type=' + this.type;
+      var nextUrl = this.links.next + '&status='+ status + '&category=' + this.category + '&type=' + this.type;
 
       if (this.free === true) {
         nextUrl += '&status=free'

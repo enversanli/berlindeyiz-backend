@@ -11,7 +11,7 @@
 @section('content')
             @php
             $type = request()->type;
-            $category = request()->kategori;
+            $category = request()->category;
             $date = request()->tarih;
             @endphp
     <div class="py-10">

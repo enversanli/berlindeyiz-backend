@@ -68,7 +68,7 @@ export default {
 
   methods: {
     searchService() {
-      var url = '/hizmet-ara?type='+ this.type + '&kategori=' + this.category +'&tarih=' + this.date;
+      var url = '/hizmet-ara?type='+ this.type + '&category=' + this.category +'&tarih=' + this.date;
       axios.post(url).then(response => {
         this.services = response.data.data;
         this.links = response.data.links;
@@ -88,7 +88,7 @@ export default {
         this.all = true
       }
 
-      var url = '/hizmet-ara?kategori=' + this.category + '&sehir=' + this.city + '&status=' + status;
+      var url = '/hizmet-ara?category=' + this.category + '&sehir=' + this.city + '&status=' + status;
 
       if (status === null) {
         url = '/hizmet-ara';
