@@ -34,7 +34,7 @@ class ServiceResource extends JsonResource
             'city' => $this->city,
             'category' => $this->category,
             'meta' => $this->meta,
-            'seo_description' => $this->seo_description,
+            'type' => $this->type,
             'created_at' => $this->created_at,
         ];
     }

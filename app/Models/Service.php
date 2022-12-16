@@ -33,9 +33,9 @@ class Service extends Model
     return $this->hasOne(ServiceGuide::class, 'service_id', 'id');
   }
 
-  public function types()
+  public function type()
   {
-    return $this->belongsToMany(Type::class, 'service_types', 'service_id', 'type_id');
+    return $this->belongsTo(Type::class);
   }
 
   public function questions()
@@ -62,4 +62,12 @@ class Service extends Model
   {
     return $query->where('approved', true);
   }
+
+  public function scopeTypeIs(Builder $query, \App\Support\Enum\ServiceType $serviceType)
+  {
+    return $query->whereHas('type', function ($q) use ($serviceType){
+      return $q->where('slug', $serviceType);
+    });
+  }
+
 }

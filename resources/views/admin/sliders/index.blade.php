@@ -55,7 +55,8 @@
                                             </div>
                                         @endif
                                         <hr>
-                                        <form action="{{route('slider.store')}}" method="POST"
+                                        <form action="{{route('slider.store')}}"
+                                              method="post"
                                               enctype="multipart/form-data">
                                             @csrf
                                             <h1 class="mt-10 text-2xl text-center uppercase">@lang('common.create_new_slider')</h1>

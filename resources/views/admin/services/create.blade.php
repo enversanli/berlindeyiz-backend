@@ -116,8 +116,18 @@
                                                          :value="old('price')" name="price" required autofocus/>
                                             </div>
                                             <div class="w-1/4 mr-3 mobile-input mx-auto">
+                                                <x-label for="type" :value="__('service.category')"/>
+                                                <select id="type" name="type_id"
+                                                        class="w-full rounded border-gray-300">
+                                                    <option value="1">Etkinlik</option>
+                                                    <option value="2">Doktor</option>
+                                                    <option value="3">Avukat</option>
+                                                </select>
+                                            </div>
+                                            <div class="w-1/4 mr-3 mobile-input mx-auto">
                                                 <x-label for="category_id" :value="__('service.category')"/>
-                                                <select name="category_id" class="w-full rounded border-gray-300">
+                                                <select id="category" name="category_id"
+                                                        class="w-full rounded border-gray-300">
                                                     @foreach($categories as $category)
                                                         <option value="{{$category->id}}">{{$category->name}}</option>
                                                     @endforeach
@@ -125,6 +135,7 @@
                                                 </select>
                                             </div>
                                         </div>
+
 
                                         <div class="flex w-full mobile-companent">
                                             <div class="w-full mr-3 mt-4 mobile-input">
@@ -136,18 +147,21 @@
                                         <div class="flex w-full mobile-companent my-10 border-2 p-3">
                                             <div class="w-full h-50">
                                                 <h3 class="mb-3">Harita</h3>
-                                                <textarea name="meta[map]" class="w-full h-50 border border-b-0"></textarea>
+                                                <textarea name="meta[map]"
+                                                          class="w-full h-50 border border-b-0"></textarea>
                                             </div>
                                         </div>
 
                                         <div class="flex w-full mobile-companent my-10 border-2 p-3">
                                             <div class="w-full lg:w-1/2 md:w-1/2 sm:w-full h-50">
                                                 <h3 class="mb-3">SEO Açıklaması</h3>
-                                                <textarea name="meta[seo_description]" class="w-full h-50 border border-b-0"></textarea>
+                                                <textarea name="meta[seo_description]"
+                                                          class="w-full h-56 border border-b-0"></textarea>
                                             </div>
                                             <div class="w-full lg:w-1/2 md:w-1/2 sm:w-full h-50 px-2">
                                                 <h3 class="mb-3">Anahtar Kelimeler</h3>
-                                                <textarea name="meta[keywords]" class="w-full h-50 border border-b-0"></textarea>
+                                                <textarea name="meta[keywords]"
+                                                          class="w-full h-50 border border-b-0"></textarea>
                                             </div>
                                         </div>
 
@@ -196,4 +210,22 @@
             }
         });
     });
+
+    $('#type').change(function () {
+        var serviceTypeId = $('#type').val();
+        $.ajax({
+            url: '/admin/service-categories/' + serviceTypeId,
+            cache: true,
+            success: function (response) {
+                $('#category').find('option').remove();
+
+                for (x = 0; x < response.data.length; x++) {
+                    var row = response.data[x];
+
+                    $('#category').append("<option value=" + row.id + ">" + row.name + "</option>");
+                }
+            }
+        });
+    });
+
 </script>

@@ -24,6 +24,7 @@ class ServiceStoreRequest extends FormRequest
   public function rules()
   {
     return [
+      'type_id' => 'required|exists:types,id',
       'category_id' => 'required|exists:categories,id',
       'title' => 'required|string|min:1|max:255',
       'text' => 'required|string',

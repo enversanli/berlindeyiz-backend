@@ -8,10 +8,13 @@ use App\Http\Controllers\Controller;
 use App\Http\Helper\ResponseHelper;
 use App\Http\Requests\Service\ServiceStoreRequest;
 use App\Http\Requests\Service\ServiceUpdateRequest;
+use App\Http\Resources\CategoryResource;
+use App\Http\Resources\ServiceTypeResource;
 use App\Models\Category;
 use App\Models\City;
 use App\Models\District;
 use App\Models\Service;
+use App\Models\Type;
 use App\Models\User;
 use App\Support\Enum\UserRolesEnum;
 use App\Support\ResponseMessage;
@@ -48,7 +51,7 @@ class ServiceController extends Controller
 
   public function index(Request $request)
   {
-    $services = Service::with(['city', 'category', 'user'])
+    $services = Service::with(['city', 'category', 'user', 'type'])
       ->orderBy('created_at', 'DESC')
       ->when($this->user->role == UserRolesEnum::ORGANIZER, function ($q) {
         return $q->where('user_id', $this->user->id);
@@ -118,4 +121,19 @@ class ServiceController extends Controller
       return redirect()->route('service.index')->with('message', $this->responseHelper->error(__('response.error'), __('response.went_wrong')));
     }
   }
+
+  public function types()
+  {
+    $serviceTypes = Type::all();
+
+    return ServiceTypeResource::collection($serviceTypes);
+  }
+
+  public function categories($typeId)
+  {
+    $serviceCategories = Category::where('type_id', $typeId)->get();
+
+    return CategoryResource::collection($serviceCategories);
+  }
+
 }

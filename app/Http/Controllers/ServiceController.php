@@ -10,16 +10,21 @@ use App\Http\Resources\ServiceResource;
 use App\Jobs\ServiceVisitJob;
 use App\Models\Service;
 use App\Models\ServiceQuestion;
+use App\Models\Type;
 use App\Support\Enum\ServiceStatusEnum;
+use App\Support\Enum\ServiceType;
 use App\Support\ResponseMessage;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class ServiceController extends Controller
 {
-  protected SearchServicesAction $searchServicesAction;
-  protected GetCityServicesAction $getCityServicesAction;
-  protected GetLastAddedServicesAction $getLastAddedServicesAction;
+  /** @var SearchServicesAction */
+  protected $searchServicesAction;
+  /** @var GetCityServicesAction */
+  protected $getCityServicesAction;
+  /** @var GetLastAddedServicesAction */
+  protected $getLastAddedServicesAction;
 
   public function __construct(
     SearchServicesAction       $searchServicesAction,
@@ -32,21 +37,56 @@ class ServiceController extends Controller
     $this->getLastAddedServicesAction = $getLastAddedServicesAction;
   }
 
+  public function __invoke(Request $request)
+  {
+    $type = ServiceType::ACTIVITY->value;
+
+    if (isset($request->segments()[0]) && in_array($request->segments()[0],ServiceType::values())) {
+      $type = $request->segments()[0];
+    }
+
+    if ($request->has('type') && $request->input('type') != '') {
+      $type = $request->input('type');
+    }
+
+    $seo = $this->getSeoValues();
+
+    $siteDescription = $seo['descriptions'][$type];
+    $siteKeyword = $seo['keyWords'][$type];
+
+    return view('web.services.index')->with([
+      'type' => $type,
+      'siteKeyword' => $siteKeyword,
+      'siteDescription' => $siteDescription
+    ]);
+  }
+
   public function index(Request $request)
   {
+    $perPage = $request->input('per_page', 10);
+    $category = $request->input('kategori');
+    $city = $request->input('sehir');
+    $type = $request->input('type');
+
+    $serviceType = $type ? $this->getType($type) : Type::where('slug', ServiceType::ACTIVITY)->first();
 
     $services = Service::with(['city', 'category', 'business'])
       ->where('approved', 1);
 
-    if ($request->kategori && $request->kategori != '') {
-      $services->whereHas('category', function ($query) use ($request) {
-        return $query->where('slug', $request->kategori);
+    if ($category && $category != '') {
+      $services->whereHas('category', function ($query) use ($category) {
+        return $query->where('slug', $category);
       });
     }
 
-    if ($request->sehir && $request->sehir != '') {
-      $services->whereHas('city', function ($query) use ($request) {
-        return $query->where('slug', $request->kategori);
+    if ($serviceType && !$category) {
+      $services->where('type_id', $serviceType->id);
+    }
+
+
+    if ($city && $city != '') {
+      $services->whereHas('city', function ($query) use ($city) {
+        return $query->where('slug', $city);
       });
     }
 
@@ -68,7 +108,8 @@ class ServiceController extends Controller
       ->where('date_from', '<', now()->addMonths(2)->format('Y-m-d'))
       ->orderBy('date_from', 'DESC')
       ->orderBy('status', 'ASC')
-      ->paginate(10);
+      //->where('type_id', $serviceType->id)
+      ->paginate($perPage);
 
     return ServiceResource::collection($services);
   }
@@ -155,5 +196,36 @@ class ServiceController extends Controller
     }
 
     return ServiceResource::collection($searchedServices->data);
+  }
+
+  private function getType(string $typeSlug)
+  {
+    $types = [
+      'etkinlik', 'doktorlar', 'avukatlar'
+    ];
+
+    $slug = ServiceType::ACTIVITY;
+
+    if (in_array($typeSlug, $types)) {
+      $slug = $typeSlug;
+    }
+
+    return Type::where('slug', $slug)->first();
+  }
+
+  private function getSeoValues(): array
+  {
+    return [
+      'keyWords' => [
+        'etkinlikler' => 'berlin etkinlik, berlin etkinlikleri, berlin etkinlik takvimi, berlin türk etkinlikleri, berlindeyiz, berlinde etkinlik, almanya gezilecek yerler, berlin 2023 etkinlikleri',
+        'doktorlar' => 'berlin doktorları, berlin türk doktorları, berlin göz doktorları, berlin cilt doktorları, berlin cilt doktoru, berlin göz doktoru, berlin diş doktoru, berlin türk doktor, belin türk doktorlar listesi, berlindeki türk doktorlar',
+        'avukatlar' => 'berlin avukatları, berlin türk avukatları, berlin avukat, berlin türk avukat berlin\'deki türk avukatlar, berlin türk boşanma avukatları, berlin avukat wedding, berlin türk avukatlar listesi'
+      ],
+      'descriptions' => [
+        'etkinlikler' => 'Berlindeyiz, başta Berlin olmak üzere Almanya\'nın tüm şehirlerindeki müzik, kültür, sanat, edebiyat, gezi gibi etkinlikleri kolayca bulmanızı sağlar.',
+        'doktorlar' => 'Berlindeyiz, Berlin\'de aradığınız tüm doktorları bulmanızı sağlar. Berlin\'de ki Türk doktorlar, göz doktorları, cilt doktorları, diş doktorları ve tüm doktorların listesine kolayca ulaşın.',
+        'avukatlar' => 'Berlindeyiz, Berlin\'de aradığınız tüm avukatları kolayca bulmanızı sağlar. Berlin\'de ki Türk avukatlar, boşanma avukatları, alman avukatları ve tüm avukatların listesine kolayca ulaşın. '
+      ]
+    ];
   }
 }
