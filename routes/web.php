@@ -133,8 +133,8 @@ Route::get('/doktorlar', [\App\Http\Controllers\ServiceController::class, '__inv
 Route::get('/avukatlar', [\App\Http\Controllers\ServiceController::class, '__invoke']);
 Route::get('hizmet-ara', [\App\Http\Controllers\ServiceController::class, '__invoke']);
 
-Route::redirect('turk-doktorlari', 'doktorlar?type=doktorlar&category=turk-doktorlari');
-Route::redirect('turk-avukatlari', 'avukatlar?type=avukatlar&category=turk-avukatlari');
+Route::redirect('turk-doktorlari', 'doktorlar?type=doktorlar&category=turk-doktorlari', 301);
+Route::redirect('turk-avukatlari', 'avukatlar?type=avukatlar&category=turk-avukatlari', 301);
 
 
 /** Categories */
