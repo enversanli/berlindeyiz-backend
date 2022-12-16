@@ -116,7 +116,7 @@
         </div>
 
       </div>
-      <slider-box-component title="Diğer Etkinlikler" :rows="this.similar"></slider-box-component>
+      <slider-box-component title="Benzer Hizmetler" :rows="this.similar"></slider-box-component>
     </div>
   </div>
 </template>
@@ -191,7 +191,7 @@ export default {
       }
     },
     getCityServices() {
-      var url = '/sehir-etkinlikleri/' + this.service.city.slug;
+      var url = '/etkinlikler?type=' + this.service.type.slug;
 
       axios.get(url).then(response => {
         this.similar = response.data.data;
