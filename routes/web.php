@@ -155,6 +155,7 @@ Route::get('sehir-etkinlikleri/{slug}/{count?}', [\App\Http\Controllers\ServiceC
 Route::post('hizmet-ara', [\App\Http\Controllers\ServiceController::class, 'index'])->name('front.service-search-detail');
 Route::get('etkinlikler/{slug}', [\App\Http\Controllers\ServiceController::class, 'show']);
 Route::get('doktorlar/{slug}', [\App\Http\Controllers\ServiceController::class, 'show']);
+Route::get('avukatlar/{slug}', [\App\Http\Controllers\ServiceController::class, 'show']);
 /** end Services */
 
 
