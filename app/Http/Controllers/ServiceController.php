@@ -117,10 +117,11 @@ class ServiceController extends Controller
   public function show($slug)
   {
     $service = Service::where('slug', $slug)
-      ->with(['questions', 'city', 'category'])
+      ->with(['questions', 'city', 'category','type'])
       ->firstOrFail();
 
     $videoId = null;
+
     if (isset($service->guide) && isset($service->guide->youtube_url)) {
       $videoId = explode('?v=', $service->guide->youtube_url);
       $videoId = isset($videoId[1]) ? $videoId[1] : $videoId;
