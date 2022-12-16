@@ -80,7 +80,6 @@ export default {
     this.getServices();
     this.getLastAdded();
     //this.getCities();
-    this.getCategories();
   },
 
   methods: {
@@ -126,7 +125,7 @@ export default {
         this.all = true
       }
 
-      var url = '/etkinlikler?status=' + status;
+      var url = '/etkinlikler?status=' + status + '&kategori=' + this.category + '&type=' + this.type;
 
       if (status === null) {
         url = '/services';
@@ -148,18 +147,18 @@ export default {
         return false;
       }
 
-      var nextUrl = this.links.next;
+      var nextUrl = this.links.next + '&status='+ status + '&kategori=' + this.category + '&type=' + this.type;
 
       if (this.free === true) {
-        nextUrl = nextUrl + '&status=free'
+        nextUrl += '&status=free'
       }
 
       if (this.priced === true) {
-        nextUrl = nextUrl + '&status=priced'
+        nextUrl += '&status=priced'
       }
 
       if (this.all === true) {
-        nextUrl = nextUrl + '&status=all'
+        nextUrl += '&status=all'
       }
 
       axios.get(nextUrl).then(response => {

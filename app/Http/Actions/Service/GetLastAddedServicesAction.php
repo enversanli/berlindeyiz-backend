@@ -5,6 +5,7 @@ namespace App\Http\Actions\Service;
 use App\Models\Service;
 use App\Support\Enum\ErrorLogEnum;
 use App\Support\Enum\ServiceStatusEnum;
+use App\Support\Enum\ServiceType;
 use App\Support\ReturnData;
 
 class GetLastAddedServicesAction
@@ -15,6 +16,7 @@ class GetLastAddedServicesAction
       $services = Service::where('approved', 1)
         ->orderBy('created_at', 'DESC')
         ->where('status', ServiceStatusEnum::ACTIVE)
+        ->TypeIs(ServiceType::ACTIVITY)
         ->take($count)
         ->get();
 

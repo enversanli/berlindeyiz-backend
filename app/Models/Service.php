@@ -62,4 +62,12 @@ class Service extends Model
   {
     return $query->where('approved', true);
   }
+
+  public function scopeTypeIs(Builder $query, \App\Support\Enum\ServiceType $serviceType)
+  {
+    return $query->whereHas('type', function ($q) use ($serviceType){
+      return $q->where('slug', $serviceType);
+    });
+  }
+
 }

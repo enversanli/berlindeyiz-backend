@@ -107,7 +107,7 @@
           <hr class="mb-4 mt-4">
 
           <div class="px-4">
-            <h2 class="text-xl font-bold mb-2"><i class="fas fa-map-marker-alt text-xl"></i> Etkinlik Adresi</h2>
+            <h2 class="text-xl font-bold mb-2"><i class="fas fa-map-marker-alt text-xl"></i> Adres</h2>
               <p class="text-lg">{{service.address}}</p>
           </div>
 

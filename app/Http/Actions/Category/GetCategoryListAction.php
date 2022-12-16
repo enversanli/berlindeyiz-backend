@@ -9,7 +9,7 @@ use App\Support\ReturnData;
 
 class GetCategoryListAction
 {
-  public function list(ServiceType $type): object
+  public function list(string $type): object
   {
     try {
 

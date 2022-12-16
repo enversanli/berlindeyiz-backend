@@ -37,6 +37,30 @@ class ServiceController extends Controller
     $this->getLastAddedServicesAction = $getLastAddedServicesAction;
   }
 
+  public function __invoke(Request $request)
+  {
+    $type = ServiceType::ACTIVITY->value;
+
+    if (isset($request->segments()[0]) && in_array($request->segments()[0],ServiceType::values())) {
+      $type = $request->segments()[0];
+    }
+
+    if ($request->has('type') && $request->input('type') != '') {
+      $type = $request->input('type');
+    }
+
+    $seo = $this->getSeoValues();
+
+    $siteDescription = $seo['descriptions'][$type];
+    $siteKeyword = $seo['keyWords'][$type];
+
+    return view('web.services.index')->with([
+      'type' => $type,
+      'siteKeyword' => $siteKeyword,
+      'siteDescription' => $siteDescription
+    ]);
+  }
+
   public function index(Request $request)
   {
     $perPage = $request->input('per_page', 10);
@@ -55,7 +79,7 @@ class ServiceController extends Controller
       });
     }
 
-    if ($serviceType && !$category){
+    if ($serviceType && !$category) {
       $services->where('type_id', $serviceType->id);
     }
 
@@ -177,7 +201,7 @@ class ServiceController extends Controller
   private function getType(string $typeSlug)
   {
     $types = [
-      'etkinlik', 'doktor', 'avukat'
+      'etkinlik', 'doktorlar', 'avukatlar'
     ];
 
     $slug = ServiceType::ACTIVITY;
@@ -187,5 +211,21 @@ class ServiceController extends Controller
     }
 
     return Type::where('slug', $slug)->first();
+  }
+
+  private function getSeoValues(): array
+  {
+    return [
+      'keyWords' => [
+        'etkinlikler' => 'berlin etkinlik, berlin etkinlikleri, berlin etkinlik takvimi, berlin türk etkinlikleri, berlindeyiz, berlinde etkinlik, almanya gezilecek yerler, berlin 2023 etkinlikleri',
+        'doktorlar' => 'berlin doktorları, berlin türk doktorları, berlin göz doktorları, berlin cilt doktorları, berlin cilt doktoru, berlin göz doktoru, berlin diş doktoru, berlin türk doktor, belin türk doktorlar listesi, berlindeki türk doktorlar',
+        'avukatlar' => 'berlin avukatları, berlin türk avukatları, berlin avukat, berlin türk avukat berlin\'deki türk avukatlar, berlin türk boşanma avukatları, berlin avukat wedding, berlin türk avukatlar listesi'
+      ],
+      'descriptions' => [
+        'etkinlikler' => 'Berlindeyiz, başta Berlin olmak üzere Almanya\'nın tüm şehirlerindeki müzik, kültür, sanat, edebiyat, gezi gibi etkinlikleri kolayca bulmanızı sağlar.',
+        'doktorlar' => 'Berlindeyiz, Berlin\'de aradığınız tüm doktorları bulmanızı sağlar. Berlin\'de ki Türk doktorlar, göz doktorları, cilt doktorları, diş doktorları ve tüm doktorların listesine kolayca ulaşın.',
+        'avukatlar' => 'Berlindeyiz, Berlin\'de aradığınız tüm avukatları kolayca bulmanızı sağlar. Berlin\'de ki Türk avukatlar, boşanma avukatları, alman avukatları ve tüm avukatların listesine kolayca ulaşın. '
+      ]
+    ];
   }
 }

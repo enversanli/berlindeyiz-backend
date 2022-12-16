@@ -12,4 +12,9 @@ enum ServiceType:string
   {
     return array_column(self::cases(), 'value');
   }
+
+  public static function type(){
+    dd(self::cases());
+  }
+
 }

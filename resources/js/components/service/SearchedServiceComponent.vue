@@ -33,9 +33,7 @@
         </div>
       </div>
 
-      <slider-box-component title="Aynı Şehirde Diğer Etkinlikler" :rows="this.similar"></slider-box-component>
-
-      <slider-box-component title="Son Eklenenler" :rows="this.lastAdded"></slider-box-component>
+      <slider-box-component title="Son Eklenen Etkinlikler" :rows="this.lastAdded"></slider-box-component>
     </div>
   </div>
 </template>
@@ -43,8 +41,8 @@
 <script>
 export default {
   props: {
-    city: String,
     category: String,
+    type: String,
     date: String
   },
   data() {
@@ -66,15 +64,15 @@ export default {
   mounted() {
     this.searchService();
     this.getLastAdded();
-    this.getCityServices();
   },
 
   methods: {
     searchService() {
-      var url = '/etkinlik-ara?kategori=' + this.category + '&sehir=' + this.city +'&tarih=' + this.date;
+      var url = '/hizmet-ara?type='+ this.type + '&kategori=' + this.category +'&tarih=' + this.date;
       axios.post(url).then(response => {
         this.services = response.data.data;
         this.links = response.data.links;
+        alert(services.count);
       })
     },
 
@@ -90,10 +88,10 @@ export default {
         this.all = true
       }
 
-      var url = '/etkinlik-ara?kategori=' + this.category + '&sehir=' + this.city + '&status=' + status;
+      var url = '/hizmet-ara?kategori=' + this.category + '&sehir=' + this.city + '&status=' + status;
 
       if (status === null) {
-        url = '/etkinlik-ara';
+        url = '/hizmet-ara';
         this.goBack = false;
       }
       // if (status !== null && status === 'Ended') {
@@ -139,12 +137,6 @@ export default {
       })
     },
 
-    getCityServices() {
-      var url = '/sehir-etkinlikleri/' + this.city;
-      axios.get(url).then(response => {
-        this.similar = response.data.data;
-      })
-    },
     getLastAdded() {
       var url = '/etkinlikler/son-eklenenler';
       axios.get(url).then(response => {

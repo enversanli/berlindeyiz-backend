@@ -10,11 +10,11 @@
 
 @section('content')
             @php
+            $type = request()->type;
             $category = request()->kategori;
-            $city = request()->sehir;
             $date = request()->tarih;
             @endphp
     <div class="py-10">
-        <searched-service-component city="{{$city}}" category="{{$category}}" date="{{$date}}"></searched-service-component>
+        <searched-service-component type="{{$type}}" category="{{$category}}" date="{{$date}}"></searched-service-component>
     </div>
 @endsection
