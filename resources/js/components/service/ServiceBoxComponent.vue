@@ -23,12 +23,14 @@
                 <p></p>
               </div>
             </div>
+            <!--
             <div class="h-36 w-1/6 service-logo pl-2 mx-auto float-left hidden sm:hidden lg:block md:block">
               <img class="h-20 w-20 mt-4 my-3 rounded-full"
                    :alt="service.title"
                    :src="'/storage/'+service.logo">
             </div>
-            <div class="float-left service-content text-left w-full lg:w-3/4 md:w-3/4 sm:w-full">
+            -->
+            <div class="float-left service-content text-left w-full lg:w-full md:w-full sm:w-full">
               <h2 class="text-theme-color text-left ml-3 my-2 text-md title font-weight-bold">
                 {{ service.title }}</h2>
 
