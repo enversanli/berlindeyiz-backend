@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="description" content="@yield('site-description', "Berlindeyiz, başta Berlin olmak üzere Almanya'nın tüm şehirlerindeki müzik, kültür, sanat, edebiyat, gezi gibi etkinlikleri kolayca bulmanızı sağlar.")">
-    <meta name="keywords" content="@yield('site-keywords', "berlin etkinlik, berlin etkinlikleri, berlin etkinlik takvimi, berlin türk etkinlikleri, berlindeyiz, berlinde etkinlik, almanya gezilecek yerler")">
+    <meta name="keywords" content="@yield('site-keywords', "berlin etkinlik, berlin etkinlikleri, berlin etkinlik takvimi, berlin türk etkinlikleri, berlindeyiz, berlinde etkinlik, almanya gezilecek yerler, berlin 2023 etkinlikleri")">
 
     <meta name="author" content="Berlindeyiz, iletisim@berlindeyiz.de" />
     <meta name="Abstract" content="Berlindeyiz.de" />
@@ -18,6 +18,10 @@
     <meta property="og:locale" content="tr_TR" />
     <meta property="og:title" content="Berlin Etkinlikleri" />
     <meta property="og:description" content="@yield('site-description', "Berlindeyiz, başta Berlin olmak üzere Almanya'nın tüm şehirlerindeki müzik, kültür, sanat, edebiyat, gezi gibi etkinlikleri kolayca bulmanızı sağlar.")" />
+    <meta property="og:image" content="@yield('og-image', config('app.url').'/images/berlindeyiz.png')" />
+    <meta property="og:image:width" content="280" />
+    <meta property="og:image:height" content="280" />
+    <meta property="og:image:type" content="image/jpeg" />
 
     <link rel="icon" href="https://berlindeyiz.de/images/berlin.jpg">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
