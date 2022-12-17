@@ -3,6 +3,7 @@
 @section('title', __('dashboard/comment.comments'))
 @section('site-description', $siteDescription)
 @section('site-keyword', $siteKeyword)
+@section('site-title', $siteTitle)
 @section('sidebar')
     @parent
 @endsection
