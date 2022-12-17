@@ -41,7 +41,7 @@ class ServiceController extends Controller
   {
     $type = ServiceType::ACTIVITY->value;
 
-    if (isset($request->segments()[0]) && in_array($request->segments()[0],ServiceType::values())) {
+    if (isset($request->segments()[0]) && in_array($request->segments()[0], ServiceType::values())) {
       $type = $request->segments()[0];
     }
 
@@ -53,9 +53,11 @@ class ServiceController extends Controller
 
     $siteDescription = $seo['descriptions'][$type];
     $siteKeyword = $seo['keyWords'][$type];
+    $siteTitle = $seo['titles'][$type];
 
     return view('web.services.index')->with([
       'type' => $type,
+      'siteTitle' => $siteTitle,
       'siteKeyword' => $siteKeyword,
       'siteDescription' => $siteDescription
     ]);
@@ -117,7 +119,7 @@ class ServiceController extends Controller
   public function show($slug)
   {
     $service = Service::where('slug', $slug)
-      ->with(['questions', 'city', 'category','type'])
+      ->with(['questions', 'city', 'category', 'type'])
       ->firstOrFail();
 
     $videoId = null;
@@ -226,6 +228,11 @@ class ServiceController extends Controller
         'etkinlikler' => 'Berlindeyiz, başta Berlin olmak üzere Almanya\'nın tüm şehirlerindeki müzik, kültür, sanat, edebiyat, gezi gibi etkinlikleri kolayca bulmanızı sağlar.',
         'doktorlar' => 'Berlindeyiz, Berlin\'de aradığınız tüm doktorları bulmanızı sağlar. Berlin\'de ki Türk doktorlar, göz doktorları, cilt doktorları, diş doktorları ve tüm doktorların listesine kolayca ulaşın.',
         'avukatlar' => 'Berlindeyiz, Berlin\'de aradığınız tüm avukatları kolayca bulmanızı sağlar. Berlin\'de ki Türk avukatlar, boşanma avukatları, alman avukatları ve tüm avukatların listesine kolayca ulaşın.'
+      ],
+      'titles' => [
+        'etkinlikler' => 'Berlin başta olmak üzere Almanya\'daki tüm etkinlikleri kolayca bulun',
+        'doktorlar' => 'Berlin başta olmak üzere Almanya\'daki tüm doktorları kolayca bulun',
+        'avukatlar' => 'Berlin başta olmak üzere Almanya\'daki tüm avukatları kolayca bulun'
       ]
     ];
   }
