@@ -50,7 +50,12 @@
                     {{ service.start_time }}</p>
                 </div>
               </div>
+
               <div class="ml-3" v-else>Bilgi Yok</div>
+
+              <div class="w-full p-2 text-center mb-2">
+                <a :href="service.type.slug + '/' + service.slug" class="w-full bg-theme-color text-white px-3 py-2 text-lg"><i class="fas fa-search"></i> Detay Görüntüle</a>
+              </div>
               <div
                   class="grid lg:grid-cols-1 p-1 text-2xl absolute bottom-0 text-center -left-96 text-white bg-danger w-1/2 service-box-left-belt">
                 <div class="inline-block mr-2">

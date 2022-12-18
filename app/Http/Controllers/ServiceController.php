@@ -19,12 +19,10 @@ use Illuminate\Http\Request;
 
 class ServiceController extends Controller
 {
-  /** @var SearchServicesAction */
-  protected $searchServicesAction;
-  /** @var GetCityServicesAction */
-  protected $getCityServicesAction;
-  /** @var GetLastAddedServicesAction */
-  protected $getLastAddedServicesAction;
+
+  protected SearchServicesAction $searchServicesAction;
+  protected GetCityServicesAction $getCityServicesAction;
+  protected GetLastAddedServicesAction $getLastAddedServicesAction;
 
   public function __construct(
     SearchServicesAction       $searchServicesAction,
