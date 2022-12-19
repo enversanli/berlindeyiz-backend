@@ -62,8 +62,6 @@ class StoreServiceAction
         'city_id' => $request->input('city_id'),
         'district_id' => $request->input(''),
         'address' => trim($request->address) ?? null,
-        'seo_description' => $request->input('seo_description', $request->input('title')),
-        'keywords' => $request->input('keywords'),
         'meta' => $request->input('meta', [])
       ];
 

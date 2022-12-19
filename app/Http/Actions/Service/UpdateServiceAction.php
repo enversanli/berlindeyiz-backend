@@ -54,8 +54,6 @@ class UpdateServiceAction
         'district_id' => $request->input('district_id'),
         'address' => trim($request->input('address')),
         'approved' => $request->input('approved', $service->approved),
-        'seo_description' => $request->input('seo_description') ?? $service->title,
-        'keywords' => $request->input('keywords', $service->keywords),
         'meta' => $request->input('meta', $service->meta)
       ]);
 
