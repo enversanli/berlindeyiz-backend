@@ -10,7 +10,7 @@ class SchemaGenerator
   public function generate(Service $service): array
   {
     $type = $this->getType($service->type->slug);
-    $date = Carbon::parse($service->date_from . ' ' . $service->start_time)->format('Y-m-d H:i:s');
+    $date = Carbon::parse($service->date_from . ' ' . $service->start_time);
 
     return [
       "@context" => "http://schema.org",
