@@ -28,7 +28,7 @@ class SchemaGenerator
         ]
       ],
       "image" => "https://berlindeyiz.de/storage/{$service->logo}",
-      "url" => config('app.url') . $service->type->title . "/{$service->slug}"
+      "url" => config('app.url') . '/' . $service->type->slug . "/{$service->slug}"
     ];
 
   }
