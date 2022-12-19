@@ -141,7 +141,6 @@
                                                 <x-label for="phone" :value="__('service.phone')"/>
                                                 <x-input id="phone" maxlength="255" minlength="1"
                                                          class="block mt-1 w-full inputs sm:text-sm" type="text"
-                                                         placeholder="0"
                                                          :value="$service->meta['phone'] ?? ''" name="meta[phone]"/>
                                             </div>
 
@@ -149,7 +148,6 @@
                                                 <x-label for="mail" :value="__('service.mail')"/>
                                                 <x-input id="mail" maxlength="255" minlength="1"
                                                          class="block mt-1 w-full inputs sm:text-sm" type="text"
-                                                         placeholder="0"
                                                          :value="$service->meta['mail'] ?? ''" name="meta[mail]"/>
                                             </div>
 
@@ -157,7 +155,6 @@
                                                 <x-label for="website" :value="__('service.website')"/>
                                                 <x-input id="website" maxlength="255" minlength="1"
                                                          class="block mt-1 w-full inputs sm:text-sm" type="text"
-                                                         placeholder="0"
                                                          :value="$service->meta['website'] ?? ''" name="meta[website]"/>
                                             </div>
                                         </div>
