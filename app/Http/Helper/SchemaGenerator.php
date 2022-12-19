@@ -10,15 +10,18 @@ class SchemaGenerator
   public function generate(Service $service): array
   {
     $type = $this->getType($service->type->slug);
-    $date = Carbon::parse($service->date_from . ' ' . $service->start_time);
+    $startDate = Carbon::parse($service->date_from . ' ' . $service->start_time);
+    $endDate = Carbon::parse($service->date_to . ' ' . $service->end_time);
 
     return [
       "@context" => "http://schema.org",
       "@type" => $type,
       "name" => $service->title,
-      "startDate" => $date,
+      "startDate" => $startDate,
+      "endDate" => $endDate,
       "location" => [
         "@type" => "Place",
+        "name" => $service->address,
         "address" => [
           "@type" => "PostalAddress",
           "addressLocality" => $service->city->name
