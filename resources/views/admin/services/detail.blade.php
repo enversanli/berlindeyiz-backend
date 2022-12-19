@@ -155,7 +155,7 @@
                                                 <x-label for="website" :value="__('service.website')"/>
                                                 <x-input id="website" maxlength="255" minlength="1"
                                                          class="block mt-1 w-full inputs sm:text-sm" type="text"
-                                                         :value="$service->meta['website'] ?? ''" name="meta[website]" required/>
+                                                         :value="$service->meta['website'] ?? ''" name="meta[website]"/>
                                             </div>
                                         </div>
 
