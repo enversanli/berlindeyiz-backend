@@ -75,9 +75,10 @@
             class="mb-5 h-auto 2xl:service-detail-menu lg:service-detail-menu w-full 2xl:w-1/2 lg:w-1/2 2xl:w-1/2 md:w-full sm:w-full float-left 2xl:m-3 lg:m-3 md:m-3 sm:m-0 bg-white shadow-md rounded-lg transition duration-300 hover:shadow-xl p-3 md:mx-auto">
           <ul class="p-4 text-xl uppercase">
             <li class="my-3 cursor-pointer transition duration-300 hover:pl-2" @click="setBlock('service')"><i
-                class="fas fa-flag mr-2"></i> <a href="#">Etkinlik</a>
+                class="fas fa-flag mr-2"></i> <a href="#">Genel</a>
             </li>
-            <li class="my-3 cursor-pointer" @click="setBlock('faq')"><i class="fas fa-question mr-2"></i><a href="#sikca-sorulan-sorular">
+            <li class="my-3 cursor-pointer" @click="setBlock('faq')"><i class="fas fa-question mr-2"></i><a
+                href="#sikca-sorulan-sorular">
               Sıkça Sorulan Sorular
             </a>
             </li>
@@ -106,9 +107,23 @@
 
           <hr class="mb-4 mt-4">
 
-          <div class="px-4">
+          <ul class="text-xl mb-4 block w-full">
+            <li class="px-4 w-full" v-if="service.meta.phone">
+              <a :href="'tel:'+ service.meta.phone"><i class="fas fa-phone"></i> {{ service.meta.phone }}</a>
+            </li>
+
+            <li class="px-4 w-full my-3" v-if="service.meta.mail">
+              <a :href="'mailto:'+ service.meta.mail" target="_blank"><i class="fas fa-envelope"></i> {{ service.meta.mail }}</a>
+            </li>
+
+            <li class="px-4 w-full my-3" v-if="service.meta.website">
+              <a :href="service.meta.website" target="_blank"><i class="fas fa-globe"></i> {{ service.meta.website }}</a>
+            </li>
+          </ul>
+
+          <div class="px-4 w-full block mt-3">
             <h2 class="text-xl font-bold mb-2"><i class="fas fa-map-marker-alt text-xl"></i> Adres</h2>
-              <p class="text-lg">{{service.address}}</p>
+            <p class="text-lg">{{ service.address }}</p>
           </div>
 
           <div class="map w-full my-6 mt-10" v-if="service.meta && service.meta.map" v-html="service.meta.map">
@@ -181,7 +196,7 @@ export default {
         this.faqBlock = true;
         this.guideBlock = false;
         this.hardwareBlock = false;
-        window.scrollTo(0,0);
+        window.scrollTo(0, 0);
       }
       if (block === 'hardware') {
         this.serviceBlock = false;

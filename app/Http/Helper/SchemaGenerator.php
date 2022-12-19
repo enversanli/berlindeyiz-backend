@@ -19,6 +19,9 @@ class SchemaGenerator
       "name" => $service->title,
       "startDate" => $startDate,
       "endDate" => $endDate,
+      "telephone" => $service->meta['phone'] ?? '',
+      "email" => $service->meta['mail'] ?? '',
+      "description" => strip_tags($service->text),
       "location" => [
         "@type" => "Place",
         "name" => $service->address,

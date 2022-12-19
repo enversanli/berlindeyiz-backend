@@ -136,6 +136,32 @@
                                             </div>
                                         </div>
 
+                                        <div class="flex w-full mobile-companent my-10 border-2 p-3">
+                                            <div class="w-1/4 mr-3 mobile-input mx-auto">
+                                                <x-label for="phone" :value="__('service.phone')"/>
+                                                <x-input id="phone" maxlength="255" minlength="1"
+                                                         class="block mt-1 w-full inputs sm:text-sm" type="text"
+                                                         placeholder="0"
+                                                         :value="$service->meta['phone'] ?? ''" name="meta[phone]" required autofocus/>
+                                            </div>
+
+                                            <div class="w-1/4 mr-3 mobile-input mx-auto">
+                                                <x-label for="mail" :value="__('service.mail')"/>
+                                                <x-input id="mail" maxlength="255" minlength="1"
+                                                         class="block mt-1 w-full inputs sm:text-sm" type="text"
+                                                         placeholder="0"
+                                                         :value="$service->meta['mail'] ?? ''" name="meta[mail]" required autofocus/>
+                                            </div>
+
+                                            <div class="w-1/4 mr-3 mobile-input mx-auto">
+                                                <x-label for="website" :value="__('service.website')"/>
+                                                <x-input id="website" maxlength="255" minlength="1"
+                                                         class="block mt-1 w-full inputs sm:text-sm" type="text"
+                                                         placeholder="0"
+                                                         :value="$service->meta['website'] ?? ''" name="meta[website]" required autofocus/>
+                                            </div>
+                                        </div>
+
 
                                         <div class="flex w-full mobile-companent">
                                             <div class="w-full mr-3 mt-4 mobile-input">
