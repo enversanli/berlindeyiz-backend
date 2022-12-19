@@ -40,25 +40,7 @@
             {!! $schema !!}
         </script>
     @endif
-    <script type="application/ld+json">
-[
-  {
-    "@context": "http://schema.org",
-    "@type": "Event",
-    "name": "Ahmet Aslan Berlin Konseri (Kreuzberg)"
-  },
-  {
-    "@context": "http://schema.org",
-    "@type": "Event",
-    "name": "Berlin",
-    "startDate": "2023-02-17T20:30:00",
-    "location": {
-      "@type": "Place",
-      "name": "Passionskirche Kreuzberg, Berlin Almanya"
-    }
-  }
-]
-</script>
+
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-PS504YLF2T"></script>
