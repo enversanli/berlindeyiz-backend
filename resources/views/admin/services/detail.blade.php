@@ -142,7 +142,7 @@
                                                 <x-input id="phone" maxlength="255" minlength="1"
                                                          class="block mt-1 w-full inputs sm:text-sm" type="text"
                                                          placeholder="0"
-                                                         :value="$service->meta['phone'] ?? ''" name="meta[phone]" required autofocus/>
+                                                         :value="$service->meta['phone'] ?? ''" name="meta[phone]" />
                                             </div>
 
                                             <div class="w-1/4 mr-3 mobile-input mx-auto">
@@ -150,7 +150,7 @@
                                                 <x-input id="mail" maxlength="255" minlength="1"
                                                          class="block mt-1 w-full inputs sm:text-sm" type="text"
                                                          placeholder="0"
-                                                         :value="$service->meta['mail'] ?? ''" name="meta[mail]" required autofocus/>
+                                                         :value="$service->meta['mail'] ?? ''" name="meta[mail]"/>
                                             </div>
 
                                             <div class="w-1/4 mr-3 mobile-input mx-auto">
@@ -158,7 +158,7 @@
                                                 <x-input id="website" maxlength="255" minlength="1"
                                                          class="block mt-1 w-full inputs sm:text-sm" type="text"
                                                          placeholder="0"
-                                                         :value="$service->meta['website'] ?? ''" name="meta[website]" required autofocus/>
+                                                         :value="$service->meta['website'] ?? ''" name="meta[website]" required/>
                                             </div>
                                         </div>
 
