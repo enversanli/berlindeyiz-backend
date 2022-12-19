@@ -124,7 +124,7 @@ class ServiceController extends Controller
     ServiceVisitJob::dispatchNow($service);
 
     $schema = SchemaGenerator::generate($service);
-    dd($schema);
+
     return view('web.services.detail')->with(['service' => $service, 'schema' => json_encode($schema)]);
   }
 
