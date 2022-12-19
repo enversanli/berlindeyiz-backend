@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Actions\Service\GetCityServicesAction;
 use App\Http\Actions\Service\GetLastAddedServicesAction;
 use App\Http\Actions\Service\SearchServicesAction;
+use Facades\App\Http\Helper\SchemaGenerator;
 use App\Http\Resources\ServiceQuestionResource;
 use App\Http\Resources\ServiceResource;
 use App\Jobs\ServiceVisitJob;
@@ -120,18 +121,11 @@ class ServiceController extends Controller
       ->with(['questions', 'city', 'category', 'type'])
       ->firstOrFail();
 
-    $videoId = null;
-
-    if (isset($service->guide) && isset($service->guide->youtube_url)) {
-      $videoId = explode('?v=', $service->guide->youtube_url);
-      $videoId = isset($videoId[1]) ? $videoId[1] : $videoId;
-      $service->youtubevideoId = $videoId;
-    }
-
     ServiceVisitJob::dispatchNow($service);
 
-    //ServiceResource::make($service)
-    return view('web.services.detail')->with(['service' => $service, 'youtubeImgId' => $videoId]);
+    $schema = SchemaGenerator::generate($service);
+
+    return view('web.services.detail')->with(['service' => $service, 'schema' => json_encode($schema)]);
   }
 
   public function search($word)
