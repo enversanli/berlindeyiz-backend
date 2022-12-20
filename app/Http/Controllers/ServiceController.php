@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Actions\Service\GetCityServicesAction;
 use App\Http\Actions\Service\GetLastAddedServicesAction;
 use App\Http\Actions\Service\SearchServicesAction;
-use Facades\App\Http\Helper\SchemaGenerator;
 use App\Http\Resources\ServiceQuestionResource;
 use App\Http\Resources\ServiceResource;
 use App\Jobs\ServiceVisitJob;
@@ -16,6 +15,7 @@ use App\Support\Enum\ServiceStatusEnum;
 use App\Support\Enum\ServiceType;
 use App\Support\ResponseMessage;
 use Carbon\Carbon;
+use Facades\App\Http\Helper\SchemaGenerator;
 use Illuminate\Http\Request;
 
 class ServiceController extends Controller
@@ -212,19 +212,19 @@ class ServiceController extends Controller
   {
     return [
       'keyWords' => [
-        'etkinlikler' => 'berlin etkinlik, berlin etkinlikleri, berlin etkinlik takvimi, berlin türk etkinlikleri, berlindeyiz, berlinde etkinlik, almanya gezilecek yerler, berlin 2023 etkinlikleri',
-        'doktorlar' => 'berlin doktorları, berlin türk doktorları, berlin göz doktorları, berlin cilt doktorları, berlin cilt doktoru, berlin göz doktoru, berlin diş doktoru, berlin türk doktor, belin türk doktorlar listesi, berlindeki türk doktorlar',
-        'avukatlar' => 'berlin avukatları, berlin türk avukatları, berlin avukat, berlin türk avukat berlin\'deki türk avukatlar, berlin türk boşanma avukatları, berlin avukat wedding, berlin türk avukatlar listesi'
+        'etkinlikler' => "berlin etkinlik, berlin etkinlikleri, berlin etkinlik takvimi, berlin türk etkinlikleri, berlindeyiz, berlinde etkinlik, almanya gezilecek yerler, berlin 2023 etkinlikleri",
+        'doktorlar' => "berlin doktorları, berlin türk doktorları, berlin göz doktorları, berlin cilt doktorları, berlin cilt doktoru, berlin göz doktoru, berlin diş doktoru, berlin türk doktor, belin türk doktorlar listesi, berlindeki türk doktorlar",
+        'avukatlar' => "berlin avukatları, berlin türk avukatları, berlin avukat, berlin türk avukat berlin'deki türk avukatlar, berlin türk boşanma avukatları, berlin avukat wedding, berlin türk avukatlar listesi"
       ],
       'descriptions' => [
-        'etkinlikler' => 'Berlindeyiz, başta Berlin olmak üzere Almanya\'nın tüm şehirlerindeki müzik, kültür, sanat, edebiyat, gezi gibi etkinlikleri kolayca bulmanızı sağlar.',
-        'doktorlar' => 'Berlindeyiz, Berlin\'de aradığınız tüm doktorları bulmanızı sağlar. Berlin\'de ki Türk doktorlar, göz doktorları, cilt doktorları, diş doktorları ve tüm doktorların listesine kolayca ulaşın.',
-        'avukatlar' => 'Berlindeyiz, Berlin\'de aradığınız tüm avukatları kolayca bulmanızı sağlar. Berlin\'de ki Türk avukatlar, boşanma avukatları, alman avukatları ve tüm avukatların listesine kolayca ulaşın.'
+        'etkinlikler' => "Berlindeyiz, başta Berlin olmak üzere Almanya'nın tüm şehirlerindeki müzik, kültür, sanat, edebiyat, gezi gibi etkinlikleri kolayca bulmanızı sağlar.",
+        'doktorlar' => "Berlindeyiz, Berlin'de aradığınız tüm doktorları bulmanızı sağlar. Berlin'de ki Türk doktorlar, göz doktorları, cilt doktorları, diş doktorları ve tüm doktorların listesine kolayca ulaşın.",
+        'avukatlar' => "Berlindeyiz, Berlin'de aradığınız tüm avukatları kolayca bulmanızı sağlar. Berlin'de ki Türk avukatlar, boşanma avukatları, alman avukatları ve tüm avukatların listesine kolayca ulaşın."
       ],
       'titles' => [
-        'etkinlikler' => 'Berlin başta olmak üzere Almanya\'daki tüm etkinlikleri kolayca bulun',
-        'doktorlar' => 'Berlin başta olmak üzere Almanya\'daki tüm doktorları kolayca bulun',
-        'avukatlar' => 'Berlin başta olmak üzere Almanya\'daki tüm avukatları kolayca bulun'
+        'etkinlikler' => "Berlin başta olmak üzere Almanya'daki tüm etkinlikleri kolayca bulun",
+        'doktorlar' => "Berlin başta olmak üzere Almanya'daki tüm doktorları kolayca bulun",
+        'avukatlar' => "Berlin başta olmak üzere Almanya'daki tüm avukatları kolayca bulun"
       ]
     ];
   }
