@@ -113,11 +113,14 @@
             </li>
 
             <li class="px-4 w-full my-3" v-if="service.meta.mail">
-              <a :href="'mailto:'+ service.meta.mail" target="_blank"><i class="fas fa-envelope"></i> {{ service.meta.mail }}</a>
+              <a :href="'mailto:'+ service.meta.mail" target="_blank"><i class="fas fa-envelope"></i>
+                {{ service.meta.mail }}</a>
             </li>
 
             <li class="px-4 w-full my-3" v-if="service.meta.website">
-              <a :href="service.meta.website" target="_blank"><i class="fas fa-globe"></i> {{ service.meta.website }}</a>
+              <a :href="service.meta.website" target="_blank"><i class="fas fa-globe"></i> {{
+                  service.meta.website
+                }}</a>
             </li>
           </ul>
 
@@ -128,9 +131,17 @@
 
           <div class="map w-full my-6 mt-10" v-if="service.meta && service.meta.map" v-html="service.meta.map">
           </div>
+
+          <div class="w-full h-auto block text-center">
+            <h4 class="mb-2">Sponsor</h4>
+            <a href="https://professional.enversanli.com" target="_blank">
+              <img src="/images/sponsors/enversanli.png" class="h-auto mr-auto ml-auto" alt="Berlin Yazılım Uzmamı">
+            </a>
+          </div>
         </div>
 
       </div>
+      <br>
       <slider-box-component title="Benzer Hizmetler" :rows="this.similar"></slider-box-component>
     </div>
   </div>
