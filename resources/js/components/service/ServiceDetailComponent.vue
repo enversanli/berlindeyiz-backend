@@ -108,16 +108,16 @@
           <hr class="mb-4 mt-4">
 
           <ul class="text-xl mb-4 block w-full">
-            <li class="px-4 w-full" v-if="service.meta.phone">
+            <li class="px-4 w-full" v-if="service.meta.hasOwnProperty('phone')">
               <a :href="'tel:'+ service.meta.phone"><i class="fas fa-phone"></i> {{ service.meta.phone }}</a>
             </li>
 
-            <li class="px-4 w-full my-3" v-if="service.meta.mail">
+            <li class="px-4 w-full my-3" v-if="service.meta.hasOwnProperty('mail')">
               <a :href="'mailto:'+ service.meta.mail" target="_blank"><i class="fas fa-envelope"></i>
                 {{ service.meta.mail }}</a>
             </li>
 
-            <li class="px-4 w-full my-3" v-if="service.meta.website">
+            <li class="px-4 w-full my-3" v-if="service.meta.hasOwnProperty('website')">
               <a :href="service.meta.website" target="_blank"><i class="fas fa-globe"></i> {{
                   service.meta.website
                 }}</a>
