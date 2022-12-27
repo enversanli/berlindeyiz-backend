@@ -38,8 +38,8 @@ class SearchServicesAction
 
 
       // This week's events
-      if ($request->has('tarih') && in_array($request->input('tarih'),['bu-hafta', 'bu-ay', 'gelecek-hafta', 'gelecek-ay'])) {
-        $dates = $this->dateFilter($request->input('tarih'));
+      if ($request->has('date') && in_array($request->input('date'),['bu-hafta', 'bu-ay', 'gelecek-hafta', 'gelecek-ay'])) {
+        $dates = $this->dateFilter($request->input('date'));
         $services->where('date_from', '>=', $dates['start_date'])
           ->where('date_from', '<=', $dates['end_date']);
       }

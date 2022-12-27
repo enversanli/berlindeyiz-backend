@@ -99,9 +99,10 @@ class ServiceController extends Controller
       $services->where('is_priced', 0);
     }
 
-    if ($request->has('tarih') && $request->input('tarih') == 'bu-hafta') {
-      $services->where('date_from', '>=', Carbon::now()->startOfWeek()->format('Y-m-d'))
-        ->where('date_from', '<=', Carbon::now()->endOfWeek()->format('Y-m-d'));
+    if ($request->has('date') && in_array($request->input('date'),['bu-hafta', 'bu-ay', 'gelecek-hafta', 'gelecek-ay'])) {
+      $dates = $this->dateFilter($request->input('date'));
+      $services->where('date_from', '>=', $dates['start_date'])
+        ->where('date_from', '<=', $dates['end_date']);
     }
 
 
@@ -227,5 +228,30 @@ class ServiceController extends Controller
         'avukatlar' => "Berlin başta olmak üzere Almanya'daki tüm avukatları kolayca bulun"
       ]
     ];
+  }
+
+  private function dateFilter(string $date)
+  {
+    $now = Carbon::now();
+
+    return match ($date) {
+      'bu-hafta' => [
+        'start_date' => $now->startOfWeek()->format('Y-m-d'),
+        'end_date' => $now->endOfWeek()->format('Y-m-d')
+      ],
+      'gelecek-hafta' => [
+        'start_date' => $now->addDays(7)->startOfWeek()->format('Y-m-d'),
+        'end_date' => $now->endOfWeek()->format('Y-m-d')
+      ],
+      'bu-ay' => [
+        'start_date' => $now->startOfMonth()->format('Y-m-d'),
+        'end_date' => $now->endOfMonth()->format('Y-m-d')
+      ],
+      'gelecek-ay' => [
+        'start_date' => $now->addMonth()->startOfMonth()->format('Y-m-d'),
+        'end_date' => $now->endOfMonth()->format('Y-m-d')
+      ],
+      default => ['start_date' => null, 'end_date' => null],
+    };
   }
 }

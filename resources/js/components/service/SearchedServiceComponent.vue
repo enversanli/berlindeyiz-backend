@@ -62,13 +62,14 @@ export default {
   },
 
   mounted() {
+    alert(123);
     this.searchService();
     this.getLastAdded();
   },
 
   methods: {
     searchService() {
-      var url = '/hizmet-ara?type='+ this.type + '&category=' + this.category +'&tarih=' + this.date;
+      var url = '/hizmet-ara?type='+ this.type + '&category=' + this.category +'&date=' + this.date;
       axios.post(url).then(response => {
         this.services = response.data.data;
         this.links = response.data.links;

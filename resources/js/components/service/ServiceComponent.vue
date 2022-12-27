@@ -57,7 +57,7 @@
 <script>
 
 export default {
-  props: ['type', 'category'],
+  props: ['type', 'category', 'date', 'city'],
 
   data() {
     return {
@@ -93,6 +93,8 @@ export default {
       url += '?category=' + this.category;
 
       url += '&type=' + this.type;
+      url += '&date=' + this.date;
+      url += '&city=' + this.city;
 
       if (this.free === true) {
         url += '&status=free'

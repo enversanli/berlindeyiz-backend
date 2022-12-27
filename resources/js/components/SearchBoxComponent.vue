@@ -25,7 +25,7 @@
         </select>-->
         <select
             @change="selectDate($event)"
-            name="tarih"
+            name="date"
             class="h-9  m-1 p-1 bg-white shadow-md rounded-lg transition duration-700 hover:shadow-xl cursor-pointer animate__animated animate__fadeIn border border-none">
           <option :value="''">Tarih</option>
           <option :value="'bu-hafta'">Bu Hafta</option>
