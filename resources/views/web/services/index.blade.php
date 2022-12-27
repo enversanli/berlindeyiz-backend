@@ -15,8 +15,10 @@
 
     $type = request()->get('type') ?? $type ?? 'etkinlikler';
     $category = request()->get('category') ?? '';
+    $date = request()->get('date') ?? '';
+    $city = request()->get('city') ?? '';
     @endphp
     <div class="py-1">
-        <service-component type="{{$type}}" category="{{$category}}"></service-component>
+        <service-component type="{{$type}}" category="{{$category}}" date="{{$date}}" city="{{$city}}"></service-component>
     </div>
 @endsection
