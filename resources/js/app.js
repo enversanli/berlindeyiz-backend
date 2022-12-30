@@ -39,6 +39,7 @@ Vue.component('announcement-component', require('./components/AnnouncementCompon
 Vue.component('validator-component', require('./components/ValidatorComponent.vue').default);
 Vue.component('slider-component', require('./components/SliderComponent.vue').default);
 Vue.component('slider-box-component', require('./components/slider/SliderBoxComponent.vue').default);
+Vue.component('service-options', require('./components/service/ServiceOptions.vue').default);
 
 
 /**
