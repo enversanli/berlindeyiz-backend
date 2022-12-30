@@ -118,9 +118,7 @@
             </li>
 
             <li class="px-4 w-full my-3" v-if="service.meta.website">
-              <a :href="service.meta.website" target="_blank"><i class="fas fa-globe"></i> {{
-                  service.meta.website
-                }}</a>
+              <a :href="service.meta.website" target="_blank"><i class="fas fa-globe"></i> Siteyi Ziyaret Et</a>
             </li>
           </ul>
 
@@ -143,7 +141,9 @@
       </div>
       <br>
       <slider-box-component title="Benzer Hizmetler" :rows="this.similar"></slider-box-component>
+
     </div>
+      <service-options :service="service"></service-options>
   </div>
 </template>
 

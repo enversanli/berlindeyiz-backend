@@ -157,6 +157,13 @@
                                                          class="block mt-1 w-full inputs sm:text-sm" type="text"
                                                          :value="$service->meta['website'] ?? ''" name="meta[website]"/>
                                             </div>
+
+                                            <div class="w-1/4 mr-3 mobile-input mx-auto">
+                                                <x-label for="ticket" :value="__('service.ticket_url')"/>
+                                                <x-input id="ticket" maxlength="255" minlength="1"
+                                                         class="block mt-1 w-full inputs sm:text-sm" type="text"
+                                                         :value="$service->meta['ticket'] ?? ''" name="meta[ticket]"/>
+                                            </div>
                                         </div>
 
 
