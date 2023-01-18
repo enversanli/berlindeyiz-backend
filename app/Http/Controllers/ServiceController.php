@@ -107,7 +107,7 @@ class ServiceController extends Controller
 
     $services = $services
       ->where('date_from', '<', now()->addMonths(2)->format('Y-m-d'))
-      ->orderBy('date_from', 'DESC')
+      //->orderBy('date_from', 'DESC')
       ->orderBy('status', 'ASC')
       ->orderBy('remaining_day', 'ASC')
       //->where('type_id', $serviceType->id)
