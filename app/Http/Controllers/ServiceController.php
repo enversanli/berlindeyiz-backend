@@ -110,7 +110,7 @@ class ServiceController extends Controller
       //->orderBy('date_from', 'DESC')
       ->orderBy('status', 'ASC')
       ->orderBy('remaining_day', 'ASC')
-      ->orderBy('is_repeating', 'ASC') // Tekrar edenleri arkaya
+      ->orderBy('is_repeating', 'DESC') // Tekrar edenleri arkaya
       //->where('type_id', $serviceType->id)
       ->paginate($perPage);
 
