@@ -32,7 +32,7 @@
                                                     class="mb-6">@lang('service.service_list')</h2>
                                                 <div class="overflow-hidden border-b border-gray-200 sm:rounded-lg">
                                                     <div class="flex float-left items-center justify-end mt-4 mb-4">
-                                                        <form>
+                                                        <form method="GET" action="{{route('service.index')}}">
                                                             <x-input id="mail" maxlength="255" minlength="1" placeholder="Ara..."
                                                                      class="block mt-1 w-full inputs sm:text-sm" type="text"
                                                                       name="search"/>
