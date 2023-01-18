@@ -51,12 +51,18 @@ class ServiceController extends Controller
 
   public function index(Request $request)
   {
+    $search = $request->input('search');
+    $perPage = $request->input('per_page', 20);
+
     $services = Service::with(['city', 'category', 'user', 'type'])
       ->orderBy('created_at', 'DESC')
       ->when($this->user->role == UserRolesEnum::ORGANIZER, function ($q) {
         return $q->where('user_id', $this->user->id);
       })
-      ->paginate(10);
+      ->when($search, function ($query) use ($search){
+        return $query->where('title', 'like', "%$search%");
+      })
+      ->paginate($perPage);
 
     return view('admin.services.index')->with('services', $services);
   }
