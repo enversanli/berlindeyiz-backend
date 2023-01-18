@@ -31,6 +31,14 @@
                                                 <h2 style="font-size: 1.5em;"
                                                     class="mb-6">@lang('service.service_list')</h2>
                                                 <div class="overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                                                    <div class="flex float-left items-center justify-end mt-4 mb-4">
+                                                        <form>
+                                                            <x-input id="mail" maxlength="255" minlength="1" placeholder="Ara..."
+                                                                     class="block mt-1 w-full inputs sm:text-sm" type="text"
+                                                                      name="search"/>
+                                                        </form>
+                                                    </div>
+
                                                     <div class="flex items-center justify-end mt-4 mb-4">
 
                                                         <x-button class="ml-1 mr-1">
@@ -45,6 +53,10 @@
                                                             <th scope="col"
                                                                 class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                                                 @lang('common.title')
+                                                            </th>
+                                                            <th scope="col"
+                                                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                                @lang('service.category')
                                                             </th>
                                                             <th scope="col"
                                                                 class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -67,6 +79,16 @@
                                                                             </div>
                                                                             <div class="text-sm text-gray-500">
                                                                                 {{\Carbon\Carbon::parse($service->created_at)->format('d-m-Y H:i:s')}}
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+
+                                                                <td class="px-6 py-4 whitespace-nowrap">
+                                                                    <div class="flex items-center">
+                                                                        <div class="">
+                                                                            <div class="text-sm font-medium text-gray-900">
+                                                                                {{$service->category->name}}
                                                                             </div>
                                                                         </div>
                                                                     </div>
