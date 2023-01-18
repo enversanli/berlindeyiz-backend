@@ -105,11 +105,11 @@ class ServiceController extends Controller
         ->where('date_from', '<=', $dates['end_date']);
     }
 
-
     $services = $services
       ->where('date_from', '<', now()->addMonths(2)->format('Y-m-d'))
       ->orderBy('date_from', 'DESC')
       ->orderBy('status', 'ASC')
+      ->orderBy('remaining_day', 'ASC')
       //->where('type_id', $serviceType->id)
       ->paginate($perPage);
 

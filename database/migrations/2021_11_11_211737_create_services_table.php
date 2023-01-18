@@ -23,6 +23,7 @@ class CreateServicesTable extends Migration
             $table->tinyInteger('approved')->default(0);
             $table->string('title');
             $table->longText('text');
+            $table->integer('remaining_day')->nullable();
             $table->string('address')->nullable();
             $table->string('logo')->nullable();
             $table->string('image')->nullable();
