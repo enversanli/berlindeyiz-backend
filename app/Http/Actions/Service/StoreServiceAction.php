@@ -2,6 +2,7 @@
 
 namespace App\Http\Actions\Service;
 
+use App\Jobs\ServiceRemainingDayCalculateJob;
 use App\Models\Category;
 use App\Models\City;
 use App\Models\Service;
@@ -66,6 +67,9 @@ class StoreServiceAction
       ];
 
       $service = Service::create($data);
+
+      // Calculate all
+      ServiceRemainingDayCalculateJob::dispatch();
 
       return ReturnData::success($service);
     } catch (\Exception $exception) {

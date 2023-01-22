@@ -29,8 +29,6 @@ class ServiceRemainingDayCalculateCommand extends Command
           $remainingDay = $today->diffInDays($serviceStartDate);
 
           $service->update(['remaining_day' => $remainingDay]);
-
-          $this->info("$service->tite is calculated...");
         }
 
         $this->info('Completed.');
