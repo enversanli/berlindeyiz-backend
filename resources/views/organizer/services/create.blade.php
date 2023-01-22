@@ -141,7 +141,7 @@
                                         <div class="col-span-12 sm:col-span-12 lg:col-span-12 mt-70 mt-10">
                                             <label for="image"
                                                    class="block text-sm font-medium text-gray-700">@lang('service.image')</label>
-                                            <input type="file" accept="image/x-png,image/gif,image/jpeg"
+                                            <input type="file" accept="image/x-png,image/gif,image/jpeg,image/webp"
                                                    name="logo" id="image"
                                                    class="mt-1 focus:ring-indigo-500 inputs focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                                         </div>

@@ -164,7 +164,7 @@
                                             <div class="w-1/2 mt-4 customer_number mobile-input">
                                                 <label for="logo"
                                                        class="block text-sm font-medium text-gray-700">@lang('service.new_image')</label>
-                                                <input type="file" accept="image/x-png,image/gif,image/jpeg"
+                                                <input type="file" accept="image/x-png,image/gif,image/jpeg,image/webp"
                                                        name="logo" id="image"
                                                        class="mt-3 focus:ring-indigo-500 inputs focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                                             </div>
