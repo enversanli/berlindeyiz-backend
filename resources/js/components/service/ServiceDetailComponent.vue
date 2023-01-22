@@ -32,11 +32,11 @@
                      :src="'/storage/'+service.logo" :alt="service.title">
 
               </div>
-              <h2 class="text-black text-center my-3 text-4xl animate__animated animate__fadeIn">
-                {{ service.title }}</h2>
+              <h1 class="text-black text-center my-3 font-weight-bold text-2xl animate__animated animate__fadeIn">
+                {{ service.title }}
+              </h1>
               <div class="w-full text-xl p-3 animate__animated animate__backInRight service-detail"
                    v-html="service.text">
-
               </div>
 
               <hr>
