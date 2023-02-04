@@ -58,6 +58,9 @@
             'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
         })(window,document,'script','dataLayer','GTM-KV8QSQM');</script>
     <!-- End Google Tag Manager -->
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2319020616250534"
+            crossorigin="anonymous"></script>
 </head>
 <body class="font-sans antialiased">
 <!-- Google Tag Manager (noscript) -->
