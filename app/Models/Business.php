@@ -28,4 +28,8 @@ class Business extends Model
         return $this->hasMany(Service::class, 'business_id', 'id');
     }
 
+    public function city(){
+      return $this->belongsTo(City::class);
+    }
+
 }

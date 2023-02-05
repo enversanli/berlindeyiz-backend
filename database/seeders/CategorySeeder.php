@@ -88,6 +88,11 @@ class CategorySeeder extends Seeder
         'name' => 'Avukatlar',
         'description' => 'Avukatlar',
       ],
+      [
+        'type' => 'dugun-salonlari',
+        'name' => 'Düğün Salonu',
+        'description' => 'Tüm düğün salonları',
+      ],
     ];
 
     foreach ($categories as $category) {

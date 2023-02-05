@@ -39,6 +39,14 @@
                                                          class="block mt-1 w-full inputs sm:text-sm" type="text"
                                                          :value="old('title')" name="title" required autofocus/>
                                             </div>
+                                            <div class="w-full mr-3 mobile-input">
+                                                <x-label for="business" :value="__('common.business')"/>
+
+                                                <select id="business" name="business_id"
+                                                        class="w-full rounded border-gray-300">
+
+                                                </select>
+                                            </div>
                                         </div>
 
                                         <div class="flex w-full mobile-companent my-10 border-2 p-3">
@@ -96,7 +104,8 @@
                                             </div>
                                             <div class="w-1/2 mr-3  mobile-input mx-1">
                                                 <x-label for="address" :value="__('service.address')"/>
-                                                <textarea name="address" class="border border-gray-300 w-full"
+                                                <textarea id="address" name="address"
+                                                          class="border border-gray-300 w-full"
                                                           style="height:40px;min-height: 40px; max-height: 80px"></textarea>
                                             </div>
                                         </div>
@@ -177,7 +186,7 @@
                                         <div class="flex w-full mobile-companent my-10 border-2 p-3">
                                             <div class="w-full h-50">
                                                 <h3 class="mb-3">Harita</h3>
-                                                <textarea name="meta[map]"
+                                                <textarea id="map" name="meta[map]"
                                                           class="w-full h-50 border border-b-0"></textarea>
                                             </div>
                                         </div>
@@ -223,6 +232,40 @@
 </x-app-layout>
 <script>
     CKEDITOR.replace('editor');
+
+    $(document).ready(function () {
+        $.ajax({
+            url: '/admin/businesses',
+            cache: true,
+            success: function (response) {
+                $('#business').append("<option> Seç </option>");
+                for (x = 0; x < response.data.length; x++) {
+                    var row = response.data[x];
+
+                    $('#business').append("<option value=" + row.id + ">" + row.title + "</option>");
+                }
+            }
+        });
+    });
+
+    $('#business').change(function () {
+        var business_id = $('#business').val();
+
+        $.ajax({
+            url: '/admin/businesses/' + business_id,
+            cache: true,
+            success: function (response) {
+                var metaData = $.parseJSON(response.data.meta);
+
+                $('#map').text(metaData.map);
+                $('#mail').val(response.data.email);
+                $('#website').val(response.data.website);
+                $('#phone').val(response.data.mobile_phone);
+                $('#address').text(response.data.address);
+                $('#city').val(response.data.city.id);
+            }
+        });
+    });
 
     $('#city').change(function () {
         var cidy_id = $('#city').val();

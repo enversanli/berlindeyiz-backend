@@ -118,8 +118,9 @@ Route::prefix('admin')->middleware('auth')->group(function () {
   /** end Profile */
 
   /** Business */
-  Route::prefix('/business')->group(function () {
-    Route::get('', [\App\Http\Controllers\Organizer\BusinessController::class, 'index']);
+  Route::prefix('/businesses')->group(function () {
+    Route::get('', [\App\Http\Controllers\Admin\BusinessController::class, 'index']);
+    Route::get('/{business}', [\App\Http\Controllers\Admin\BusinessController::class, 'show']);
   });
   /** end Business */
 
