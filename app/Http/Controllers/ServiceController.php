@@ -133,8 +133,8 @@ class ServiceController extends Controller
   public function search($word)
   {
     $services = Service::where('title', 'like', '%' . $word . '%')
-      ->where('approved', 1)
-      ->where('status', ServiceStatusEnum::ACTIVE)->take(5)->get();
+      ->where('approved', true)
+      ->take(5)->get();
 
     return ServiceResource::collection($services);
   }
