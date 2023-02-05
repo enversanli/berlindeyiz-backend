@@ -30,6 +30,8 @@ class StoreServiceAction
         $imagePath = $request->file('image')->store('public/services');
       }
 
+      $businessId = $request->input('business_id', $user->business?->id);
+
       $category = Category::find($request->category_id);
 
       $city = City::find($request->city_id);
@@ -45,7 +47,7 @@ class StoreServiceAction
       $data = [
         'user_id' => $user->id,
         // TODO - Following rule should be fixed
-        'business_id' => $user->business ? $user->business->id : null,
+        'business_id' => $businessId,
         'category_id' => $category->id,
         'type_id' => $request->input('type_id'),
         'title' => $request->input('title'),
@@ -69,7 +71,7 @@ class StoreServiceAction
       $service = Service::create($data);
 
       // Calculate all
-      ServiceRemainingDayCalculateJob::dispatch();
+      ServiceRemainingDayCalculateJob::dispatch($service);
 
       return ReturnData::success($service);
     } catch (\Exception $exception) {
