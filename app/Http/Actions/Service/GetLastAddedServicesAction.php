@@ -15,7 +15,7 @@ class GetLastAddedServicesAction
     try {
       $services = Service::where('approved', 1)
         ->orderBy('created_at', 'DESC')
-        ->where('status', ServiceStatusEnum::ACTIVE)
+        ->whereIn('status', [ServiceStatusEnum::ACTIVE, ServiceStatusEnum::SPONSORED])
         ->TypeIs(ServiceType::ACTIVITY)
         ->take($count)
         ->get();

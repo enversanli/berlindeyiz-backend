@@ -11,7 +11,7 @@ class GetCityServicesAction
 {
     public function get($citySlug, $count){
         try {
-            $services = Service::where('status', ServiceStatusEnum::ACTIVE)
+            $services = Service::whereIn('status', [ServiceStatusEnum::ACTIVE, ServiceStatusEnum::SPONSORED])
                 ->whereHas('city', function ($query) use ($citySlug){
                     return $query->where('slug', $citySlug);
                 })

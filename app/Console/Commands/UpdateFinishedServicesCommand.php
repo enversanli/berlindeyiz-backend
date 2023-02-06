@@ -20,7 +20,7 @@ class UpdateFinishedServicesCommand extends Command
     $now = Carbon::now();
 
     $services = Service::where('date_to', '<',$now->format('Y-m-d'))
-      ->where('status', ServiceStatusEnum::ACTIVE)
+      ->whereIn('status', [ServiceStatusEnum::ACTIVE, ServiceStatusEnum::SPONSORED])
       ->whereHas('type', function ($q){
         return $q->where('slug', ServiceType::ACTIVITY);
       })

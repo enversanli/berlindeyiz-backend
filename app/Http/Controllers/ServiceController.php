@@ -108,7 +108,7 @@ class ServiceController extends Controller
     $services = $services
       ->where('date_from', '<', now()->addMonths(2)->format('Y-m-d'))
       //->orderBy('date_from', 'DESC')
-      ->orderBy('status', 'ASC')
+      ->orderByRaw("FIELD(status , 'SPONSORED', 'ACTIVE', 'CANCELED', 'OUT_OF_DATE') ASC")
       ->orderBy('is_repeating', 'ASC') // Tekrar edenleri arkaya
       ->orderBy('remaining_day', 'ASC')
       //->where('type_id', $serviceType->id)
