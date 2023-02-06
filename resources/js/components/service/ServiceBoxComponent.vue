@@ -19,8 +19,11 @@
                    :src="'/storage/'+service.logo">
               <div class="w-full z-10 p-2 bg-red-600 text-center text-white"
                    v-show="service.status === 'OUT_OF_DATE' || service.status === 'CANCELED'">
-                <p>{{ service.status === 'CANCELED' ? 'Etkinlik İptal Edildi' : 'Etkinlik Sona Erdi' }}
-                <p></p>
+                <p>{{ service.status === 'CANCELED' ? 'Etkinlik İptal Edildi' : 'Etkinlik Sona Erdi' }}</p>
+              </div>
+              <div class="w-full z-10 p-2 bg-theme-color text-center text-white"
+                   v-show="service.status === 'SPONSORED'">
+                  <p>Sponsorlu</p>
               </div>
             </div>
             <!--
