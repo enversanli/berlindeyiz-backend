@@ -216,17 +216,20 @@ class ServiceController extends Controller
       'keyWords' => [
         'etkinlikler' => "berlin etkinlik, berlin etkinlikleri, berlin etkinlik takvimi, berlin türk etkinlikleri, berlindeyiz, berlinde etkinlik, almanya gezilecek yerler, berlin 2023 etkinlikleri",
         'doktorlar' => "berlin doktorları, berlin türk doktorları, berlin göz doktorları, berlin cilt doktorları, berlin cilt doktoru, berlin göz doktoru, berlin diş doktoru, berlin türk doktor, belin türk doktorlar listesi, berlindeki türk doktorlar",
-        'avukatlar' => "berlin avukatları, berlin türk avukatları, berlin avukat, berlin türk avukat berlin'deki türk avukatlar, berlin türk boşanma avukatları, berlin avukat wedding, berlin türk avukatlar listesi"
+        'avukatlar' => "berlin avukatları, berlin türk avukatları, berlin avukat, berlin türk avukat berlin'deki türk avukatlar, berlin türk boşanma avukatları, berlin avukat wedding, berlin türk avukatlar listesi",
+        'diger' => "berlin diger etkinlikler, berlin yardım faaliyetleri, berlin de gerçekleşen etkinlikler, berlin sivil toplum kuruluşları"
       ],
       'descriptions' => [
         'etkinlikler' => "Berlindeyiz, başta Berlin olmak üzere Almanya'nın tüm şehirlerindeki müzik, kültür, sanat, edebiyat, gezi gibi etkinlikleri kolayca bulmanızı sağlar.",
         'doktorlar' => "Berlindeyiz, Berlin'de aradığınız tüm doktorları bulmanızı sağlar. Berlin'de ki Türk doktorlar, göz doktorları, cilt doktorları, diş doktorları ve tüm doktorların listesine kolayca ulaşın.",
-        'avukatlar' => "Berlindeyiz, Berlin'de aradığınız tüm avukatları kolayca bulmanızı sağlar. Berlin'de ki Türk avukatlar, boşanma avukatları, alman avukatları ve tüm avukatların listesine kolayca ulaşın."
+        'avukatlar' => "Berlindeyiz, Berlin'de aradığınız tüm avukatları kolayca bulmanızı sağlar. Berlin'de ki Türk avukatlar, boşanma avukatları, alman avukatları ve tüm avukatların listesine kolayca ulaşın.",
+        'diger' => 'Berlin şehrinde gerçekleşen diğer etkinlikleri ve faaliyetleri keşfesin.',
       ],
       'titles' => [
         'etkinlikler' => "Berlin başta olmak üzere Almanya'daki tüm etkinlikleri kolayca bulun",
         'doktorlar' => "Berlin başta olmak üzere Almanya'daki tüm doktorları kolayca bulun",
-        'avukatlar' => "Berlin başta olmak üzere Almanya'daki tüm avukatları kolayca bulun"
+        'avukatlar' => "Berlin başta olmak üzere Almanya'daki tüm avukatları kolayca bulun",
+        "diger" => "Berlin şehrinde gerçekleşen diğer etkinlik ve faaliyetler."
       ]
     ];
   }
