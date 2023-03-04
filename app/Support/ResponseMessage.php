@@ -8,7 +8,7 @@ class ResponseMessage
 {
     public static function success($message = null, $data = [])
     {
-        if (is_null($message) || $message = '' || $message = null) {
+        if ($message == '' || $message == null) {
             $message = __('Başarılı.');
         }
 
