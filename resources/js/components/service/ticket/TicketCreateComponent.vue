@@ -75,7 +75,7 @@
 
           <div class="mb-10">
             <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Email <span class="text-red-600">*</span></label>
-            <input type="email" placeholder="johnsnow@example.com"
+            <input type="email" placeholder="birisi@mail.com"
                    v-model="email"
                    required
                    class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"/>
