@@ -197,7 +197,10 @@ class ServiceController extends Controller
 
   public function ticketCreate($slug)
   {
-    $service = Service::active()->where('slug', $slug)->firstOrFail();
+    $service = Service::active()
+      ->where('slug', $slug)
+      ->where('internal_ticket', true)
+      ->firstOrFail();
 
     return view('web.services.ticket.create', compact('service'));
   }

@@ -32,6 +32,7 @@ class CreateServicesTable extends Migration
             $table->date('date_to')->nullable();
             $table->time('end_time')->nullable();
             $table->string('slug');
+            $table->tinyInteger('internal_ticket')->default(false);
             $table->string('date_text')->nullable();
             $table->enum('status', \App\Support\Enum\ServiceStatusEnum::all())->default(\App\Support\Enum\ServiceStatusEnum::ACTIVE);
             $table->tinyInteger('is_priced')->default(0);
