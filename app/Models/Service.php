@@ -81,12 +81,5 @@ class Service extends Model
     return $query->whereIn('status', [ServiceStatusEnum::ACTIVE, ServiceStatusEnum::SPONSORED]);
   }
 
-  /**
-   * @return string
-   */
-  public function getRouteKeyName(): string
-  {
-    return 'slug';
-  }
 
 }
