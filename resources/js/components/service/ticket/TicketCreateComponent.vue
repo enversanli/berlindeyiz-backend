@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div class="mb-10">
     <div class="flex justify-center min-h-screen">
 
       <div class="flex items-center w-full max-w-3xl p-8 mx-auto lg:px-12 lg:w-3/5">
@@ -9,7 +9,7 @@
           </h1>
 
           <p class="mt-4 text-gray-500 dark:text-gray-400">
-            <b><a :href="'/etkinlikler/' + service.slug">{{ service.title }}</a></b> için biletiniz, organizatörün onayı ardından tarafınıza mail olarak gönderilecektir.
+            <b><a :href="'/etkinlikler/' + service.slug">{{ service.title }}</a></b> için biletiniz, organizatörün onayı ardından sizinle iletişim kurulacaktır.
           </p>
           <p  class="mt-4 text-gray-500 dark:text-gray-400">
             <small>Bilet satış konusunda berlindeyiz.de, herhangi bir dijital ödeme alma imkanı sunmamaktadır ve oluşacak olan mali konulardan asla sorumlu değildir.</small>
@@ -75,6 +75,7 @@
 
           <div class="mb-10">
             <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Email <span class="text-red-600">*</span></label>
+            <small>Gerçek bir mail adresi girmelisiniz. Örn : birisi@mail.com</small>
             <input type="email" placeholder="birisi@mail.com"
                    v-model="email"
                    required
@@ -87,7 +88,7 @@
 
           <button
               @click="store"
-              class="flex items-center justify-between w-full px-6 py-3 text-sm tracking-wide text-white capitalize transition-colors duration-300 transform bg-theme-color rounded-md hover:bg-theme-color-100 focus:outline-none focus:ring focus:bg-theme-color-300 focus:ring-opacity-50">
+              class="flex items-center justify-between w-full px-6 py-3 text-lg tracking-wide text-white capitalize transition-colors duration-300 transform bg-theme-color rounded-md hover:bg-theme-color-100 focus:outline-none focus:ring focus:bg-theme-color-300 focus:ring-opacity-50">
             <span><i class="fas fa-ticket-alt"></i> Hemen Rezerve Et </span>
 
             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 rtl:-scale-x-100" viewBox="0 0 20 20"
@@ -136,7 +137,7 @@ export default {
 
 
       axios.post('/etkinlikler/' + this.service.slug + '/ticket', data).then(response => {
-        alert('Bilet rezervasyonunuz başarıyla oluşturuldu.');
+        alert(response.data.message);
 
         this.firstName = '';
         this.lastName = '';

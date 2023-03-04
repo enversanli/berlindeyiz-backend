@@ -18,7 +18,7 @@ class TicketStoreRequest extends FormRequest
             'first_name' => ['required', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
             'phone' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255'],
         ];
     }
 }
