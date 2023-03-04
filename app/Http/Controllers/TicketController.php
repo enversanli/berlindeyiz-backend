@@ -4,9 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Actions\Ticket\TicketStoreAction;
 use App\Http\Requests\TicketStoreRequest;
-use App\Http\Resources\TicketResource;
 use App\Jobs\SendStoredTicketToTelegramChannelJob;
-use App\Models\Service;
 use App\Models\Ticket;
 use App\Support\ResponseMessage;
 
@@ -14,7 +12,6 @@ class TicketController extends Controller
 {
   public function __construct(protected TicketStoreAction $ticketStoreAction)
   {
-
   }
 
   public function store(TicketStoreRequest $request)
@@ -27,7 +24,11 @@ class TicketController extends Controller
 
     $storedTicket = $this->ticketStoreAction->execute($request);
 
-    SendStoredTicketToTelegramChannelJob::dispatchNow($storedTicket->data);
+    if (!$storedTicket->status){
+      return ResponseMessage::custumized($storedTicket->message);
+    }
+
+    SendStoredTicketToTelegramChannelJob::dispatch($storedTicket->data);
 
     return ResponseMessage::success('Rezervasyonunuz Oluşturuldu, Size En Kısa Sürede Dönüş Sağlanacak.');
   }

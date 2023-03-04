@@ -32,13 +32,12 @@ class TelegramService
         ->withProperties(['params' => $params, 'error' => $response->body()])
         ->log('SUCCESS');
 
-      if ($model) {
+      if ($model && isset($model->sent_to_telegram)) {
         $model->update(['sent_to_telegram' => true]);
       }
 
       return true;
     } catch (\Exception $exception) {
-
       activity('telegram')
         ->withProperties(['error' => $exception->getMessage()])
         ->log(ErrorLogEnum::SEND_TELEGRAM_MESSAGE_SERVICE_ERROR);
