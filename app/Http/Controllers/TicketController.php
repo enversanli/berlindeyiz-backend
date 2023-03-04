@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Actions\Ticket\TicketStoreAction;
 use App\Http\Requests\TicketStoreRequest;
 use App\Http\Resources\TicketResource;
+use App\Jobs\SendStoredTicketToTelegramChannelJob;
 use App\Models\Service;
 use App\Models\Ticket;
 use App\Support\ResponseMessage;
@@ -24,8 +25,10 @@ class TicketController extends Controller
       return ResponseMessage::custumized('Zaten bir rezervasyonunuz mevcut.');
     }
 
-    $this->ticketStoreAction->execute($request);
+    $storedTicket = $this->ticketStoreAction->execute($request);
 
-    return ResponseMessage::success('Rezervasyonunuz Oluşturuldu.');
+    SendStoredTicketToTelegramChannelJob::dispatch($storedTicket->data);
+
+    return ResponseMessage::success('Rezervasyonunuz Oluşturuldu, Size En Kısa Sürede Dönüş Sağlanacak.');
   }
 }

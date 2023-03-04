@@ -24,7 +24,6 @@ class TelegramService
   public function sendMessage(array $params, Model $model = null, bool $withMedia = false)
   {
     try {
-
       $this->apiUrl .= $withMedia ? $this->photoEndpoint : $this->messageEndpoing;
 
       $response = Http::post($this->apiUrl, $params);

@@ -32,7 +32,9 @@ return [
 
   'telegram' => [
     'bot_token' => env('TELEGRAM_BOT_TOKEN', ''),
-    'public_channel' => env('TELEGRAM_PUBLIC_CHANNEL', '@berlindeyiz')
+    'public_channel' => env('TELEGRAM_PUBLIC_CHANNEL', '@berlindeyiz'),
+    'personnel_channel' => env('TELEGRAM_PERSONNEL_CHANNEL', '@tulpartech'),
+
   ]
 
 ];
