@@ -6,6 +6,7 @@ use App\Http\Actions\Ticket\TicketStoreAction;
 use App\Http\Requests\TicketStoreRequest;
 use App\Http\Resources\TicketResource;
 use App\Models\Service;
+use App\Support\ResponseMessage;
 
 class TicketController extends Controller
 {
@@ -18,6 +19,6 @@ class TicketController extends Controller
   {
     $storedTicket = $this->ticketStoreAction->execute($request);
 
-    return TicketResource::make($storedTicket->data);
+    return ResponseMessage::success();
   }
 }
