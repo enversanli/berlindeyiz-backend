@@ -18,14 +18,14 @@ class TicketController extends Controller
 
   public function store(TicketStoreRequest $request)
   {
-    $service = Ticket::where('email', $request->input('email'))->where('service_id', $request->input('service_id'))->first();
+    $ticket = Ticket::where('email', $request->input('email'))->where('service_id', $request->input('service_id'))->first();
 
-    if (!$service){
+    if ($ticket){
       return ResponseMessage::custumized('Zaten bir rezervasyonunuz mevcut.');
     }
 
-    $storedTicket = $this->ticketStoreAction->execute($request);
+    $this->ticketStoreAction->execute($request);
 
-    return ResponseMessage::success();
+    return ResponseMessage::success('Rezervasyonunuz Oluşturuldu.');
   }
 }
