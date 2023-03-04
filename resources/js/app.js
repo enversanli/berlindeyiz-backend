@@ -33,6 +33,7 @@ Vue.component('searched-service-component', require('./components/service/Search
 Vue.component('search-box-component', require('./components/SearchBoxComponent.vue').default);
 Vue.component('service-detail-component', require('./components/service/ServiceDetailComponent.vue').default);
 Vue.component('service-guide-component', require('./components/service/ServiceGuideComponent.vue').default);
+Vue.component('service-ticket-create', require('./components/service/ticket/TicketCreateComponent.vue').default);
 Vue.component('header-component', require('./components/HeaderComponent.vue').default);
 Vue.component('faq-component', require('./components/FaqComponent.vue').default);
 Vue.component('announcement-component', require('./components/AnnouncementComponent.vue').default);

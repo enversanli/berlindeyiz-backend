@@ -41,6 +41,7 @@
            style="line-height: 96px">
         <a href="https://t.me/berlindeyiz" target="_blank"><i class="fab fa-telegram-plane mx-1"></i></a>
         <a href="https://www.instagram.com/berlindeyiz.de/?igshid=YmMyMTA2M2Y%3D" target="_blank"><i class="fab fa-instagram mx-1"></i></a>
+        <a href="https://www.youtube.com/@berlindeyiz1961" target="_blank"><i class="fab fa-youtube mx-1"></i></a>
       </div>
     </header>
     <div class="position-fixed top-0 left-0 right-0 bottom-0 z-10 animate__animated d-none bg-gray-500 bg-opacity-50"

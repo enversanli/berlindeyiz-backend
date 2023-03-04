@@ -6,13 +6,14 @@ use App\Models\Business;
 use App\Models\User;
 use App\Support\Enum\ErrorLogEnum;
 use App\Support\ReturnData;
+use Illuminate\Http\Request;
 
 class GetBusinessesAction
 {
-  public function get(User $user)
+  public function get(Request $request, User $user)
   {
     try {
-      $businesses = Business::all();
+      $businesses = Business::where('type', $request->input('type'))->get();
 
       return ReturnData::success($businesses);
     } catch (\Exception $exception) {

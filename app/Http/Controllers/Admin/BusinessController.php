@@ -8,6 +8,7 @@ use App\Http\Resources\BusinessResource;
 use App\Models\Business;
 use App\Models\User;
 use App\Support\ResponseMessage;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class BusinessController extends Controller
@@ -26,9 +27,9 @@ class BusinessController extends Controller
     });
   }
 
-  public function index()
+  public function index(Request $request)
   {
-    $businesses = $this->getBusinessesAction->get($this->user);
+    $businesses = $this->getBusinessesAction->get($request, $this->user);
 
     return ResponseMessage::success('Başarılı', BusinessResource::collection($businesses->data));
 
@@ -37,6 +38,21 @@ class BusinessController extends Controller
   public function show(Business $business)
   {
     return ResponseMessage::success('Başarılı', BusinessResource::make($business));
+  }
+
+  public function store()
+  {
+
+  }
+
+  public function update()
+  {
+
+  }
+
+  public function destroy()
+  {
+
   }
 
 }

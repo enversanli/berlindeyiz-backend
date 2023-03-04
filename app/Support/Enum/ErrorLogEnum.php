@@ -35,6 +35,10 @@ class ErrorLogEnum
   // TELEGRAM
   const SEND_TELEGRAM_MESSAGE_SERVICE_ERROR = 'SEND_TELEGRAM_MESSAGE_SERVICE_ERROR';
 
+
+  // TICKET
+  const STORE_TICKET_ACTION_ERROR = 'STORE_TICKET_ACTION_ERROR';
+
   public static function all()
   {
     return [
