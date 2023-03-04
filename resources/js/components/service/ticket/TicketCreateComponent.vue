@@ -9,7 +9,7 @@
           </h1>
 
           <p class="mt-4 text-gray-500 dark:text-gray-400">
-            <b><a :href="'/etkinlikler/' + service.slug">{{ service.title }}</a></b> için biletiniz, organizatörün onayı ardından sizinle iletişim kurulması ardından tarafınıza iletilecektir.
+            <b><a :href="'/etkinlikler/' + service.slug">{{ service.title }}</a></b> için biletiniz, organizatör kişi/kuruluş aracılığı ile tarafınıza iletilecektir.
           </p>
           <p  class="mt-4 text-gray-500 dark:text-gray-400">
             <small>Bilet satış konusunda berlindeyiz.de, herhangi bir dijital ödeme alma imkanı sunmamaktadır ve oluşacak olan mali konulardan asla sorumlu değildir.</small>
