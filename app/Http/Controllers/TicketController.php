@@ -28,7 +28,7 @@ class TicketController extends Controller
       return ResponseMessage::custumized($storedTicket->message);
     }
 
-    SendStoredTicketToTelegramChannelJob::dispatch($storedTicket->data);
+    SendStoredTicketToTelegramChannelJob::dispatchNow($storedTicket->data);
 
     return ResponseMessage::success('Rezervasyonunuz Oluşturuldu, Size En Kısa Sürede Dönüş Sağlanacak.');
   }
