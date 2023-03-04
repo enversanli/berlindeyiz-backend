@@ -99,7 +99,7 @@ class ServiceController extends Controller
       $services->where('is_priced', 0);
     }
 
-    if ($request->has('date') && in_array($request->input('date'),['bu-hafta', 'bu-ay', 'gelecek-hafta', 'gelecek-ay'])) {
+    if ($request->has('date') && in_array($request->input('date'), ['bu-hafta', 'bu-ay', 'gelecek-hafta', 'gelecek-ay'])) {
       $dates = $this->dateFilter($request->input('date'));
       $services->where('date_from', '>=', $dates['start_date'])
         ->where('date_from', '<=', $dates['end_date']);
@@ -193,6 +193,13 @@ class ServiceController extends Controller
     }
 
     return ServiceResource::collection($searchedServices->data);
+  }
+
+  public function ticketCreate($slug)
+  {
+    $service = Service::active()->where('slug', $slug)->firstOrFail();
+
+    return view('web.services.ticket.create', compact('service'));
   }
 
   private function getType(string $typeSlug)
