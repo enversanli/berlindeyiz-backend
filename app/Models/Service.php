@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Support\Enum\ServiceStatusEnum;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -53,6 +54,11 @@ class Service extends Model
     return $this->belongsTo(Category::class, 'category_id', 'id');
   }
 
+  public function tickets()
+  {
+    return $this->hasMany(Ticket::class);
+  }
+
   public function city()
   {
     return $this->hasOne(City::class, 'id', 'city_id');
@@ -65,9 +71,22 @@ class Service extends Model
 
   public function scopeTypeIs(Builder $query, \App\Support\Enum\ServiceType $serviceType)
   {
-    return $query->whereHas('type', function ($q) use ($serviceType){
+    return $query->whereHas('type', function ($q) use ($serviceType) {
       return $q->where('slug', $serviceType);
     });
+  }
+
+  public function scopeActive(Builder $query)
+  {
+    return $query->whereIn('status', [ServiceStatusEnum::ACTIVE, ServiceStatusEnum::SPONSORED]);
+  }
+
+  /**
+   * @return string
+   */
+  public function getRouteKeyName(): string
+  {
+    return 'slug';
   }
 
 }

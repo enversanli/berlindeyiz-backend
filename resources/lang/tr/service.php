@@ -21,4 +21,5 @@ return [
   'phone' => 'İletişim Numarası',
   'mail' => 'Mail Adresi',
   'website' => 'Web Sitesi',
+  'ticket_url' => 'Bilet Url',
 ];
