@@ -163,12 +163,14 @@ Route::prefix('/')->middleware('web')->group(function () {
   Route::get('avukatlar/{slug}', [\App\Http\Controllers\ServiceController::class, 'show']);
   /** end Services */
 
+  Route::view('/cookies', 'web.info.cookie');
 
   Route::get('/search/{word}', [\App\Http\Controllers\ServiceController::class, 'search']);
   Route::get('/{slug}', [\App\Http\Controllers\ServiceController::class, 'show']);
   Route::get('/service/{id}/guide', [\App\Http\Controllers\ServiceController::class, 'guide']);
   Route::get('/{id}/questions', [\App\Http\Controllers\ServiceController::class, 'guide']);
 //Route::get('/{id}/questions/{id}', [ServiceController::class, 'guide']);
+
 
   /** end WEB START */
 
