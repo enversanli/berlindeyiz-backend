@@ -163,7 +163,7 @@ Route::prefix('/')->middleware('web')->group(function () {
   Route::get('avukatlar/{slug}', [\App\Http\Controllers\ServiceController::class, 'show']);
   /** end Services */
 
-  Route::view('/cookies', 'web.info.cookie');
+  Route::view('/cerez-politikasi', 'web.info.cookie');
 
   Route::get('/search/{word}', [\App\Http\Controllers\ServiceController::class, 'search']);
   Route::get('/{slug}', [\App\Http\Controllers\ServiceController::class, 'show']);

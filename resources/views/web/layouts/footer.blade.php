@@ -45,7 +45,7 @@
                     Haklarınız</h2>
                 <ul class="text-gray-600 dark:text-gray-400">
                     <li class="mb-4">
-                        <a href="/" class="hover:underline">Gizlilik Politikası</a>
+                        <a href="/cerez-politikasi" class="hover:underline">Çerez Politikası</a>
                     </li>
                     <li>
                         <a href="/" class="hover:underline">Hüküm &amp; Koşullar</a>
