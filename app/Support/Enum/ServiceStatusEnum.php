@@ -2,7 +2,7 @@
 
 namespace App\Support\Enum;
 
-class ServiceStatusEnum
+enum ServiceStatusEnum: string
 {
     const ACTIVE = 'ACTIVE';
     const CANCELED = 'CANCELED';
