@@ -124,6 +124,12 @@ Route::prefix('admin')->middleware('auth')->group(function () {
   });
   /** end Business */
 
+  /** Articles */
+  Route::prefix('articles')->group(function (){
+    Route::get('', [\App\Http\Controllers\Admin\ArticleController::class, 'index']);
+  });
+  /** end Articles */
+
 });
 
 Route::prefix('/')->middleware('web')->group(function () {

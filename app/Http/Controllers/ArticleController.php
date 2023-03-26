@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Actions\Article\GetArticlesAction;
 use App\Http\Actions\Article\ShowArticleAction;
 use App\Http\Resources\ArticleResource;
-use App\Models\Article;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller

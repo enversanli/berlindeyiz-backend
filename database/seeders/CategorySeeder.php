@@ -18,52 +18,52 @@ class CategorySeeder extends Seeder
   {
     $categories = [
       [
-        'type' => 'etkinlik',
+        'type' => 'etkinlikler',
         'name' => 'Müzik',
         'description' => ''
       ],
       [
-        'type' => 'etkinlik',
+        'type' => 'etkinlikler',
         'name' => 'Sahne ve Tiyatro',
         'description' => ''
       ],
       [
-        'type' => 'etkinlik',
+        'type' => 'etkinlikler',
         'name' => 'Aile',
         'description' => ''
       ],
       [
-        'type' => 'etkinlik',
+        'type' => 'etkinlikler',
         'name' => 'Spor',
         'description' => ''
       ],
       [
-        'type' => 'etkinlik',
+        'type' => 'etkinlikler',
         'name' => 'Din ve İnanç',
         'description' => ''
       ],
       [
-        'type' => 'etkinlik',
+        'type' => 'etkinlikler',
         'name' => 'Eğitim ve Seminer',
         'description' => ''
       ],
       [
-        'type' => 'etkinlik',
+        'type' => 'etkinlikler',
         'name' => 'Topluluk Buluşmaları',
         'description' => ''
       ],
       [
-        'type' => 'etkinlik',
+        'type' => 'etkinlikler',
         'name' => 'Gezi ve Sosyal Faaliyet',
         'description' => ''
       ],
       [
-        'type' => 'etkinlik',
+        'type' => 'etkinlikler',
         'name' => 'Dil ve Kültür',
         'description' => ''
       ],
       [
-        'type' => 'etkinlik',
+        'type' => 'etkinlikler',
         'name' => 'Tv, Film ve Dizi',
         'description' => ''
       ],

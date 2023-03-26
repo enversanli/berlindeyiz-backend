@@ -22,3 +22,7 @@ Route::prefix('articles')->group(function () {
   Route::get('/', [\App\Http\Controllers\ArticleController::class, 'index']);
   Route::get('/{article}', [\App\Http\Controllers\ArticleController::class, 'show']);
 });
+
+Route::prefix('etkinlikler')->group(function (){
+  Route::get('/', [\App\Http\Controllers\ServiceController::class, 'index']);
+});
