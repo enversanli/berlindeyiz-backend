@@ -135,6 +135,12 @@
               <img src="/images/sponsors/enversanli.png" class="h-auto mr-auto ml-auto" alt="Berlin Yazılım Uzmamı">
             </a>
           </div>
+          <div>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/JlJetGPOso0"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
+          </div>
         </div>
 
       </div>
@@ -142,7 +148,7 @@
       <slider-box-component title="Benzer Hizmetler" :rows="this.similar"></slider-box-component>
 
     </div>
-      <service-options :service="service"></service-options>
+    <service-options :service="service"></service-options>
   </div>
 </template>
 

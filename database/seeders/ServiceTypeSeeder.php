@@ -27,7 +27,11 @@ class ServiceTypeSeeder extends Seeder
       [
         'title' => 'Avukatlar',
         'description' => ''
-      ]
+      ],
+      [
+        'title' => 'Düğün Salonları',
+        'description' => ''
+      ],
     ];
 
     foreach ($serviceTypes as $serviceType) {

@@ -165,6 +165,11 @@ Route::prefix('/')->middleware('web')->group(function () {
 
   Route::view('/cerez-politikasi', 'web.info.cookie');
 
+  Route::prefix('articles')->group(function (){
+    Route::view('/', 'web.articles.index');
+    Route::view('/{article}', 'web.articles.show');
+  });
+
   Route::get('/search/{word}', [\App\Http\Controllers\ServiceController::class, 'search']);
   Route::get('/{slug}', [\App\Http\Controllers\ServiceController::class, 'show']);
   Route::get('/service/{id}/guide', [\App\Http\Controllers\ServiceController::class, 'guide']);

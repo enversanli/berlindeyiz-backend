@@ -15,5 +15,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+  return $request->user();
+});
+
+Route::prefix('articles')->group(function () {
+  Route::get('/', [\App\Http\Controllers\ArticleController::class, 'index']);
+  Route::get('/{article}', [\App\Http\Controllers\ArticleController::class, 'show']);
 });
