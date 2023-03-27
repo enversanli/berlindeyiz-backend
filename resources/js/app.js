@@ -41,6 +41,9 @@ Vue.component('validator-component', require('./components/ValidatorComponent.vu
 Vue.component('slider-component', require('./components/SliderComponent.vue').default);
 Vue.component('slider-box-component', require('./components/slider/SliderBoxComponent.vue').default);
 Vue.component('service-options', require('./components/service/ServiceOptions.vue').default);
+Vue.component('fw-adv', require('./components/other/FullWidthAdvComponent.vue').default);
+Vue.component('articles', require('./components/article/ArticleListComponent').default);
+Vue.component('article-detail', require('./components/article/ArticleDetailComponent').default);
 
 
 /**
