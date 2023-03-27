@@ -20,5 +20,7 @@
     @endphp
     <div class="py-1">
         <service-component type="{{$type}}" category="{{$category}}" date="{{$date}}" city="{{$city}}"></service-component>
+
+        <fw-adv></fw-adv>
     </div>
 @endsection
