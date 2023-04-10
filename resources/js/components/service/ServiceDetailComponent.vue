@@ -28,8 +28,13 @@
                   <p>{{ service.status === 'CANCELED' ? 'Etkinlik İptal Edildi' : 'Etkinlik Sona Erdi' }}
                   <p></p>
                 </div>
+                <div class="relative">
                 <img class="min-hei-64 max-h-96 w-full my-3 rounded-b-32 rounded-md"
                      :src="'/storage/'+service.logo" :alt="service.title">
+                  <div class="text-white text-2xl absolute right-5 bottom-5 bg-theme-color p-2 rounded rounded-lg" v-if="service.internal_ticket">
+                    {{service.price}} Eur
+                  </div>
+                </div>
 
               </div>
               <h2 class="text-black text-center my-3 text-4xl animate__animated animate__fadeIn">
