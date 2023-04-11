@@ -27,6 +27,7 @@
                      v-show="service.status === 'OUT_OF_DATE' || service.status === 'CANCELED'">
                   <p>{{ service.status === 'CANCELED' ? 'Etkinlik İptal Edildi' : 'Etkinlik Sona Erdi' }}</p>
                 </div>
+
                 <div class="relative">
                   <img class="min-hei-64 max-h-96 w-full my-3 rounded-b-32 rounded-md"
                        :src="'/storage/'+service.logo" :alt="service.title">

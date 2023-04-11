@@ -30,6 +30,7 @@ class ServiceResource extends JsonResource
             'types' => $this->types,
             'price' => $this->price,
             'is_priced' => $this->is_priced,
+            'internal_ticket' => $this->internal_ticket,
             'questions' => $this->questions,
             'city' => $this->city,
             'category' => $this->category,
