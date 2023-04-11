@@ -32,7 +32,7 @@
                        :src="'/storage/'+service.logo" :alt="service.title">
                   <div class="text-white text-2xl absolute right-5 bottom-5 bg-theme-color p-2 rounded rounded-lg"
                        v-if="service.internal_ticket">
-                    {{ service.price }} Euro
+                    <small>Bilet Fiyatı</small> : <i class="fas fa-euro-sign"></i> {{ service.price }}
                   </div>
                 </div>
 
