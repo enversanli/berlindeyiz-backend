@@ -23,6 +23,23 @@ Route::prefix('articles')->group(function () {
   Route::get('/{article}', [\App\Http\Controllers\ArticleController::class, 'show']);
 });
 
-Route::prefix('etkinlikler')->group(function (){
-  Route::get('/', [\App\Http\Controllers\ServiceController::class, 'index']);
+Route::prefix('activities')->group(function (){
+  Route::get('/', [\App\Http\Api\ServiceController::class, 'index']);
+  Route::get('/son-eklenenler', [\App\Http\Controllers\ServiceController::class, 'lastAdded']);
+  Route::get('/{slug}', [\App\Http\Api\ServiceController::class, 'show']);
+  Route::get('/{slug}/ticket-reservation', [\App\Http\Api\ServiceController::class, 'ticketCreate']);
+});
+
+Route::prefix('articles')->group(function () {
+  Route::get('/', [\App\Http\Controllers\ArticleController::class, 'index']);
+  Route::get('/{article}', [\App\Http\Controllers\ArticleController::class, 'show']);
+});
+
+
+Route::prefix('announcements')->group(function (){
+  Route::get('/', [\App\Http\Api\AnnouncementController::class, 'index']);
+});
+
+Route::prefix('faqs')->group(function (){
+  Route::get('/', [\App\Http\Api\AnnouncementController::class, 'index']);
 });

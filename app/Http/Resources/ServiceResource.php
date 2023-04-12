@@ -40,15 +40,17 @@ class ServiceResource extends JsonResource
         ];
     }
 
-    private function setRating($rating){
-        if ($rating == 'promising'){
-            return __('common.promising');
-        }
-        if ($rating == 'high'){
-            return __('common.high');
-        }
-        if ($rating == 'not_rated' || $rating == null){
-            return __('common.not_rated');
-        }
+
+  private function setRating($rating)
+  {
+    if ($rating == 'promising') {
+      return __('common.promising');
     }
+    if ($rating == 'high') {
+      return __('common.high');
+    }
+    if ($rating == 'not_rated' || $rating == null) {
+      return __('common.not_rated');
+    }
+  }
 }
