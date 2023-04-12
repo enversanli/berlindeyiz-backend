@@ -17,7 +17,7 @@ class ServiceVisitAction
     public function execute(Service $service)
     {
         try {
-            $session = \request()->session()->getId();
+            $session = $service->id . '-'. \request()->ip();
 
             if ($session && !ServiceVisit::where('session_id', $session)->where('service_id', $service->id)->exists()) {
                 $service->increment('visit_count');
