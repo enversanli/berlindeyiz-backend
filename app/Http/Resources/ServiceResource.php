@@ -36,6 +36,7 @@ class ServiceResource extends JsonResource
             'category' => $this->category,
             'meta' => $this->meta,
             'type' => $this->type,
+            'visit_count' => $this->visit_count,
             'created_at' => $this->created_at,
         ];
     }
