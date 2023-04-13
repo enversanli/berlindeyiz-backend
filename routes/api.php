@@ -25,7 +25,8 @@ Route::prefix('articles')->group(function () {
 
 Route::prefix('activities')->group(function (){
   Route::get('/', [\App\Http\Api\ServiceController::class, 'index']);
-  Route::get('/son-eklenenler', [\App\Http\Controllers\ServiceController::class, 'lastAdded']);
+  Route::get('/son-eklenenler', [\App\Http\Api\ServiceController::class, 'lastAdded']);
+  Route::get('/search/{word}', [\App\Http\Api\ServiceController::class, 'search']);
   Route::get('/{slug}', [\App\Http\Api\ServiceController::class, 'show']);
   Route::get('/{slug}/ticket-reservation', [\App\Http\Api\ServiceController::class, 'ticketCreate']);
 });
