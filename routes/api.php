@@ -24,11 +24,11 @@ Route::prefix('articles')->group(function () {
 });
 
 Route::prefix('activities')->group(function (){
-  Route::get('/', [\App\Http\Api\ServiceController::class, 'index']);
-  Route::get('/son-eklenenler', [\App\Http\Api\ServiceController::class, 'lastAdded']);
-  Route::get('/search/{word}', [\App\Http\Api\ServiceController::class, 'search']);
-  Route::get('/{slug}', [\App\Http\Api\ServiceController::class, 'show']);
-  Route::get('/{slug}/ticket-reservation', [\App\Http\Api\ServiceController::class, 'ticketCreate']);
+  Route::get('/', [\App\Http\Controllers\Api\ServiceController::class, 'index']);
+  Route::get('/son-eklenenler', [\App\Http\Controllers\Api\ServiceController::class, 'lastAdded']);
+  Route::get('/search/{word}', [\App\Http\Controllers\Api\ServiceController::class, 'search']);
+  Route::get('/{slug}', [\App\Http\Controllers\Api\ServiceController::class, 'show']);
+  Route::get('/{slug}/ticket-reservation', [\App\Http\Controllers\Api\ServiceController::class, 'ticketCreate']);
 });
 
 Route::prefix('articles')->group(function () {
@@ -38,9 +38,9 @@ Route::prefix('articles')->group(function () {
 
 
 Route::prefix('announcements')->group(function (){
-  Route::get('/', [\App\Http\Api\AnnouncementController::class, 'index']);
+  Route::get('/', [\App\Http\Controllers\Api\AnnouncementController::class, 'index']);
 });
 
 Route::prefix('faqs')->group(function (){
-  Route::get('/', [\App\Http\Api\AnnouncementController::class, 'index']);
+  Route::get('/', [\App\Http\Controllers\Api\AnnouncementController::class, 'index']);
 });

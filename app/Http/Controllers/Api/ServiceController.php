@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Api;
+namespace App\Http\Controllers\Api;
 
 use App\Http\Actions\Service\GetCityServicesAction;
 use App\Http\Actions\Service\GetLastAddedServicesAction;
@@ -19,7 +19,6 @@ use Illuminate\Http\Request;
 
 class ServiceController
 {
-
   protected SearchServicesAction $searchServicesAction;
   protected GetCityServicesAction $getCityServicesAction;
   protected GetLastAddedServicesAction $getLastAddedServicesAction;
