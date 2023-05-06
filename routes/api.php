@@ -31,11 +31,15 @@ Route::prefix('activities')->group(function (){
   Route::get('/{slug}/ticket-reservation', [\App\Http\Controllers\Api\ServiceController::class, 'ticketCreate']);
 });
 
+Route::get('sliders', [\App\Http\Controllers\Api\SliderController::class, 'index']);
+
 Route::prefix('articles')->group(function () {
   Route::get('/', [\App\Http\Controllers\ArticleController::class, 'index']);
   Route::get('/{article}', [\App\Http\Controllers\ArticleController::class, 'show']);
 });
 
+Route::get('/categories', [\App\Http\Controllers\CategoryController::class, 'index']);
+Route::get('/service-types', [\App\Http\Controllers\CategoryController::class, 'serviceTypes']);
 
 Route::prefix('announcements')->group(function (){
   Route::get('/', [\App\Http\Controllers\Api\AnnouncementController::class, 'index']);
