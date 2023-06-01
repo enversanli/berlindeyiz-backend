@@ -1,14 +1,17 @@
 <template>
   <div class="z-50">
-    <div class="show-draw position-fixed right-0 overflow-hidden rounded-tl-lg rounded-bl-lg bottom-32 z-50" v-if="!showModal">
+    <div class="show-draw position-fixed right-0 overflow-hidden rounded-tl-lg rounded-bl-lg bottom-32 z-50"
+         v-if="!showModal">
       <button class="bg-danger text-white p-2 text-xl" @click="checkPopup">Çekilişe<br>
-        Katıl</button>
+        Katıl
+      </button>
     </div>
     <div id="popup-modal" tabindex="-1" v-if="showModal"
          class="fixed top-0 left-0 right-0 z-50  p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full h-screen flex justify-center items-center">
       <div class="relative w-full max-w-md max-h-full">
         <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
           <button type="button"
+                  @click="checkPopup"
                   class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
                   data-modal-hide="popup-modal">
             <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
@@ -29,10 +32,12 @@
               Instagramda <b>"İREM DERİCİ"</b> konser bileti <b>çekiliş</b>ine katılmak ister misiniz ?
             </h3>
 
-            <a href="https://instagram.com/berlindeyiz.de" target="_blank" data-modal-hide="popup-modal" type="button"
-               @click="hidePopup"
-               class="text-white  mx-auto my-2 bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
-              Çekilişe Katıl
+            <a href="https://instagram.com/berlindeyiz.de" target="_blank">
+              <button data-modal-hide="popup-modal" type="button"
+                      @click="hidePopup"
+                      class="text-white  mx-auto my-2 bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
+                Çekilişe Katıl
+              </button>
             </a>
             <button type="button"
                     @click="checkPopup"
