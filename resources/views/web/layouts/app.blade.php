@@ -72,6 +72,7 @@
     <div>
         <div class="min-h-screen  animate__animated animate__fadeIn">
             <header-component></header-component>
+            <draw></draw>
             @include('web.layouts.navigation')
 
             <div class="d-block w-full min-h-screen">
