@@ -44,6 +44,7 @@ Vue.component('service-options', require('./components/service/ServiceOptions.vu
 Vue.component('fw-adv', require('./components/other/FullWidthAdvComponent.vue').default);
 Vue.component('articles', require('./components/article/ArticleListComponent').default);
 Vue.component('article-detail', require('./components/article/ArticleDetailComponent').default);
+Vue.component('draw', require('./components/other/DrawComponent').default);
 
 
 /**
