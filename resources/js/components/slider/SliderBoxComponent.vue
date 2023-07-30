@@ -5,7 +5,7 @@
               class="w-full animate__animated animate__fadeIn shadow shadow-sm mb-10 h-60" v-if="rows.length > 0">
       <div class="w-full h-60 overflow-hidden relative" v-for="row in rows">
         <a :href="'/etkinlikler/' + row.slug">
-          <img class="w-full h-60"
+          <img class="w-full h-60 object-cover"
                :alt="row.title"
                :src="'/storage/' + row.logo">
 
