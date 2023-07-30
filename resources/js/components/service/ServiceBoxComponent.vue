@@ -14,7 +14,7 @@
 
           <div class="h-auto">
             <div class="w-full">
-              <img class="h-64 xl:80 lg:h-72 md:h-64 sm:h-64 w-full px-3"
+              <img class="h-64 xl:80 lg:h-72 md:h-64 sm:h-64 w-full px-3 object-cover"
                    :alt="service.title"
                    :src="'/storage/'+service.logo">
               <div class="w-full z-10 p-2 bg-red-600 text-center text-white"
