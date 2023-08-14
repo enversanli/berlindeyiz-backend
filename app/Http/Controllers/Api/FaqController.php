@@ -14,7 +14,8 @@ class FaqController extends Controller
   {
     $questions = ServiceQuestion::whereNull('service_id')
       ->orderBy('created_at', 'ASC')
-      ->take(50);
+      ->take(50)
+      ->get();
 
     return ResponseMessage::success(null, FaqResource::collection($questions));
   }
