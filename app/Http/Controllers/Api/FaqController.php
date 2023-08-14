@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\FaqResource;
 use App\Models\ServiceQuestion;
-use App\Support\ResponseMessage;
 use Illuminate\Http\Request;
 
 class FaqController extends Controller
@@ -16,7 +15,7 @@ class FaqController extends Controller
       ->orderBy('created_at', 'ASC')
       ->take(30);
 
-    return ResponseMessage::success(null, FaqResource::collection($questions));
+    return FaqResource::collection($questions);
 
   }
 }
