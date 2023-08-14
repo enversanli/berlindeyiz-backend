@@ -46,5 +46,5 @@ Route::prefix('announcements')->group(function (){
 });
 
 Route::prefix('faqs')->group(function (){
-  Route::get('/', [\App\Http\Controllers\Api\AnnouncementController::class, 'index']);
+  Route::get('/', [\App\Http\Controllers\Api\FaqController::class, 'index']);
 });
