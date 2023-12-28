@@ -166,6 +166,7 @@ export default {
   },
 
   mounted() {
+    this.testRequest();
     this.getCityServices();
     console.log(this.service.meta.map);
     if (this.service.is_priced === 1) {
@@ -192,6 +193,14 @@ export default {
   },
 
   methods: {
+    testRequest(){
+      var url = 'https://backend.berlindeyiz.de/api/activities';
+
+      axios.get(url).then(response => {
+        this.similar = response.data.data;
+      })
+    },
+
     setBlock(block) {
 
       if (block === 'service') {
