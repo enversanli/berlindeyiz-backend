@@ -15,20 +15,13 @@ return [
   |
   */
 
-  'paths' => [],
-
-  'allowed_methods' => ['POST', 'GET', 'DELETE', 'PUT', '*'],
-
-  'allowed_origins' => ['*'],
-
+  'paths' => ['api/*'],
+  'allowed_methods' => ['*'],
+  'allowed_origins' => ['http://88.99.175.75/', 'http://almanyadayiz.de'],
   'allowed_origins_patterns' => [],
-
   'allowed_headers' => ['*'],
-
   'exposed_headers' => [],
-
   'max_age' => 0,
-
   'supports_credentials' => false,
 
 ];
