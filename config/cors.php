@@ -17,7 +17,7 @@ return [
 
   'paths' => ['api/*'],
   'allowed_methods' => ['*'],
-  'allowed_origins' => ['http://88.99.175.75', 'http://almanyadayiz.de'],
+  'allowed_origins' => ['*'],
   'allowed_origins_patterns' => [],
   'allowed_headers' => ['*'],
   'exposed_headers' => [],
