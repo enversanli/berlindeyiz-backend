@@ -24,7 +24,7 @@ Route::prefix('articles')->group(function () {
   Route::get('/{article}', [\App\Http\Controllers\ArticleController::class, 'show']);
 });
 
-Route::prefix('activities')->group(function (){
+Route::prefix('activities')->middleware('cors', 'api')->group(function (){
   Route::get('/', [\App\Http\Controllers\Api\ServiceController::class, 'index']);
   Route::get('/son-eklenenler', [\App\Http\Controllers\Api\ServiceController::class, 'lastAdded']);
   Route::get('/search/{word}', [\App\Http\Controllers\Api\ServiceController::class, 'search']);
