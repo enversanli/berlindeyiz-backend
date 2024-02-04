@@ -106,10 +106,10 @@ class ServiceController
     $services = $services
       ->where('date_from', '<', now()->addMonths(3)->format('Y-m-d'))
       //->orderBy('date_from', 'DESC')
-      ->orderByRaw("FIELD(status , 'SPONSORED', 'ACTIVE', 'CANCELED', 'OUT_OF_DATE') ASC")
+      ->orderByRaw("FIELD(status , 'SPONSORED', 'ACTIVE',  'OUT_OF_DATE') ASC")
       ->orderBy('is_repeating', 'ASC') // Tekrar edenleri arkaya
       ->orderBy('remaining_day', 'ASC')
-      ->orderBy('date_to')
+      ->orderBy('date_to', 'ASC')
       //->where('type_id', $serviceType->id)
       ->paginate($perPage);
 
