@@ -109,6 +109,7 @@ class ServiceController
       ->orderByRaw("FIELD(status , 'SPONSORED', 'ACTIVE', 'CANCELED', 'OUT_OF_DATE') ASC")
       ->orderBy('is_repeating', 'ASC') // Tekrar edenleri arkaya
       ->orderBy('remaining_day', 'ASC')
+      ->orderBy('date_to')
       //->where('type_id', $serviceType->id)
       ->paginate($perPage);
 
