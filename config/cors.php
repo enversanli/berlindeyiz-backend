@@ -17,7 +17,7 @@ return [
 
   'paths' => ['api/*'],
   'allowed_methods' => ['*'],
-  'allowed_origins' => ['*'],
+  'allowed_origins' => ['http://localhost:3000', 'http://88.99.175.75/'],
   'allowed_origins_patterns' => [],
   'allowed_headers' => ['*'],
   'exposed_headers' => [],
