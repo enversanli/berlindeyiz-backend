@@ -42,9 +42,7 @@ Route::get('csrf', function () {
 
 Route::prefix('admin')->middleware('auth')->group(function () {
 
-  Route::get('/dashboard', function () {
-    return view('dashboard');
-  })->name('dashboard');
+  Route::get('/dashboard', [\App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard');
 
 
   /** Users */
