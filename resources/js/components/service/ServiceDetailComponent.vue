@@ -137,7 +137,7 @@
 
           <div class="w-full h-auto block text-center">
             <h4 class="mb-2">Sponsor</h4>
-            <a href="https://professional.enversanli.com" target="_blank">
+            <a href="https://tulparcreative.de" target="_blank">
               <img src="/images/sponsors/enversanli.png" class="h-auto mr-auto ml-auto" alt="Berlin Yazılım Uzmamı">
             </a>
           </div>
