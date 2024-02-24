@@ -130,57 +130,57 @@ Route::prefix('admin')->middleware('auth')->group(function () {
 
 });
 
-Route::prefix('/')->middleware('web')->group(function () {
-
-  /** WEB START */
-  Route::view('deprem-yardimlasma-bilgilendirme', '');
-
-  Route::get('', [\App\Http\Controllers\ServiceController::class, '__invoke']);
-  Route::get('/doktorlar', [\App\Http\Controllers\ServiceController::class, '__invoke']);
-  Route::get('/avukatlar', [\App\Http\Controllers\ServiceController::class, '__invoke']);
-  Route::get('hizmet-ara', [\App\Http\Controllers\ServiceController::class, '__invoke']);
-
-  Route::redirect('turk-doktorlari', 'doktorlar?type=doktorlar&category=turk-doktorlari', 301);
-  Route::redirect('turk-avukatlari', 'avukatlar?type=avukatlar&category=turk-avukatlari', 301);
-
-
-  /** Categories */
-  Route::get('/categories', [\App\Http\Controllers\CategoryController::class, 'index']);
-  Route::get('/service-types', [\App\Http\Controllers\CategoryController::class, 'serviceTypes']);
-  /** end Categories */
-
-  Route::get('sikca-sorulan-sorular', [FaqController::class, 'index'])->name('public-faq.list');
-  Route::get('duyurular', [\App\Http\Controllers\AnnouncementController::class, 'index'])->name('public-announcements.list');
-  Route::get('sliders', [\App\Http\Controllers\SliderController::class, 'index'])->name('public-sliders.list');
-
-  /** Services */
-  Route::get('etkinlikler', [\App\Http\Controllers\ServiceController::class, 'index'])->name('front.services');
-
-  Route::get('etkinlikler/son-eklenenler', [\App\Http\Controllers\ServiceController::class, 'lastAdded'])->name('front.services.last-added');
-
-  Route::get('sehir-etkinlikleri/{slug}/{count?}', [\App\Http\Controllers\ServiceController::class, 'getCityServices']);
-  Route::post('hizmet-ara', [\App\Http\Controllers\ServiceController::class, 'index'])->name('front.service-search-detail');
-  Route::get('etkinlikler/{slug}', [\App\Http\Controllers\ServiceController::class, 'show']);
-  Route::get('etkinlikler/{slug}/ticket', [\App\Http\Controllers\ServiceController::class, 'ticketCreate']);
-  Route::post('etkinlikler/{slug}/ticket', [\App\Http\Controllers\TicketController::class, 'store']);
-  Route::get('doktorlar/{slug}', [\App\Http\Controllers\ServiceController::class, 'show']);
-  Route::get('avukatlar/{slug}', [\App\Http\Controllers\ServiceController::class, 'show']);
-  /** end Services */
-
-  Route::view('/cerez-politikasi', 'web.info.cookie');
-
-  Route::prefix('articles')->group(function (){
-    Route::view('/', 'web.articles.index');
-    Route::view('/{article}', 'web.articles.show');
-  });
-
-  Route::get('/search/{word}', [\App\Http\Controllers\ServiceController::class, 'search']);
-  Route::get('/{slug}', [\App\Http\Controllers\ServiceController::class, 'show']);
-  Route::get('/service/{id}/guide', [\App\Http\Controllers\ServiceController::class, 'guide']);
-  Route::get('/{id}/questions', [\App\Http\Controllers\ServiceController::class, 'guide']);
-//Route::get('/{id}/questions/{id}', [ServiceController::class, 'guide']);
-
-
-  /** end WEB START */
-
-});
+//Route::prefix('/')->middleware('web')->group(function () {
+//
+//  /** WEB START */
+//  Route::view('deprem-yardimlasma-bilgilendirme', '');
+//
+//  Route::get('', [\App\Http\Controllers\ServiceController::class, '__invoke']);
+//  Route::get('/doktorlar', [\App\Http\Controllers\ServiceController::class, '__invoke']);
+//  Route::get('/avukatlar', [\App\Http\Controllers\ServiceController::class, '__invoke']);
+//  Route::get('hizmet-ara', [\App\Http\Controllers\ServiceController::class, '__invoke']);
+//
+//  Route::redirect('turk-doktorlari', 'doktorlar?type=doktorlar&category=turk-doktorlari', 301);
+//  Route::redirect('turk-avukatlari', 'avukatlar?type=avukatlar&category=turk-avukatlari', 301);
+//
+//
+//  /** Categories */
+//  Route::get('/categories', [\App\Http\Controllers\CategoryController::class, 'index']);
+//  Route::get('/service-types', [\App\Http\Controllers\CategoryController::class, 'serviceTypes']);
+//  /** end Categories */
+//
+//  Route::get('sikca-sorulan-sorular', [FaqController::class, 'index'])->name('public-faq.list');
+//  Route::get('duyurular', [\App\Http\Controllers\AnnouncementController::class, 'index'])->name('public-announcements.list');
+//  Route::get('sliders', [\App\Http\Controllers\SliderController::class, 'index'])->name('public-sliders.list');
+//
+//  /** Services */
+//  Route::get('etkinlikler', [\App\Http\Controllers\ServiceController::class, 'index'])->name('front.services');
+//
+//  Route::get('etkinlikler/son-eklenenler', [\App\Http\Controllers\ServiceController::class, 'lastAdded'])->name('front.services.last-added');
+//
+//  Route::get('sehir-etkinlikleri/{slug}/{count?}', [\App\Http\Controllers\ServiceController::class, 'getCityServices']);
+//  Route::post('hizmet-ara', [\App\Http\Controllers\ServiceController::class, 'index'])->name('front.service-search-detail');
+//  Route::get('etkinlikler/{slug}', [\App\Http\Controllers\ServiceController::class, 'show']);
+//  Route::get('etkinlikler/{slug}/ticket', [\App\Http\Controllers\ServiceController::class, 'ticketCreate']);
+//  Route::post('etkinlikler/{slug}/ticket', [\App\Http\Controllers\TicketController::class, 'store']);
+//  Route::get('doktorlar/{slug}', [\App\Http\Controllers\ServiceController::class, 'show']);
+//  Route::get('avukatlar/{slug}', [\App\Http\Controllers\ServiceController::class, 'show']);
+//  /** end Services */
+//
+//  Route::view('/cerez-politikasi', 'web.info.cookie');
+//
+//  Route::prefix('articles')->group(function (){
+//    Route::view('/', 'web.articles.index');
+//    Route::view('/{article}', 'web.articles.show');
+//  });
+//
+//  Route::get('/search/{word}', [\App\Http\Controllers\ServiceController::class, 'search']);
+//  Route::get('/{slug}', [\App\Http\Controllers\ServiceController::class, 'show']);
+//  Route::get('/service/{id}/guide', [\App\Http\Controllers\ServiceController::class, 'guide']);
+//  Route::get('/{id}/questions', [\App\Http\Controllers\ServiceController::class, 'guide']);
+////Route::get('/{id}/questions/{id}', [ServiceController::class, 'guide']);
+//
+//
+//  /** end WEB START */
+//
+//});

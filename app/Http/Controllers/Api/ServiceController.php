@@ -122,7 +122,7 @@ class ServiceController
 
     // TODO - Add view count by Session
     //ServiceVisitJob::dispatchNow($service);
-    $schema = SchemaGenerator::generate($service);
+    //$schema = SchemaGenerator::generate($service);
 
     return ServiceResource::make($service);
   }
