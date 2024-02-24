@@ -22,6 +22,7 @@
     <meta property="og:image:width" content="280" />
     <meta property="og:image:height" content="280" />
     <meta property="og:image:type" content="image/jpeg" />
+    <meta name="robots" content="noindex,nofollow">
 
     <link rel="icon" href="https://berlindeyiz.de/images/berlin.jpg">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
