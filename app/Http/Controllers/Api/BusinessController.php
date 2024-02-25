@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class BusinessController extends Controller
 {
     public function index(Request $request){
-        $businesses = Business::public()->get();
+        $businesses = Business::with('city')->public()->paginate(20);
 
         return BusinessResource::collection($businesses);
     }
