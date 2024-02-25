@@ -28,6 +28,7 @@ class CreateBusinessesTable extends Migration
             $table->string('office_phone')->nullable();
             $table->string('photo')->nullable();
             $table->json('meta')->nullable();
+            $table->tinyInteger('is_public', false);
             $table->timestamps();
         });
     }

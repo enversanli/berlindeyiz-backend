@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 
 class Business extends Model
 {
@@ -30,6 +31,10 @@ class Business extends Model
 
     public function city(){
       return $this->belongsTo(City::class);
+    }
+
+    public function scopePublic(Builder $query){
+      return $query->where('is_public', true);
     }
 
 }

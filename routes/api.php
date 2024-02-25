@@ -49,3 +49,7 @@ Route::prefix('announcements')->group(function (){
 Route::prefix('faqs')->group(function (){
   Route::get('/', [\App\Http\Controllers\Api\FaqController::class, 'index']);
 });
+
+Route::prefix('businesses')->group(function (){
+  Route::get('/', [\App\Http\Controllers\Api\BusinessController::class, 'index']);
+});
