@@ -66,11 +66,16 @@ class ServiceController
     $category = $request->input('category');
     $city = $request->input('sehir');
     $type = $request->input('type');
+    $searchTerm = $request->input('search_term');
 
     $serviceType = $type ? $this->getType($type) : Type::where('slug', ServiceType::ACTIVITY)->first();
 
     $services = Service::with(['city', 'category', 'business'])
-      ->where('approved', 1);
+      ->where('approved', true);
+
+    if ($searchTerm){
+      $services->where('title', 'like', '%' . $searchTerm . '%');
+    }
 
     if ($category && $category != '') {
       $services->whereHas('category', function ($query) use ($category) {
