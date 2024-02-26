@@ -18,17 +18,17 @@ class ServiceVisitAction
     {
         try {
             $session = $service->id . '-'. \request()->ip();
+          //if ($session && !ServiceVisit::where('session_id', $session)->where('service_id', $service->id)->exists()) {
+          if ($session) {
+            $service->increment('visit_count');
 
-            if ($session && !ServiceVisit::where('session_id', $session)->where('service_id', $service->id)->exists()) {
-                $service->increment('visit_count');
-
-                ServiceVisit::create([
+            ServiceVisit::create([
                     'service_id' => $service->id,
                     'session_id' => $session
                 ]);
-            }
+          }
 
-            return ReturnData::success();
+          return ReturnData::success();
         } catch (\Exception $exception) {
             activity()
                 ->causedBy(auth()->user())
