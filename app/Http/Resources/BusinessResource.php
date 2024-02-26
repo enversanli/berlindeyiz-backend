@@ -28,6 +28,7 @@ class BusinessResource extends JsonResource
           'photo' => $this->photo,
           'meta' => $this->meta,
           'city' => $this->city,
+          'is_public' => $this->is_public,
           'district' => $this->district,
         ];
     }

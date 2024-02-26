@@ -13,7 +13,11 @@ class GetBusinessesAction
   public function get(Request $request, User $user)
   {
     try {
-      $businesses = Business::where('type', $request->input('type'))->get();
+      $type = $request->input('type');
+
+      $businesses = Business::when($type, function ($q) use ($type) {
+        return $q->where('type', $type);
+      })->get();
 
       return ReturnData::success($businesses);
     } catch (\Exception $exception) {
