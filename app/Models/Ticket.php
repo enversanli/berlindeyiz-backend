@@ -12,8 +12,9 @@ class Ticket extends Model
     protected $fillable = ['service_id', 'user_id', 'first_name', 'last_name', 'email', 'phone'];
 
 
-    public function service(){
-      return $this->belongsTo(Service::class);
-    }
+  public function service()
+  {
+    return $this->belongsTo(Service::class);
+  }
 
 }
