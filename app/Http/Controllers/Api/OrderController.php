@@ -32,7 +32,7 @@ class OrderController
 
     public function capture(Request $request)
     {
-        return ResponseMessage::success($this->paypalOrderService->capture($request->input('token')));
+        return $this->paypalOrderService->capture($request->input('token'));
     }
 
 }
