@@ -31,7 +31,8 @@ class SiteMapGeneratorCommand extends Command
   public function handle()
   {
     $services = Service::approved()->get();
-    $sitemapGenerator = SitemapGenerator::create('https://berlindeyiz.de')
+    $mainUrl = 'https://berlindeyiz.de';
+    $sitemapGenerator = SitemapGenerator::create($mainUrl)
       ->getSitemap();
 
     $otherPages = [
@@ -46,13 +47,15 @@ class SiteMapGeneratorCommand extends Command
     $counter = 0;
     $this->error('Basliyor...');
     foreach ($otherPages as $otherPage) {
-      $sitemapGenerator->add(Url::create($otherPage)->setPriority(0.5));
+        $fullUrl = $mainUrl . '/'.$otherPage;
+
+      $sitemapGenerator->add(Url::create($fullUrl)->setPriority(0.5));
       $this->info('Added To Sitemap : ' . $otherPage);
       $counter++;
     }
 
     foreach ($services as $service) {
-      $url = $service->type->slug . '/' . $service->slug;
+      $url = $mainUrl . '/'.$service->type->slug . '/' . $service->slug;
 
       $sitemapGenerator->add(Url::create($url)->setPriority(0.5));
       $this->info('Added To Sitemap : ' . $url);
