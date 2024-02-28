@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\Models\Service;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\App;
 use Spatie\Sitemap\SitemapGenerator;
 use Spatie\Sitemap\Tags\Url;
 
@@ -35,6 +36,8 @@ class SiteMapGeneratorCommand extends Command
     $sitemapGenerator = SitemapGenerator::create($mainUrl)
       ->getSitemap();
 
+    $filePath = App::isLocal() ? 'sitemap.xml' : '/var/www/berlindeyiz-front/pages/sitemap.xml.vue';
+
     $otherPages = [
       '/sikca-sorulan-sorular',
       '/duyurular',
@@ -61,8 +64,10 @@ class SiteMapGeneratorCommand extends Command
       $this->info('Added To Sitemap : ' . $url);
       $counter++;
     }
+
+
     $sitemapGenerator->
-    writeToFile('sitemap.xml');
+    writeToFile($filePath);
 
     $this->error('Sitemap Genereted, Please check...');
     $this->info("{$counter} page stored to sitemap.");
