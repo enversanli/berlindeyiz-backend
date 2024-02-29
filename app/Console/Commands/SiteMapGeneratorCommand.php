@@ -71,7 +71,7 @@ class SiteMapGeneratorCommand extends Command
           $renderedContent = str_replace('<?xml version="1.0" encoding="UTF-8"?>', '', $renderedContent);
           $renderedContent = str_replace('<urlset xmlns=', '<template><urlset xmlns=', $renderedContent);
           $renderedContent = str_replace("</urlset>", '</urlset></template>', $renderedContent);
-          Storage::disk('front')->put('/public/sitemap.xml.vue', $renderedContent);
+          Storage::disk('front')->put('/pages/sitemap.xml.vue', $renderedContent);
       }else{
           $sitemapGenerator->
           writeToFile($filePath);
