@@ -37,7 +37,7 @@ class SiteMapGeneratorCommand extends Command
     $sitemapGenerator = SitemapGenerator::create($mainUrl)
       ->getSitemap();
 
-    $filePath = App::isLocal() ? 'sitemap.xml' : '/var/www/berlindeyiz-front/pages/sitemap.xml.vue';
+    $filePath = App::isLocal() ? '/Users/enversanli/PhpstormProjects/berlindeyiz/berlindeyiz-front/public/sitemap.xml' : '/public/sitemap.xml';
 
       $otherPages = [
       '/sikca-sorulan-sorular',
@@ -66,15 +66,12 @@ class SiteMapGeneratorCommand extends Command
         $counter++;
     }
 
+      $renderedContent = $sitemapGenerator->render();
+
       if (!App::isLocal()){
-          $renderedContent = $sitemapGenerator->render();
-          $renderedContent = str_replace('<?xml version="1.0" encoding="UTF-8"?>', '', $renderedContent);
-          $renderedContent = str_replace('<urlset xmlns=', '<template><urlset xmlns=', $renderedContent);
-          $renderedContent = str_replace("</urlset>", '</urlset></template>', $renderedContent);
-          Storage::disk('front')->put('/pages/sitemap.xml.vue', $renderedContent);
+          Storage::disk('front')->put('/public/sitemap.xml', $renderedContent);
       }else{
-          $sitemapGenerator->
-          writeToFile($filePath);
+          file_put_contents($filePath, $renderedContent);
       }
 
 
