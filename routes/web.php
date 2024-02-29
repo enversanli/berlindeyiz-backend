@@ -25,9 +25,9 @@ Route::get('/', function () {
   return view('welcome');
 });
 
-Route::get('sitemap', function () {
-  include('../sitemap.xml');
-});
+//Route::get('sitemap', function () {
+//  include('../sitemap.xml');
+//});
 
 Route::view('/impressum', 'web.others.impressum');
 
