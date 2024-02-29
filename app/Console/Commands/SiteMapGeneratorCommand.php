@@ -37,7 +37,7 @@ class SiteMapGeneratorCommand extends Command
     $sitemapGenerator = SitemapGenerator::create($mainUrl)
       ->getSitemap();
 
-    $filePath = App::isLocal() ? '/Users/enversanli/PhpstormProjects/berlindeyiz/berlindeyiz-front/public/sitemap.xml' : '/public/sitemap.xml';
+    $filePath = App::isLocal() ? '/Users/enversanli/PhpstormProjects/berlindeyiz/berlindeyiz-front/public/sitemap.xml' : '/var/www/berlindeyiz-front/public/sitemap.xml';
 
       $otherPages = [
       '/sikca-sorulan-sorular',
@@ -66,15 +66,7 @@ class SiteMapGeneratorCommand extends Command
         $counter++;
     }
 
-      $renderedContent = $sitemapGenerator->render();
-
-      if (!App::isLocal()){
-          Storage::disk('front')->put('/public/sitemap.xml', $renderedContent);
-      }else{
-          file_put_contents($filePath, $renderedContent);
-      }
-
-
+      $sitemapGenerator->writeToFile($filePath);
 
       $this->error('Sitemap Genereted, Please check...');
     $this->info("{$counter} page stored to sitemap.");
