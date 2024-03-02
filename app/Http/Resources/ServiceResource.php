@@ -26,6 +26,7 @@ class ServiceResource extends JsonResource
             'start_time' => $this->start_time ? Carbon::parse($this->start_time)->format('H:i') : null,
             'date_to_full' => $this->date_to ? $this->date_to . 'T' . Carbon::parse($this->end_time)->format('H:i') : null,
             'end_time' => $this->end_time ? Carbon::parse($this->end_time)->format('H:i') : null,
+            'address' => $this->address,
             'status' => $this->status,
             'logo' => $this->logo,
             'guide' => $this->guide,
