@@ -23,7 +23,7 @@ class OrderController
     {
         $service = Service::where('slug', $request->input('key'))->firstOrFail();
 
-        $order = $this->orderStoreAction->execute($service);
+        $order = $this->orderStoreAction->execute($service, $request->only(['first_name', 'last_name', 'phone', 'email']));
         $payment = $this->paymentStoreAction->execute($order);
         $paypalOrder = $this->paypalOrderService->create($order, $payment);
 

@@ -30,6 +30,7 @@ return new class extends Migration {
             $table->json('meta')->nullable();
             $table->dateTime('refunded_at')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
