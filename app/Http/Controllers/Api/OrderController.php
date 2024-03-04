@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Actions\Order\OrderStoreAction;
 use App\Http\Actions\Payment\PaymentStoreAction;
+use App\Http\Requests\OrderStoreRequest;
 use App\Models\Service;
 use App\Services\PayPal\PaypalOrderService;
 use App\Support\ResponseMessage;
@@ -19,15 +20,20 @@ class OrderController
     {
     }
 
-    public function store(Request $request)
+    public function store(OrderStoreRequest $request)
     {
         $service = Service::where('slug', $request->input('key'))->firstOrFail();
 
-        $order = $this->orderStoreAction->execute($service, $request->only(['first_name', 'last_name', 'phone', 'email']));
-        $payment = $this->paymentStoreAction->execute($order);
-        $paypalOrder = $this->paypalOrderService->create($order, $payment);
+        $order = $this->orderStoreAction->execute($service, $request->only(['first_name', 'last_name', 'phone', 'email', 'order_type']));
 
-        return ResponseMessage::success('', ['approve' => $paypalOrder]);
+        $responseData = [];
+
+        if ($request->input('order_type') == 'SALE'){
+            $payment = $this->paymentStoreAction->execute($order);
+            $responseData['approve'] = $this->paypalOrderService->create($order, $payment);
+        }
+
+        return ResponseMessage::success('', $responseData);
     }
 
     public function capture(Request $request)

@@ -59,6 +59,10 @@ class PaypalOrderService extends PaypalCommon
                 'meta' => $response['purchase_units'][0]['payments']['captures'][0]['links']
             ]);
 
+            $payment->model->update([
+                'paid' => true
+            ]);
+
             return ResponseMessage::success('Payment completed successfully');
         }
 

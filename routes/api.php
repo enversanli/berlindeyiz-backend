@@ -54,7 +54,7 @@ Route::prefix('businesses')->group(function (){
   Route::get('/', [\App\Http\Controllers\Api\BusinessController::class, 'index']);
 });
 
-Route::prefix('payment')->group(function (){
+Route::prefix('orders')->group(function (){
   Route::post('create', [\App\Http\Controllers\Api\OrderController::class, 'store']);
   Route::post('capture', [\App\Http\Controllers\Api\OrderController::class, 'capture']);
 });

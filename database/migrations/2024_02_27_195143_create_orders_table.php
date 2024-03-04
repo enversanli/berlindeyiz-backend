@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->morphs('model');
-            $table->enum('type', ['SERVICE', 'OTHER'])->default('SERVICE');
+            $table->enum('type', ['SALE', 'RESERVATION', 'OTHER'])->default('SALE');
             $table->string('first_name');
             $table->string('last_name');
             $table->string('email')->nullable();
