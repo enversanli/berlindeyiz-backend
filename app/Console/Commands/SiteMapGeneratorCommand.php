@@ -43,9 +43,7 @@ class SiteMapGeneratorCommand extends Command
       'sikca-sorulan-sorular',
       'duyurular',
       'doktorlar',
-      'turk-doktorlari',
       'avukatlar',
-      'turk-avukatlari',
       'kurum-kurulus-ve-mekanlar',
     ];
 
