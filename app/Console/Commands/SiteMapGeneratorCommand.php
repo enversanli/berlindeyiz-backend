@@ -40,12 +40,13 @@ class SiteMapGeneratorCommand extends Command
     $filePath = App::isLocal() ? '/Users/enversanli/PhpstormProjects/berlindeyiz/berlindeyiz-front/public/sitemap.xml' : '/var/www/berlindeyiz-front/public/sitemap.xml';
 
       $otherPages = [
-      '/sikca-sorulan-sorular',
-      '/duyurular',
-      '/doktorlar',
-      '/turk-doktorlari',
-      '/avukatlar',
-      '/turk-avukatlari',
+      'sikca-sorulan-sorular',
+      'duyurular',
+      'doktorlar',
+      'turk-doktorlari',
+      'avukatlar',
+      'turk-avukatlari',
+      'kurum-kurulus-ve-mekanlar',
     ];
 
       $counter = 0;
