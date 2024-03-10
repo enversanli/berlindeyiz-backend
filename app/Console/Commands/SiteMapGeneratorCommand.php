@@ -41,6 +41,7 @@ class SiteMapGeneratorCommand extends Command
 
       $otherPages = [
       'sikca-sorulan-sorular',
+      'etkinlikler',
       'duyurular',
       'doktorlar',
       'avukatlar',
