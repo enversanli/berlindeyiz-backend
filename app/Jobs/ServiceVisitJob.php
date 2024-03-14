@@ -18,14 +18,17 @@ class ServiceVisitJob implements ShouldQueue
     /** @var Service */
     protected $service;
 
+    protected $ip;
+
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct(Service $service)
+    public function __construct(Service $service, $ip)
     {
         $this->service = $service;
+        $this->ip = $ip;
     }
 
     /**
@@ -35,6 +38,6 @@ class ServiceVisitJob implements ShouldQueue
      */
     public function handle()
     {
-        (new ServiceVisitAction())->execute($this->service);
+        (new ServiceVisitAction())->execute($this->service, $this->ip);
     }
 }

@@ -14,12 +14,12 @@ use Illuminate\Support\Str;
 
 class ServiceVisitAction
 {
-    public function execute(Service $service)
+    public function execute(Service $service, $ip)
     {
         try {
-            $session = $service->id . '-'. \request()->ip();
+            $session = $service->id . '-'. $ip;
           //if ($session && !ServiceVisit::where('session_id', $session)->where('service_id', $service->id)->exists()) {
-          if ($session) {
+          if ($session && !ServiceVisit::where('session_id', $session)->exists()) {
             $service->increment('visit_count');
 
             ServiceVisit::create([
@@ -31,8 +31,7 @@ class ServiceVisitAction
           return ReturnData::success();
         } catch (\Exception $exception) {
             activity()
-                ->causedBy(auth()->user())
-                ->withProperties(['error' => $exception->getMessage(), 'user_id' => auth()->user()->id])
+                ->withProperties(['error' => $exception->getMessage()])
                 ->event(ErrorLogEnum::SERVICE_VISIT_ACTION_ERROR)
                 ->log(ErrorLogEnum::SERVICE_VISIT_ACTION_ERROR);
 
