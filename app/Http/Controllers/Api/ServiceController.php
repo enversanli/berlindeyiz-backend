@@ -126,7 +126,7 @@ class ServiceController
       ->firstOrFail();
 
     // TODO - Add view count by Session
-    ServiceVisitJob::dispatchNow($service, $request->input('ip'));
+    //ServiceVisitJob::dispatchNow($service, $request->input('ip'));
     //$schema = SchemaGenerator::generate($service);
 
     return ServiceResource::make($service);
