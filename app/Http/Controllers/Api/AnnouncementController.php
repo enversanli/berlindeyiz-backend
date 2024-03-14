@@ -10,7 +10,7 @@ use App\Support\ResponseMessage;
 class AnnouncementController extends Controller
 {
   public function index(){
-    $announcements = Announcement::orderBy('created_at', 'DESC')->take(20)->get();
+    $announcements = Announcement::orderBy('created_at', 'ASC')->take(20)->get();
 
     return ResponseMessage::success(null, AnnouncementResource::collection($announcements));
   }
