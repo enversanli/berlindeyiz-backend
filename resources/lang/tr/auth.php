@@ -13,9 +13,9 @@ return [
     |
     */
 
-    'failed' => 'These credentials do not match our records.',
     'password' => 'The provided password is incorrect.',
-    'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
+    'failed'    => 'Bu kimlik bilgileri bizim kayıtlarımız ile eşleşmiyor.',
+    'throttle'  => 'Çok sayıda hatalı oturum açma girişiminde bulundunuz. Lütfen :seconds saniye sonra tekrar deneyiniz.',
 
     'registered_successfully' => 'Hesabınız başarıyla oluşturuldu.',
     'registered_mail' => 'Hesabınız Başarıyla Oluşturuldu!'
