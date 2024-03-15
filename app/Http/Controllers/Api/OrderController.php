@@ -24,7 +24,7 @@ class OrderController
     {
         $service = Service::where('slug', $request->input('key'))->firstOrFail();
 
-        $order = $this->orderStoreAction->execute($service, $request->only(['first_name', 'last_name', 'phone', 'email', 'order_type']));
+        $order = $this->orderStoreAction->execute($service, $request->toArray());
 
         $responseData = [];
 

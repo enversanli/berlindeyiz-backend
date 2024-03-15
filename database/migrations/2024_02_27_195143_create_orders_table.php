@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('phone')->nullable();
             $table->dateTime('birth_date')->nullable();
             $table->decimal('total', 9);
+            $table->integer('quantity')->default(1);
             $table->tinyInteger('paid')->default(false);
             $table->string('note')->nullable();
             $table->json('meta')->nullable();

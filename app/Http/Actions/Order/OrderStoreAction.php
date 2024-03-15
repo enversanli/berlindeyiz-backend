@@ -15,6 +15,8 @@ class OrderStoreAction
             'last_name' => $parameters['last_name'],
             'phone' => $parameters['phone'],
             'email' => $parameters['email'],
+            'quantity' => $parameters['quantity'],
+            'note' => $parameters['note'],
         ]);
     }
 }
