@@ -16,6 +16,7 @@ class CreateServicesTable extends Migration
         Schema::create('services', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('type_id');
+            $table->unsignedBigInteger('artist_id')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('business_id')->nullable();
             $table->unsignedBigInteger('category_id');
@@ -51,6 +52,7 @@ class CreateServicesTable extends Migration
             $table->foreign('district_id')->references('id')->on('districts');
             $table->foreign('category_id')->references('id')->on('categories');
             $table->foreign('type_id')->references('id')->on('types');
+            $table->foreign('artist_id')->references('id')->on('artists');
         });
     }
 
