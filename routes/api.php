@@ -58,3 +58,7 @@ Route::prefix('orders')->group(function (){
   Route::post('create', [\App\Http\Controllers\Api\OrderController::class, 'store']);
   Route::post('capture', [\App\Http\Controllers\Api\OrderController::class, 'capture']);
 });
+
+Route::prefix('subscriptions')->group(function (){
+    Route::post('/', [\App\Http\Controllers\Api\SubscriptionController::class, 'store']);
+});
