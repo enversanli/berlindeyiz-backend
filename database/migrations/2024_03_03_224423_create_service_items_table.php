@@ -19,7 +19,7 @@ return new class extends Migration
             $table->enum('status', ['ACTIVE', 'CLOSED', 'CANCELED'])->default('ACTIVE');
             $table->string('title');
             $table->string('description');
-            $table->decimal('price', 0, 8);
+            $table->decimal('price', 9);
             $table->timestamps();
             $table->softDeletes();
         });
