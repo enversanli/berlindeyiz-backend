@@ -38,6 +38,31 @@
                                                 </select>
                                             </div>
                                         </div>
+
+                                        <div class="flex w-full mobile-companent my-10 border-2 p-3">
+                                            <div class="w-1/4 mr-3  mobile-input mx-1">
+                                                <x-label for="date_from" :value="'Durum'"/>
+
+                                                <select id="status" name="status"
+                                                        class="w-full rounded border-gray-300">
+                                                    <option value="ACTIVE" {{$service->status == 'ACTIVE' ?'selected' : ''}}>Aktif</option>
+                                                    <option value="SPONSORED" {{$service->status == 'SPONSORED' ?'selected' : ''}}>Sponsorlu</option>
+                                                    <option value="CANCELED" {{$service->status == 'CANCELED' ?'selected' : ''}}>İptal Edildi</option>
+                                                    <option value="OUT_OF_DATE" {{$service->status == 'OUT_OF_DATE' ?'selected' : ''}}>Sone Erdi</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="w-1/4 mr-3  mobile-input mx-1">
+                                                <x-label for="date_from" :value="'Bilet Satış veya Rezervasyon'"/>
+
+                                                <select id="internal_ticket" name="internal_ticket"
+                                                        class="w-full rounded border-gray-300">
+                                                    <option value="0" {{$service->internal_ticket == 0 ?'selected' : ''}}>Hayır</option>
+                                                    <option value="1" {{$service->internal_ticket == 1 ?'selected' : ''}}>Evet</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
                                         <div class="flex w-full mobile-companent my-10 border-2 p-3">
                                             <div class="w-1/3 mr-3  mobile-input mx-1">
                                                 <x-label for="date_from" :value="__('common.date_from')"/>

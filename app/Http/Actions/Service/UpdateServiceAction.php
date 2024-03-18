@@ -54,7 +54,9 @@ class UpdateServiceAction
         'district_id' => $request->input('district_id'),
         'address' => trim($request->input('address')),
         'approved' => $request->input('approved', $service->approved),
-        'meta' => $request->input('meta', $service->meta)
+        'meta' => $request->input('meta', $service->meta),
+        'internal_ticket' =>  $request->input('internal_ticket', $service->internal_ticket),
+        'is_repeating' =>  $request->input('is_repeating', $service->is_repeating),
       ]);
 
       /** Delete Old Stored Files */
