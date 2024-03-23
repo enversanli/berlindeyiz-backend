@@ -56,6 +56,7 @@ class UpdateServiceAction
         'approved' => $request->input('approved', $service->approved),
         'meta' => $request->input('meta', $service->meta),
         'internal_ticket' =>  $request->input('internal_ticket', $service->internal_ticket),
+        'show_price' =>  $request->input('show_price', $service->show_price),
         'is_repeating' =>  $request->input('is_repeating', $service->is_repeating),
       ]);
 

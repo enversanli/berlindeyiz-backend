@@ -61,6 +61,15 @@
                                                     <option value="1" {{$service->internal_ticket == 1 ?'selected' : ''}}>Evet</option>
                                                 </select>
                                             </div>
+                                            <div class="w-1/4 mr-3  mobile-input mx-1">
+                                                <x-label for="show_price" :value="'Bilet Fiyatı Görünsün'"/>
+
+                                                <select id="show_price" name="show_price"
+                                                        class="w-full rounded border-gray-300">
+                                                    <option value="0" {{$service->show_price == 0 ?'selected' : ''}}>Hayır</option>
+                                                    <option value="1" {{$service->show_price == 1 ?'selected' : ''}}>Evet</option>
+                                                </select>
+                                            </div>
                                         </div>
 
                                         <div class="flex w-full mobile-companent my-10 border-2 p-3">
