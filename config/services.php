@@ -30,11 +30,13 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
-  'telegram' => [
-    'bot_token' => env('TELEGRAM_BOT_TOKEN', ''),
-    'public_channel' => env('TELEGRAM_PUBLIC_CHANNEL', '@berlindeyiz'),
-    'personnel_channel' => env('TELEGRAM_PERSONNEL_CHANNEL', '@tulpartech'),
-
-  ]
+    'telegram' => [
+        'bot_token' => env('TELEGRAM_BOT_TOKEN', ''),
+        'public_channel' => env('TELEGRAM_PUBLIC_CHANNEL', '@berlindeyiz'),
+        'personnel_channel' => env('TELEGRAM_PERSONNEL_CHANNEL', '@tulpartech'),
+    ],
+    'event-brite' => [
+        'token' => env('EVENTBRITE_TOKEN')
+    ]
 
 ];

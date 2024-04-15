@@ -210,7 +210,7 @@ class ServiceController
   private function getType(string $typeSlug)
   {
     $types = [
-      'etkinlik', 'doktorlar', 'avukatlar'
+      'etkinlik', 'doktorlar', 'avukatlar', 'kurum-kurulus-ve-mekanlar'
     ];
 
     $slug = ServiceType::ACTIVITY;

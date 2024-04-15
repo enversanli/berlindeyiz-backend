@@ -29,7 +29,7 @@ class ServiceTypeSeeder extends Seeder
         'description' => ''
       ],
       [
-        'title' => 'Düğün Salonları',
+        'title' => 'Kurum, Kuruluş ve Mekanlar',
         'description' => ''
       ],
     ];

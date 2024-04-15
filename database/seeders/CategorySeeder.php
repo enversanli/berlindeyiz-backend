@@ -89,7 +89,7 @@ class CategorySeeder extends Seeder
         'description' => 'Avukatlar',
       ],
       [
-        'type' => 'dugun-salonlari',
+        'type' => 'kurum-kurulus-ve-mekanlar',
         'name' => 'Düğün Salonu',
         'description' => 'Tüm düğün salonları',
       ],

@@ -131,6 +131,7 @@
                                                     <option value="1">Etkinlik</option>
                                                     <option value="2">Doktor</option>
                                                     <option value="3">Avukat</option>
+                                                    <option value="5">Kurum, Kuruluş ve Mekan</option>
                                                 </select>
                                             </div>
                                             <div class="w-1/4 mr-3 mobile-input mx-auto">

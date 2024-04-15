@@ -128,6 +128,11 @@ Route::prefix('admin')->middleware('auth')->group(function () {
   });
   /** end Articles */
 
+    Route::prefix('service-importer')->group(function (){
+       Route::view('/', 'admin/service-importer/index');
+       Route::get('/{event_id}', [\App\Http\Controllers\ServiceImporterController::class, 'import']);
+    });
+
 });
 
 //Route::prefix('/')->middleware('web')->group(function () {
