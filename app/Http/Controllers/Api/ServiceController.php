@@ -109,7 +109,7 @@ class ServiceController
     }
 
     $services = $services
-      ->where('date_from', '<', now()->addMonths(3)->format('Y-m-d'))
+      ->where('date_from', '<', now()->addMonths(4)->format('Y-m-d'))
       ->orderByRaw("FIELD(status , 'SPONSORED', 'ACTIVE', 'CANCELED', 'OUT_OF_DATE') ASC")
       ->orderBy('date_to', 'DESC') // Order by date_to from today to back
       ->orderBy('is_repeating', 'ASC') // Repeaters to the back
