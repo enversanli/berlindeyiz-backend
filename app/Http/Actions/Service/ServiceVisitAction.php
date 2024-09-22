@@ -19,7 +19,7 @@ class ServiceVisitAction
         try {
             $session = $service->id . '-'. $ip;
           //if ($session && !ServiceVisit::where('session_id', $session)->where('service_id', $service->id)->exists()) {
-          if ($session && !ServiceVisit::where('session_id', $session)->exists()) {
+          if ($session && !ServiceVisit::where('session_id', $session)->where('created_at', now()->format('Y-m-d'))->exists()) {
             $service->increment('visit_count');
 
             ServiceVisit::create([
