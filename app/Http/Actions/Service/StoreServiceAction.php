@@ -21,14 +21,7 @@ class StoreServiceAction
   {
     try {
 
-      if (isset($request->logo)) {
-        $logoPath = $request->file('logo')->store('public/services');
-        $logoPath = str_replace('public/', '', $logoPath);
-      }
 
-      if (isset($request->image)) {
-        $imagePath = $request->file('image')->store('public/services');
-      }
 
       $businessId = $request->input('business_id', $user->business?->id);
 
@@ -43,6 +36,15 @@ class StoreServiceAction
       $dateTo = $request->input('date_to') ? Carbon::make($request->input('date_to'))->format('Y-m-d') : $dateFrom;
 
       $startTime = Carbon::parse($request->input('start_time'))->format('H:i:s');
+
+        if (isset($request->logo)) {
+            $logoPath = $request->file('logo')->storeAs('public/services', $slug . '.' . $request->file('logo')->getClientOriginalExtension());
+            $logoPath = str_replace('public/', '', $logoPath);
+        }
+
+        if (isset($request->image)) {
+            $imagePath = $request->file('image')->store('public/services');
+        }
 
       $data = [
         'user_id' => $user->id,
