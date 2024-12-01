@@ -62,3 +62,7 @@ Route::prefix('orders')->group(function (){
 Route::prefix('subscriptions')->group(function (){
     Route::post('/', [\App\Http\Controllers\Api\SubscriptionController::class, 'store']);
 });
+
+Route::prefix('statistics')->group(function (){
+   Route::post('/', [\App\Http\Controllers\Api\StatisticController::class, 'store']);
+});
