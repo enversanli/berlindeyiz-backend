@@ -37,7 +37,7 @@ class SendServiceToTelegramChannelJob implements ShouldQueue
   public function handle()
   {
     $withMedia = false;
-    $serviceSlug = config('app.url') . "/etkinlikler/{$this->service->slug}";
+    $serviceSlug = config('app.frontend_url') . "/etkinlikler/{$this->service->slug}";
     $serviceTitle = $this->service->title;
     $text = "<b>{$this->message}</b> : <a href='{$serviceSlug}'>$serviceTitle</a>";
 
