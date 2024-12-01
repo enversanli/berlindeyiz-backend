@@ -48,7 +48,7 @@ class SendServiceToTelegramChannelJob implements ShouldQueue
     ];
 
     if ($this->service->image != null) {
-      $params['photo'] = config('app.url') . "/storage/{$this->service->image}";
+      $params['photo'] = config('app.url') . "/storage/services/{$this->service->image}";
       $params['caption'] = $params['text'];
       $withMedia = true;
     }

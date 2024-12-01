@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Service;
 use App\Models\Statistic;
+use Facades\App\Services\TelegramService;
 use Illuminate\Http\Request;
 
 class StatisticController extends Controller
@@ -17,6 +18,14 @@ class StatisticController extends Controller
             'service_id' => $service->id,
             'value' => ''
         ]);
+
+        $params = [
+            'chat_id' => config('services.telegram.personnel_channel'),
+            'text' => "<b>Etkinlik : " . $service->title . "</b><b> Action : " . $request->input('action'). "</b>",
+            'parse_mode' => 'HTML'
+        ];
+
+        TelegramService::sendMessage($params);
 
         return response('', 201);
     }
